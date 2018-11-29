@@ -31,5 +31,3 @@ exports.help = {
     description: 'Sayaç kanalını ayarlar.',
     usage: 'sayaç-kanal-ayarla <#kanal>'
 }
-
-//Erdinç Demirci tarafından kodlanmıştır! Sakın çalmayın...

@@ -19,7 +19,7 @@ exports.run = function(client, message, args) {
 			.addField("Hatalı Komut :", öneri)
 		
 		client.guilds.get(guildID).channels.get(channelID).send(embed);
-		message.channel.send("Bildiriniz için teşekkürler.Komutu en yakın zamanda kaldıracağız.");
+		message.channel.send("Bildiriniz için teşekkürler.Komutu en yakın zamanda kaldıracağız.").then(msg => msg.delete(5000));
 	};
 
 

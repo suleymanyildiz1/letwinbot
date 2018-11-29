@@ -4,7 +4,7 @@ exports.run = (client, message, args) => {
   let cevap = args.slice(0).join("  ")
 if (cevap.length < 1) return message.reply('Bir cevap girin.');
   message.delete();
-  message.reply('Cevabınız alındı.Cevaplar bir süre sonra test edilecek.')
+  message.reply('Cevabınız alındı.Cevaplar bir süre sonra test edilecek.').then(msg => msg.delete(5000));
   const cevapkanal = "516224918661234688"
   const embed = new Discord.RichEmbed()
   .addField('Kullanıcı : ',message.author.tag)
