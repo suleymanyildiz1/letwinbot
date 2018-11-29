@@ -1,26 +1,23 @@
 const chalk = require('chalk');
+const moment = require('moment');
 const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 
 var prefix = ayarlar.prefix;
 
 module.exports = client => {
-  console.log(`[-] BOT: ${client.user.username} ismi ile giriş yaptım!`);
-  console.log(`[-] BOT: Oyun ismimi ayarladım!`);
-  console.log(`[-] BOT: Şu an ` + client.channels.size + ` adet kanala, ` + client.guilds.size + ` adet sunucuya ve ` + client.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString() + ` kullanıcıya hizmet veriyorum!`);
-  console.log(`[-] BOT: Aktifim !`);
-  
-    var Games = [
-    
-      "Canlı Destek İçin ; rb!canlıdestek",
+  console.log(`[-] BOT: Aktif, Komutlar yüklendi!`);
+  console.log(`[-] BOT: ${client.user.username} ismi ile giriş yapıldı!`);
+  console.log(`[-] BOT: Oyun ismi ayarlandı!`);
+  console.log(`[-] BOT: Şu an ` + client.channels.size + ` adet kanala, ` + client.guilds.size + ` adet sunucuya ve ` + client.users.size + ` kullanıcıya hizmet veriliyor!`);
 
-      "Yardım Menüsü İçin ; rb!yardım",
+    var Games = [
+     
+      `| ${prefix}yardım | ${prefix}canlıdestek |`,
       
-      "Real Code TR Sunucusunun Botudur.",
+      `| ${client.guilds.size} Sunucu | ${client.channels.size} Kanal | ${client.users.size} Kullanıcı |`,
       
-      "Yapımcı : Furkan",
-      
-      "Sunucum : https://discord.gg/5mTZAfG"
+      `| Prefixim: ${prefix} |`
 
     ];
 

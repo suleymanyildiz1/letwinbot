@@ -4,13 +4,13 @@ const ayarlar = require('./ayarlar.json');
 const chalk = require('chalk');
 const fs = require('fs');
 const moment = require('moment');
-const db = require("quick.db");
+const db = require('quick.db');
 require('./util/eventLoader')(client);
 
-var prefix = ayarlar.prefix
+const prefix = ayarlar.prefix;
 
 const log = message => {
-  console.log(`[${moment().format('-')}] ${message}`);
+  console.log(`[-] BOT: ${message}`);
 };
 
 client.commands = new Discord.Collection();
@@ -79,82 +79,6 @@ client.unload = command => {
   });
 };
 
-
-////////////////////////
-
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'sa') {
-		if (!msg.guild.member(msg.author).hasPermission("BAN_MEMBERS")) {
-			msg.channel.send('Aleyküm selam.'); 
-		} else {
-		msg.channel.send('Aleyküm selam.');
-		}
-	}
-});
-
-////////////////////////
-
-
-
-////////////////////////
-
-const serverStats = {
-  guildID: '507311180583534635',
-  totalUsersID: '515997648042459156',
-  memberCountID: '515997663448137730',
-  botCountID: '515997681819058216'
-};
-
-
-
-client.on('guildMemberAdd', member => {
-  
-  if (member.guild.id !== serverStats.guildID) return;
-  
-  client.channels.get(serverStats.totalUsersID).setName(`Toplam Kullanıcı Sayısı : ${member.guild.memberCount}`);
-  client.channels.get(serverStats.memberCountID).setName(`Üye Sayısı : ${member.guild.members.filter(m => !m.user.bot).size}`);
-  client.channels.get(serverStats.botCountID).setName(`Bot Sayısı : ${member.guild.members.filter(m => m.user.bot).size}`);
- 
-});
-
-
-client.on('guildMemberRemove', member => {
-  
-  if (member.guild.id !== serverStats.guildID) return;
-  
-  client.channels.get(serverStats.totalUsersID).setName(`Toplam Kullanıcı Sayısı : ${member.guild.memberCount}`);
-  client.channels.get(serverStats.memberCountID).setName(`Üye Sayısı : ${member.guild.members.filter(m => !m.user.bot).size}`);
-  client.channels.get(serverStats.botCountID).setName(`Bot Sayısı : ${member.guild.members.filter(m => m.user.bot).size}`);
-  
-});
-
-////////////////////////
-
-
-
-////////////////////////
-
-client.on("guildMemberAdd", async member => {
-    let sayac = await db.fetch(`sayac_${member.guild.id}`);
-    let skanal9 = await db.fetch(`sayacK_${member.guild.id}`);
-  if (!skanal9) return;
-  const skanal31 = member.guild.channels.find('name', skanal9)
-    skanal31.send(`**:inbox_tray: ${member.user.tag}** sunucuya katıldı. **${sayac}** kişi olmamıza son **${sayac - member.guild.members.size}** üye kaldı.`)
-});
-
-client.on("guildMemberRemove", async member => {
-    let sayac = await db.fetch(`sayac_${member.guild.id}`);
-  let skanal9 = await db.fetch(`sayacK_${member.guild.id}`);
-  if (!skanal9) return;
-  const skanal31 = member.guild.channels.find('name', skanal9)
-    skanal31.send(`**:outbox_tray: ${member.user.tag}** sunucudan ayrıldı. **${sayac}** kişi olmamıza son **${sayac - member.guild.members.size}** üye kaldı.`)
-});
-
-////////////////////////
-
-
-
-
 ////////////////////////
 
 client.on("guildMemberAdd", async member => {
@@ -186,6 +110,24 @@ client.on("guildMemberRemove", async member => {
 });
 
 ////////////////////////
+ 
+client.on("guildMemberAdd", async member => {
+    let sayac = await db.fetch(`sayac_${member.guild.id}`);
+    let skanal9 = await db.fetch(`sayacK_${member.guild.id}`);
+  if (!skanal9) return;
+  const skanal31 = member.guild.channels.find('name', skanal9)
+    skanal31.send(`**:inbox_tray: ${member.user.tag}** sunucuya katıldı. **${sayac}** kişi olmamıza son **${sayac - member.guild.members.size}** üye kaldı.`)
+});
+
+client.on("guildMemberRemove", async member => {
+    let sayac = await db.fetch(`sayac_${member.guild.id}`);
+  let skanal9 = await db.fetch(`sayacK_${member.guild.id}`);
+  if (!skanal9) return;
+  const skanal31 = member.guild.channels.find('name', skanal9)
+    skanal31.send(`**:outbox_tray: ${member.user.tag}** sunucudan ayrıldı. **${sayac}** kişi olmamıza son **${sayac - member.guild.members.size}** üye kaldı.`)
+});
+
+////////////////////////
 
 
 
@@ -199,6 +141,40 @@ client.on('guildMemberAdd', async member => {
   const gckanal31 = member.guild.channels.find('name', gckanal9)
   member.addRole(rol2);
   gckanal31.send(`:inbox_tray: ${member.user.tag} adlı kullanıcıya ${rol2} rolü verildi.`)
+});
+
+////////////////////////
+
+
+
+////////////////////////
+
+const serverStats = {
+  guildID: '507311180583534635',
+  totalUsersID: '515997648042459156',
+  memberCountID: '515997663448137730',
+  botCountID: '515997681819058216'
+};
+
+client.on('guildMemberAdd', member => {
+  
+  if (member.guild.id !== serverStats.guildID) return;
+  
+  client.channels.get(serverStats.totalUsersID).setName(`Toplam Kullanıcı Sayısı : ${member.guild.memberCount}`);
+  client.channels.get(serverStats.memberCountID).setName(`Üye Sayısı : ${member.guild.members.filter(m => !m.user.bot).size}`);
+  client.channels.get(serverStats.botCountID).setName(`Bot Sayısı : ${member.guild.members.filter(m => m.user.bot).size}`);
+ 
+});
+
+
+client.on('guildMemberRemove', member => {
+  
+  if (member.guild.id !== serverStats.guildID) return;
+  
+  client.channels.get(serverStats.totalUsersID).setName(`Toplam Kullanıcı Sayısı : ${member.guild.memberCount}`);
+  client.channels.get(serverStats.memberCountID).setName(`Üye Sayısı : ${member.guild.members.filter(m => !m.user.bot).size}`);
+  client.channels.get(serverStats.botCountID).setName(`Bot Sayısı : ${member.guild.members.filter(m => m.user.bot).size}`);
+  
 });
 
 ////////////////////////
