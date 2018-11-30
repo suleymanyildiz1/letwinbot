@@ -46,7 +46,7 @@ exports.run = function(client, message) {
       if (err) console.error(err)
     })
     
-    if (message.content.toLowerCase() === prefix + 'profil' || message.content.toLowerCase() === prefix + 'profile') {
+    if (message.content.toLowerCase() === prefix + '' || message.content.toLowerCase() === prefix + '') {
     const level = new Discord.RichEmbed()
     .setTitle(`${user.username}`)
     .setDescription(`**Seviye:** ${userData.level}\n**Xp:** ${userData.points}`)
@@ -62,7 +62,7 @@ exports.run = function(client, message) {
 exports.conf = {
   enabled: true, //komutu açtık
   guildOnly: false, //sadece servere özel yapmadık
-  aliases: ['profil'], //farklı çağrılar ekledik
+  aliases: [], //farklı çağrılar ekledik
   permLevel: 0 //kimlerin kullanabileceğini yazdık (bot.js dosyasında perm leveller yazıyor)
 };
 
