@@ -4,8 +4,7 @@ exports.run = async (client, message, args) => {
   let guild = message.guild
   let reason = args.slice(1).join(' ');
   let user = message.mentions.users.first();
-  let modlog = await db.fetch(`modlogK_${message.guild.id}`);
-  let modlog2 = guild.channels.find('name', modlog);
+  let uyarikanal = "";
   if (reason.length < 1) return message.reply('Uyarı sebebini yazınız.');
   if (message.mentions.users.size < 1) return message.reply('Uyaracağınız kişiyi etiketleyiniz.').catch(console.error);
 
@@ -16,7 +15,7 @@ exports.run = async (client, message, args) => {
     .addField('Kullanıcı:', `${user.username}#${user.discriminator}`)
     .addField('Yetkili:', `${message.author.username}#${message.author.discriminator}`)
     .addField('Sebep', reason);
-  modlog2.send(embed);
+  client.channels.get(uyarikanal).send(embed);
 };
 
 exports.conf = {
