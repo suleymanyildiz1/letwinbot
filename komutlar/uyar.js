@@ -4,7 +4,7 @@ exports.run = async (client, message, args) => {
   let guild = message.guild
   let reason = args.slice(1).join(' ');
   let user = message.mentions.users.first();
-  let uyarikanal = "";
+  let uyarikanal = "515979065149095956";
   if (reason.length < 1) return message.reply('Uyarı sebebini yazınız.');
   if (message.mentions.users.size < 1) return message.reply('Uyaracağınız kişiyi etiketleyiniz.').catch(console.error);
 
