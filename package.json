@@ -15,7 +15,8 @@
     "chalk": "^2.4.1",
     "moment": "^2.22.2",
     "quick.db": "^6.3.2",
-    "moment-duration-format": "^2.2.2"
+    "moment-duration-format": "^2.2.2",
+    "cleverbot.io": "^1.0.4"
   },
   "engines": {
     "node": "8.x"

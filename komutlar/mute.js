@@ -6,8 +6,8 @@ module.exports.run = async (bot, message, args) => {
   //!sustur @üye 1s/m/h/d | 1s = 1 saniye , 1m = 1 dakika , 1h = 1 saat, 1d = 1 gün
 
   let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-  if(!tomute) return message.reply("Bu Komutu Kullanmak İçin : rb!mute <Kullanıcı> <Süre> Olarak Yazmalısınız.");
-  if(tomute.hasPermission("MANAGE_MESSAGES")) return message.reply("Hata: Susturmaya çalıştığınız kişi yetkili veya bot'un yetkisi belirttiğiniz kişiyi geçici susturmaya yetmiyor!");
+  if(!tomute) return message.channel.send(`<:ayy:519886397482729473>Muteleyeceğin kişiyi etiketlemelisin.`);
+  if(tomute.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`<:ayy:519886397482729473>Bu komutu kullanabilmek için "\`Mesajları Yönet\`" yetkisine sahip olmalısın.`);
 let muterole = message.guild.roles.find(r => r.name === "Susturuldu");
 
   if(!muterole){
@@ -29,8 +29,8 @@ let muterole = message.guild.roles.find(r => r.name === "Susturuldu");
   }
   //end of create role
   let mutetime = args[1];
-  if(!mutetime) return message.reply("Bu Komutu : !mute <Kullanıcı> <Süre> Şeklinde Kullanabilirsiniz.");
-  const muteli = args.slice(0).join('  ');
+  if(!mutetime) return message.channel.send(`<:ayy:519886397482729473>Süreyi yazmalısın.`);
+const muteli = args.slice(0).join('  ');
   await(tomute.addRole(muterole.id));
   const mute = new Discord.RichEmbed()
   .addField('Susturma', message.author.tag + ' adlı yetkili ' + muteli + ' adlı kullanıcıyı susturdu. ')

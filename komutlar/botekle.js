@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 
 exports.run = function(client, message) {
   
-  message.channel.send("**Bot ekletme özelliğimiz kapatılmıştır.**").then(msg => msg.delete(5000));
+  message.channel.send(`<:ayy:519886397482729473>Bot ekletme özelliğimiz kapatılmıştır.`).then(msg => msg.delete(5000));
   
 };
 

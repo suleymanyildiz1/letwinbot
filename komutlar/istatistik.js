@@ -2,16 +2,23 @@ const Discord = require("discord.js");
 const moment = require("moment");
 require("moment-duration-format");
 
-exports.run = (client, msg) => {
+exports.run = (client, message) => {
+  
   const duration = moment.duration(client.uptime).format(" D [gün], H [saat], m [dakika], s [saniye]");
-  msg.channel.sendCode("asciidoc", `= Bot İstatistikler =
-• Bellek kullanımı :: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB
-• Çalışma süresi   :: ${duration}
-• Kullanıcılar     :: ${client.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}
-• Sunucular        :: ${client.guilds.size.toLocaleString()}
-• Kanallar         :: ${client.channels.size.toLocaleString()}
-• Discord.JS sürüm :: v${Discord.version}
-• Ping             :: ${client.ping}`);
+  
+  const iembed = new Discord.RichEmbed()
+  .setAuthor(`Real Bot | İstatistik`, client.user.avatarURL || client.user.defaultAvatarURL)
+  .setColor("BLUE")
+  .addField(`Geliştirici`,`<@362692630062301195>`)
+  .addField(`Çalışma Süresi`,`\`${duration}\``)
+  .addField(`Bellek Kullanımı`,`\`${(process.memoryUsage().heapUsed /1024 / 1024).toFixed(2)}\` MB`)
+  .addField(`Discord.js Sürümü`,`\`v${Discord.version}\``)
+  .addField(`Ping`,`\`${client.ping}\``)
+  .addField(`Sunucular`,`\`${client.guilds.size.toLocaleString()}\``)
+  .addField(`Kanallar`,`\`${client.channels.size.toLocaleString()}\``)
+  .addField(`Kullanıcılar`,`\`${client.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}\``)
+  .setFooter(`${message.author.tag} tarafından istendi.`, message.author.avatarURL)
+  message.channel.send(iembed)
 };
 
 exports.conf = {

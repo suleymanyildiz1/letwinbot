@@ -1,14 +1,15 @@
 const Discord = require('discord.js');
 const db = require('quick.db');
 exports.run = async (client, message, args) => {
+  if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send(`<:ayy:519886397482729473>Bu komutu kullanabilmek için "\`Üyeleri Engelle\`" yetkisine sahip olmalısın.`);
   let guild = message.guild
   let reason = args.slice(1).join(' ');
   let user = message.mentions.users.first();
   let modlog = await db.fetch(`modlogK_${message.guild.id}`);
   let modlog2 = guild.channels.find('name', modlog);
-  if (reason.length < 1) return message.reply('Ban sebebini yazınız.');
-  if (message.mentions.users.size < 1) return message.reply('Banlayacağınız kişiyi etiketleyiniz.').catch(console.error);
-  if (!message.guild.member(user).kickable) return message.reply('Yetkilileri sunucudan banlayamam.');
+  if (reason.length < 1) return message.channel.send(`<:ayy:519886397482729473>Ban sebebini yazmalısın.`);
+  if (message.mentions.users.size < 1) return message.channel.send(`<:ayy:519886397482729473>Banlayacağın kişiyi etiketlemelisin.`).catch(console.error);
+  if (!message.guild.member(user).kickable) return message.channel.send(`<:ayy:519886397482729473>Yetkilileri sunucudan banlayamam.`);
   message.guild.member(user).ban();
   
   const embed = new Discord.RichEmbed()
