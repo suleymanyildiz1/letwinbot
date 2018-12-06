@@ -8,7 +8,7 @@ exports.run = (client, message, params) => {
   bot.setNick('Bee');
   
   let yazi = params.slice(0).join(' ');
-  if (yazi.length < 1) return message.channel.send('Bir soru sormalısın.');
+  if (yazi.length < 1) return message.channel.send(`<:ayy:519886397482729473>Bir soru sormalısın.`);
   
   message.channel.send(`Mesaj yükleniyor. Lütfen bekleyiniz...`).then (message => {
   bot.create(function (err, session) {
