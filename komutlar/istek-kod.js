@@ -2,9 +2,9 @@ const Discord = require('discord.js');
 
 exports.run = (client, message, args) => {
   let istek = args.slice(0).join("  ")
-if (istek.length < 1) return message.reply('İstediğiniz kodu yazınız.');
+if (istek.length < 1) return message.reply(`<:ayy:519886397482729473>İstediğiniz kodu yazınız.`);
   message.delete();
-  message.channel.send('İstek kod talebiniz alındı.Teşekkürler').then(msg => msg.delete(5000));
+  message.channel.send(`<:ayy:519886383456714784>İstek kod talebiniz alındı.Teşekkürler.`).then(msg => msg.delete(5000));
   const istekkanal = "516138731640717312"
   const embed = new Discord.RichEmbed()
   .addField('Kullanıcı',message.author.tag)

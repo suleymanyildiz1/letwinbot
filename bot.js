@@ -9,6 +9,17 @@ require('./util/eventLoader')(client);
 
 const prefix = ayarlar.prefix;
 
+const express = require('express');
+const app = express();
+const http = require('http');
+    app.get("/", (request, response) => {
+    response.sendStatus(200);
+    });
+    app.listen(process.env.PORT);
+    setInterval(() => {
+    http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+    }, 280000);
+
 const log = message => {
   console.log(`[-] BOT: ${message}`);
 };
@@ -90,7 +101,7 @@ client.on("guildMemberAdd", async member => {
   .setAuthor(member.user.tag, member.user.avatarURL || member.user.defaultAvatarURL)
   .setThumbnail(member.user.avatarURL || member.user.defaultAvatarURL)
   .setTitle(member.user.tag)
-  .setDescription(`Sunucuya katıldı. **${member.guild.memberCount}** üye olduk !`)
+  .setDescription(`:inbox_tray: Sunucuya katıldı. \`${member.guild.memberCount}\` üye olduk !`)
   .setTimestamp()
   gckanal31.send(embed)
 });
@@ -104,7 +115,7 @@ client.on("guildMemberRemove", async member => {
   .setAuthor(member.user.tag, member.user.avatarURL || member.user.defaultAvatarURL)
   .setThumbnail(member.user.avatarURL || member.user.defaultAvatarURL)
   .setTitle(member.user.tag)
-  .setDescription(`Sunucudan ayrıldı. **${member.guild.memberCount}** üye kaldık !`)
+  .setDescription(`:outbox_tray: Sunucudan ayrıldı. \`${member.guild.memberCount}\` üye kaldık !`)
   .setTimestamp()
   gckanal31.send(embed)
 });
@@ -113,10 +124,13 @@ client.on("guildMemberRemove", async member => {
  
 client.on("guildMemberAdd", async member => {
     let sayac = await db.fetch(`sayac_${member.guild.id}`);
-    let skanal9 = await db.fetch(`sayacK_${member.guild.id}`);
+  let skanal9 = await db.fetch(`sayacK_${member.guild.id}`);
   if (!skanal9) return;
   const skanal31 = member.guild.channels.find('name', skanal9)
-    skanal31.send(`**:inbox_tray: ${member.user.tag}** sunucuya katıldı. **${sayac}** kişi olmamıza son **${sayac - member.guild.members.size}** üye kaldı.`)
+  const embed = new Discord.RichEmbed()
+  .setDescription(`:inbox_tray: \`${member.user.tag}\` sunucuya katıldı. \`${sayac}\` üye olmamıza son \`${sayac - member.guild.members.size}\` üye kaldı.`)
+  .setColor("GREEN")
+  skanal31.send(embed)
 });
 
 client.on("guildMemberRemove", async member => {
@@ -124,7 +138,10 @@ client.on("guildMemberRemove", async member => {
   let skanal9 = await db.fetch(`sayacK_${member.guild.id}`);
   if (!skanal9) return;
   const skanal31 = member.guild.channels.find('name', skanal9)
-    skanal31.send(`**:outbox_tray: ${member.user.tag}** sunucudan ayrıldı. **${sayac}** kişi olmamıza son **${sayac - member.guild.members.size}** üye kaldı.`)
+  const embed = new Discord.RichEmbed()
+  .setDescription(`:outbox_tray: \`${member.user.tag}\` sunucudan ayrıldı. \`${sayac}\` üye olmamıza son \`${sayac - member.guild.members.size}\` üye kaldı.`)
+  .setColor("RED")
+  skanal31.send(embed)
 });
 
 ////////////////////////
@@ -140,7 +157,10 @@ client.on('guildMemberAdd', async member => {
   if (!gckanal9) return;
   const gckanal31 = member.guild.channels.find('name', gckanal9)
   member.addRole(rol2);
-  gckanal31.send(`:inbox_tray: ${member.user.tag} adlı kullanıcıya ${rol2} rolü verildi.`)
+  const otoembed = new Discord.RichEmbed()
+  .setDescription(`:white_check_mark: \`${member.user.tag}\` adlı kullanıcıya ${rol2} rolü verildi.`)
+  .setColor("GREEN")
+  gckanal31.send(otoembed)
 });
 
 ////////////////////////
@@ -182,7 +202,7 @@ client.on('guildMemberAdd', async member => {
     if (curLevel > userData.level) {
       userData.level = curLevel;
       var user = message.mentions.users.first() || message.author;
-      message.channel.send(`🆙 **| ${user.username}   Level Atladı!*`)
+      message.channel.send(`🆙 **| ${user.username}   Level Atladı!**`)
     }
 
     fs.writeFile('./xp.json', JSON.stringify(points), (err) => {
@@ -197,7 +217,6 @@ client.on('guildMemberAdd', async member => {
     .setFooter(``)
     .setThumbnail(user.avatarURL)
     
-    message.channel.send(`📝 **| ${user.username} adlı kullanıcının profil kartı**`)
     message.channel.send(level)
     }});
 

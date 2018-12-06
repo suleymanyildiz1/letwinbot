@@ -10,7 +10,6 @@ module.exports = client => {
   console.log(`[-] BOT: ${client.user.username} ismi ile giriş yaptım!`);
   console.log(`[-] BOT: Oyun ismimi ayarladım!`);
   console.log(`[-] BOT: Şu an ` + client.channels.size + ` adet kanala, ` + client.guilds.size + ` adet sunucuya ve ` + client.users.size + ` kullanıcıya hizmet veriyorum!`);
-  console.log(`[-] BOT: Her şey tamam olduğuna göre hazırım!`);
 
     var Games = [
      

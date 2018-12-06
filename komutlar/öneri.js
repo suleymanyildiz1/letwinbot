@@ -8,7 +8,7 @@ exports.run = function(client, message, args) {
 	var channelID = "511934212618584094";
 	
 	if (!öneri){
-		return message.reply("Bir mesaj belirtin! Doğru kullanım: **rb!öneri <mesaj>**");
+		return message.channel.send(`<:ayy:519886397482729473>Bir öneri belirtmelisin.`);
 	} else {
 		
 		var embed = new Discord.RichEmbed()
@@ -19,7 +19,7 @@ exports.run = function(client, message, args) {
 			.addField("Öneri", öneri)
 		
 		client.guilds.get(guildID).channels.get(channelID).send(embed);
-		message.channel.send("Öneriniz alınmıştır! Teşekkür ederiz.");
+		message.channel.send(`<:ayy:519886383456714784>Öneriniz alınmıştır. Teşekkür ederiz.`);
 	};
 
 

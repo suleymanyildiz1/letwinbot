@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 exports.run = function(client, message) {
   var role = message.guild.roles.find(role => role.name === "Commando");
   message.member.addRole(role);
-  message.channel.send(':white_check_mark: **Commando rolü başarıyla verildi.**');
+  message.channel.send(`<:ayy:519886383456714784>Commando rolü başarıyla verildi.`);
 };
 
 exports.conf = {
