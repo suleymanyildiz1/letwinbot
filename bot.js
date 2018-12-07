@@ -96,29 +96,19 @@ client.on("guildMemberAdd", async member => {
   let gckanal9 = await db.fetch(`gcK_${member.guild.id}`);
   if (!gckanal9) return;
   const gckanal31 = member.guild.channels.find('name', gckanal9)
-  const embed = new Discord.RichEmbed()
-  .setColor('GREEN')
-  .setAuthor(member.user.tag, member.user.avatarURL || member.user.defaultAvatarURL)
-  .setThumbnail(member.user.avatarURL || member.user.defaultAvatarURL)
-  .setTitle(member.user.tag)
-  .setDescription(`:inbox_tray: Sunucuya katıldı. \`${member.guild.memberCount}\` üye olduk !`)
-  .setTimestamp()
-  gckanal31.send(embed)
+  gckanal31.send(`:inbox_tray: \`${member.user.tag}\` adlı kullanıcı sunucuya katıldı.`)
 });
 
 client.on("guildMemberRemove", async member => {
   let gckanal9 = await db.fetch(`gcK_${member.guild.id}`);
   if (!gckanal9) return;
   const gckanal31 = member.guild.channels.find('name', gckanal9)
-  const embed = new Discord.RichEmbed()
-  .setColor('RED')
-  .setAuthor(member.user.tag, member.user.avatarURL || member.user.defaultAvatarURL)
-  .setThumbnail(member.user.avatarURL || member.user.defaultAvatarURL)
-  .setTitle(member.user.tag)
-  .setDescription(`:outbox_tray: Sunucudan ayrıldı. \`${member.guild.memberCount}\` üye kaldık !`)
-  .setTimestamp()
-  gckanal31.send(embed)
+  gckanal31.send(`:outbox_tray: \`${member.user.tag}\` adlı kullanıcı sunucudan ayrıldı.`)
 });
+
+////////////////////////
+
+
 
 ////////////////////////
  
@@ -127,10 +117,7 @@ client.on("guildMemberAdd", async member => {
   let skanal9 = await db.fetch(`sayacK_${member.guild.id}`);
   if (!skanal9) return;
   const skanal31 = member.guild.channels.find('name', skanal9)
-  const embed = new Discord.RichEmbed()
-  .setDescription(`:inbox_tray: \`${member.user.tag}\` sunucuya katıldı. \`${sayac}\` üye olmamıza son \`${sayac - member.guild.members.size}\` üye kaldı.`)
-  .setColor("GREEN")
-  skanal31.send(embed)
+  skanal31.send(`:outbox_tray: Sunucuya bir kullanıcı katıldı. Sunucunun \`${sayac}\` kişi olmasına \`${sayac - member.guild.members.size}\` kişi kaldı.`)
 });
 
 client.on("guildMemberRemove", async member => {
@@ -138,10 +125,7 @@ client.on("guildMemberRemove", async member => {
   let skanal9 = await db.fetch(`sayacK_${member.guild.id}`);
   if (!skanal9) return;
   const skanal31 = member.guild.channels.find('name', skanal9)
-  const embed = new Discord.RichEmbed()
-  .setDescription(`:outbox_tray: \`${member.user.tag}\` sunucudan ayrıldı. \`${sayac}\` üye olmamıza son \`${sayac - member.guild.members.size}\` üye kaldı.`)
-  .setColor("RED")
-  skanal31.send(embed)
+  skanal31.send(`:outbox_tray: Sunucudan bir kullanıcı ayrıldı. Sunucunun \`${sayac}\` kişi olmasına \`${sayac - member.guild.members.size}\` kişi kaldı.`)
 });
 
 ////////////////////////
@@ -149,19 +133,51 @@ client.on("guildMemberRemove", async member => {
 
 
 ////////////////////////
-
-client.on('guildMemberAdd', async member => {
-  let rol = await db.fetch(`otorol_${member.guild.id}`);
-  let rol2 = member.guild.roles.find('name', rol);
-    let gckanal9 = await db.fetch(`gcK_${member.guild.id}`);
-  if (!gckanal9) return;
-  const gckanal31 = member.guild.channels.find('name', gckanal9)
-  member.addRole(rol2);
-  const otoembed = new Discord.RichEmbed()
-  .setDescription(`:white_check_mark: \`${member.user.tag}\` adlı kullanıcıya ${rol2} rolü verildi.`)
-  .setColor("GREEN")
-  gckanal31.send(otoembed)
+ 
+client.on('guildMemberAdd', (member, guild, message) => {
+  db.fetch(`otorolisim_${member.guild.id}`).then(role => {
+  db.fetch(`autoRole_${member.guild.id}`).then(otorol => {
+  db.fetch(`otorolKanal_${member.guild.id}`).then(i => {  
+ if (!otorol || otorol.toLowerCase() === 'yok') return;
+else {
+ try {
+  
+  if (!i) return 
+  member.addRole(member.guild.roles.get(otorol))
+  member.guild.channels.get(i).send(`<:evet:519886383456714784> \`${member.user.tag}\` adlı kullancıya \`${role}\` rolü verildi.`) 
+} catch (e) {
+ console.log(e)
+}
+}
+})
+})  
+})    
 });
+
+client.on("message", async message => {
+
+    let cont = message.content.slice(prefix.length).split(" ")
+    let args = cont.slice(1)
+    if (message.content.startsWith(prefix + 'otorol')) {
+    let rol = message.mentions.roles.first() || message.guild.roles.get(args.join(' '))
+    if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(`<:hayir:519886397482729473>Otorol ayarlamak için \`Rolleri Yönet\` yetkisine sahip olman gerek.`)
+    let newRole;
+    let tworole;
+    if (!rol) return message.channel.send(`<:hayir:519886397482729473>Bir rol etiketlemelisin.`)
+    else newRole = message.mentions.roles.first().id
+    let isim = message.mentions.roles.first().name  
+    let otorolkanal = message.mentions.channels.first();
+    if (!otorolkanal) return message.channel.send(`<:hayir:519886397482729473>Bir kanal etiketlemelisin.`)
+    db.set(`otorolisim_${message.guild.id}`, isim)
+    db.set(`otorolKanal_${message.guild.id}`, message.mentions.channels.first().id).then(i => {
+    db.set(`autoRole_${message.guild.id}`, newRole).then(otorol => {
+    if (!message.guild.roles.get(newRole)) return message.channel.send(`<:hayir:519886397482729473> Etiketlediğiniz rol bulunamadı, etiketlediğiniz rolün etiketlenebilirliğinin aktif olduğundan emin olunuz.`)
+      message.channel.send(`<:evet:519886383456714784>Otorol <@&${newRole}>, mesaj kanalı <#${i}> olarak ayarlandı.`)
+   
+  })  
+});        
+    }
+})
 
 ////////////////////////
 

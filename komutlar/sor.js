@@ -4,13 +4,13 @@ const Cleverbot = require('cleverbot.io');
 let bot = new Cleverbot('oLmW97rzhDPyVO9A','EDfTd6ENv6cQjt4zHjblB4raWQEwPhsJ');
 
 exports.run = (client, message, params) => {
-  
+  const emoji = (client.emojis.find("name", "BEEyukleniyor").toString())
   bot.setNick('Bee');
   
   let yazi = params.slice(0).join(' ');
-  if (yazi.length < 1) return message.channel.send(`<:ayy:519886397482729473>Bir soru sormalısın.`);
+  if (yazi.length < 1) return message.channel.send(`<:BEEhayir:519886397482729473>Bir soru sormalısın.`);
   
-  message.channel.send(`Mesaj yükleniyor. Lütfen bekleyiniz...`).then (message => {
+  message.channel.send(`${emoji} | Cevap yükleniyor...`).then (message => {
   bot.create(function (err, session) {
     bot.ask(yazi, function (err, response) {
      message.edit(response);
