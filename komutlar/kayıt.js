@@ -5,7 +5,7 @@ exports.run = function(client, message) {
   var rol = message.guild.roles.find(rol => rol.name === "Kayıtsız Üye");
   message.member.removeRole(rol);
   message.member.addRole(role);
-  message.channel.send(`<:ayy:519886383456714784>Başarıyla sunucuya kaydoldunuz`);
+  message.channel.send(`<:BEEevet:519886383456714784>Başarıyla sunucuya kaydoldunuz`);
 };
 
 exports.conf = {

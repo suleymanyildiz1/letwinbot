@@ -1,0 +1,32 @@
+const Discord = require("discord.js");
+const moment = require('moment');
+
+module.exports.run = async (client, message, args) => {
+  const evet = (client.emojis.find("name", "BEEevet").toString())
+  const hayir = (client.emojis.find("name", "BEEhayir").toString())
+  
+           var embed = new Discord.RichEmbed()
+           .setColor("BLUE")
+           .setThumbnail(message.guild.iconURL)
+           .addField("Kanal ID'si", `\`${message.channel.id}\``)
+           if (message.channel.nsfw) {
+             embed.addField("NSFW Kanalı mı ?", `${evet}`, true)
+           } else {
+             embed.addField("NSFW Kanalı mı ?", `${hayir}`, true)
+           }
+  embed.addField('Oluşturulduğu Tarih', moment(message.channel.createdAt).format('DD/MM/YYYY'), true)
+  message.channel.send(embed)
+};
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: ['kanal-bilgi'],
+  permLevel: 0
+};
+
+exports.help = {
+  name: 'kanalbilgi',
+  description: 'Kanal ile ilgili bilgi verir.',
+  usage: 'kanalbilgi'
+}

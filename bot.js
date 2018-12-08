@@ -117,7 +117,7 @@ client.on("guildMemberAdd", async member => {
   let skanal9 = await db.fetch(`sayacK_${member.guild.id}`);
   if (!skanal9) return;
   const skanal31 = member.guild.channels.find('name', skanal9)
-  skanal31.send(`:outbox_tray: Sunucuya bir kullanıcı katıldı. Sunucunun \`${sayac}\` kişi olmasına \`${sayac - member.guild.members.size}\` kişi kaldı.`)
+  skanal31.send(`:inbox_tray: Sunucuya bir kullanıcı katıldı. Sunucunun \`${sayac}\` kullanıcı olmasına \`${sayac - member.guild.members.size}\` kullanıcı kaldı.`)
 });
 
 client.on("guildMemberRemove", async member => {
@@ -125,7 +125,7 @@ client.on("guildMemberRemove", async member => {
   let skanal9 = await db.fetch(`sayacK_${member.guild.id}`);
   if (!skanal9) return;
   const skanal31 = member.guild.channels.find('name', skanal9)
-  skanal31.send(`:outbox_tray: Sunucudan bir kullanıcı ayrıldı. Sunucunun \`${sayac}\` kişi olmasına \`${sayac - member.guild.members.size}\` kişi kaldı.`)
+  skanal31.send(`:outbox_tray: Sunucudan bir kullanıcı ayrıldı. Sunucunun \`${sayac}\` kullanıcı olmasına \`${sayac - member.guild.members.size}\` kullanıcı kaldı.`)
 });
 
 ////////////////////////
@@ -133,108 +133,16 @@ client.on("guildMemberRemove", async member => {
 
 
 ////////////////////////
- 
-client.on('guildMemberAdd', (member, guild, message) => {
-  db.fetch(`otorolisim_${member.guild.id}`).then(role => {
-  db.fetch(`autoRole_${member.guild.id}`).then(otorol => {
-  db.fetch(`otorolKanal_${member.guild.id}`).then(i => {  
- if (!otorol || otorol.toLowerCase() === 'yok') return;
-else {
- try {
-  
-  if (!i) return 
-  member.addRole(member.guild.roles.get(otorol))
-  member.guild.channels.get(i).send(`<:evet:519886383456714784> \`${member.user.tag}\` adlı kullancıya \`${role}\` rolü verildi.`) 
-} catch (e) {
- console.log(e)
-}
-}
-})
-})  
-})    
+
+client.on('guildMemberAdd', async member => {
+  let rol = await db.fetch(`otorol_${member.guild.id}`);
+  let rol2 = member.guild.roles.find('name', rol);
+    let gckanal9 = await db.fetch(`gcK_${member.guild.id}`);
+  if (!gckanal9) return;
+  const gckanal31 = member.guild.channels.find('name', gckanal9)
+  member.addRole(rol2);
+  gckanal31.send(`<:evet:519886383456714784>\`${member.user.tag}\` adlı kullanıcıya \`${rol2.name}\` rolü verildi.`)
 });
-
-client.on("message", async message => {
-
-    let cont = message.content.slice(prefix.length).split(" ")
-    let args = cont.slice(1)
-    if (message.content.startsWith(prefix + 'otorol')) {
-    let rol = message.mentions.roles.first() || message.guild.roles.get(args.join(' '))
-    if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(`<:hayir:519886397482729473>Otorol ayarlamak için \`Rolleri Yönet\` yetkisine sahip olman gerek.`)
-    let newRole;
-    let tworole;
-    if (!rol) return message.channel.send(`<:hayir:519886397482729473>Bir rol etiketlemelisin.`)
-    else newRole = message.mentions.roles.first().id
-    let isim = message.mentions.roles.first().name  
-    let otorolkanal = message.mentions.channels.first();
-    if (!otorolkanal) return message.channel.send(`<:hayir:519886397482729473>Bir kanal etiketlemelisin.`)
-    db.set(`otorolisim_${message.guild.id}`, isim)
-    db.set(`otorolKanal_${message.guild.id}`, message.mentions.channels.first().id).then(i => {
-    db.set(`autoRole_${message.guild.id}`, newRole).then(otorol => {
-    if (!message.guild.roles.get(newRole)) return message.channel.send(`<:hayir:519886397482729473> Etiketlediğiniz rol bulunamadı, etiketlediğiniz rolün etiketlenebilirliğinin aktif olduğundan emin olunuz.`)
-      message.channel.send(`<:evet:519886383456714784>Otorol <@&${newRole}>, mesaj kanalı <#${i}> olarak ayarlandı.`)
-   
-  })  
-});        
-    }
-})
-
-////////////////////////
-
-
-
-////////////////////////
-
-  let points = JSON.parse(fs.readFileSync('./xp.json', 'utf8'));
-  var f = [];
-  function factorial (n) {
-    if (n == 0 || n == 1)
-      return 1;
-    if (f[n] > 0)
-      return f[n];
-    return f[n] = factorial(n-1) * n;
-  };
-  
-  function clean(text) {
-    if (typeof(text) === "string")
-      return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
-    else
-      return text;
-  }
-
-  client.on("message", async message => {
-    if (message.channel.type === "dm") return;
-    if (message.author.bot) return;
-    var user = message.mentions.users.first() || message.author;
-    if (!message.guild) user = message.author;
-    if (!points[user.id]) points[user.id] = {
-      points: 0,
-      level: 0,
-    };
-    
-    let userData = points[user.id];
-    userData.points++;
-    let curLevel = Math.floor(0.1 * Math.sqrt(userData.points));
-    if (curLevel > userData.level) {
-      userData.level = curLevel;
-      var user = message.mentions.users.first() || message.author;
-      message.channel.send(`🆙 **| ${user.username}   Level Atladı!**`)
-    }
-
-    fs.writeFile('./xp.json', JSON.stringify(points), (err) => {
-      if (err) console.error(err)
-    })
-    
-    if (message.content.toLowerCase() === prefix + 'profil' || message.content.toLowerCase() === prefix + 'level') {
-    const level = new Discord.RichEmbed()
-    .setTitle(`${user.username}`)
-    .setDescription(`**Seviye:** ${userData.level}\n**Xp:** ${userData.points}`)
-    .setColor("#ffff00")
-    .setFooter(``)
-    .setThumbnail(user.avatarURL)
-    
-    message.channel.send(level)
-    }});
 
 ////////////////////////
 

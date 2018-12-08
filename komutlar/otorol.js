@@ -4,29 +4,29 @@ const db = require('quick.db');
 exports.run = async (client, message, args) => {
 if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
   
-  let channel = message.mentions.channels.first()
+  let rol = message.mentions.roles.first()
   
-    if (!channel) {
-        return message.channel.send(`<:BEEhayir:519886397482729473>Giriş-çıkış kanalı olarak ayarlamak istediğin kanalı etiketlemelisin.`)
+    if (!rol) {
+        return message.channel.send(`<:BEEhayir:519886397482729473>Otorol olarak ayarlamak istediğin rolü etiketlemelisin.`)
     }
 
-    db.set(`gcK_${message.guild.id}`, channel.name)
+    db.set(`otorol_${message.guild.id}`, rol.name)
   
     const embed = new Discord.RichEmbed()
-    .setDescription(`<:BEEevet:519886383456714784>Giriş-çıkış kanalı başarıyla ${channel} olarak ayarlandı.`)
-    .setColor("RANDOM")
+    .setDescription(`<:BEEevet:519886383456714784>Otorol başarıyla \`${rol.name}\` olarak ayarlandı.`)
+    .setColor("GREEN")
     message.channel.send(embed)
 }
     
 exports.conf = {
     enabled: true,
     guildOnly: true,
-    aliases: ['girişçıkışayarla', 'giriş-çıkış'],
+    aliases: ['otorol-ayarla', 'oto-rol','otorol','otorolayarla'],
     permLevel: 3
 }
 
 exports.help = {
-    name: 'giriş-çıkış-ayarla',
+    name: 'oto-rol-ayarla',
     kategori: 'ayarlar',
     description: 'Sayaç kanalını ayarlar.',
     usage: 'giriş-kanal-ayarla <#kanal>'

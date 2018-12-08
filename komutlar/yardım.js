@@ -9,8 +9,6 @@ exports.run = (client, message, params) => {
   .setColor(0x2bff00)
   .addField("》rb!kaydol","Sunucuya kaydolmanızı sağlar.")
   .addField("》rb!js","JS kanallarına erişim sağlar.")
-  .addField("》rb!commando","Commando kanallarına erişim sağlar.")
-  .addField("》rb!dbm","DBM (Discord Bot Maker) kanallarına erişim sağlar.")
   .addField("》rb!canlıdestek","Yetkili kişilerle canlı desteğe geçmenizi sağlar.")
   .addField("》rb!hatalı-komut <#kanal>","Belirttiğiniz kanaldaki komutun hatalı olduğunu yetkili kişilere bildirir.")
   .addField("》rb!istatistik","Botun istatistiklerini görmenizi sağlar.")

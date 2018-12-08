@@ -1,13 +1,13 @@
 const Discord = require('discord.js');
 const db = require('quick.db');
 exports.run = async (client, message, args) => {
-    if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`<:ayy:519886397482729473>Bu komutu kullanabilmek için "\`Üyeleri Engelle\`" yetkisine sahip olmalısın.`);
+    if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Üyeleri Engelle\`" yetkisine sahip olmalısın.`);
   let guild = message.guild
   let reason = args.slice(1).join(' ');
   let user = message.mentions.users.first();
   let uyarikanal = "515979065149095956";
-  if (reason.length < 1) return message.channel.send(`<:ayy:519886397482729473>Uyarı sebebini yazmalısın.`);
-  if (message.mentions.users.size < 1) return message.channel.send(`<:ayy:519886397482729473>Uyaracağın kişiyi etiketlemelisin.`).catch(console.error);
+  if (reason.length < 1) return message.channel.send(`<:BEEhayir:519886397482729473>Uyarı sebebini yazmalısın.`);
+  if (message.mentions.users.size < 1) return message.channel.send(`<:BEEhayir:519886397482729473>Uyaracağın kişiyi etiketlemelisin.`).catch(console.error);
 
   const embed = new Discord.RichEmbed()
     .setColor(0x00AE86)
