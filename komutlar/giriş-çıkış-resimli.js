@@ -7,23 +7,23 @@ if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(
   let channel = message.mentions.channels.first()
   
     if (!channel) {
-        return message.channel.send(`<:BEEhayir:519886397482729473>Giriş-çıkış kanalı olarak ayarlamak istediğin kanalı etiketlemelisin.`)
+        return message.channel.send(`<:BEEhayir:519886397482729473>Resimli giriş-çıkış kanalı olarak ayarlamak istediğin kanalı etiketlemelisin.`)
     }
 
-    db.set(`gckanal_${message.guild.id}`, channel.name)
+    db.set(`gcK2_${message.guild.id}`, channel.name)
   
-    message.channel.send(`<:BEEevet:519886383456714784>Giriş-çıkış kanalı başarıyla ${channel} olarak ayarlandı.`)
+    message.channel.send(`<:BEEevet:519886383456714784>Resimli giriş-çıkış kanalı başarıyla ${channel} olarak ayarlandı.`)
 }
     
 exports.conf = {
     enabled: true,
     guildOnly: true,
-    aliases: ['girişçıkışayarla', 'giriş-çıkış'],
+    aliases: ['resimligirişçıkışayarla', 'resimli-giriş-çıkış'],
     permLevel: 3
 }
 
 exports.help = {
-    name: 'giriş-çıkış-ayarla',
+    name: 'resimli-giriş-çıkış-ayarla',
     kategori: 'ayarlar',
     description: 'Sayaç kanalını ayarlar.',
     usage: 'giriş-kanal-ayarla <#kanal>'

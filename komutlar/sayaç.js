@@ -5,11 +5,7 @@ const ayarlar = require('../ayarlar.json')
 exports.run = async (client, message, args) => {
   if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
         if(!args[0]) {
-                const embed = new Discord.RichEmbed()
-                        .setDescription(`<:BEEhayir:519886397482729473>Bir sayı yazmalısın.`)
-                        .setColor(ayarlar.renk)
-                        .setTimestamp()
-                message.channel.send(embed)
+                message.channel.send(`<:BEEhayir:519886397482729473>Bir sayı yazmalısın.`)
                 return
         }
  
@@ -17,46 +13,26 @@ exports.run = async (client, message, args) => {
  
         if(args[0] === "sıfırla") {
                 if(!profil) {
-                        const embed5 = new Discord.RichEmbed()
-                                .setDescription(`<:BEEhayir:519886397482729473>Ayarlanmayan şeyi sıfırlayamazsın.`)
-                                .setColor(ayarlar.renk)
-                                .setTimestamp()
-                        message.channel.send(embed5)
+                        message.channel.send(`<:BEEhayir:519886397482729473>Ayarlanmayan şeyi sıfırlayamazsın.`)
                         return
                 }
                 db.delete(`sayac_${message.guild.id}`)
-                const embed2 = new Discord.RichEmbed()
-                        .setDescription(`<:BEEevet:519886397482729473>Sayaç başarıyla sıfırlandı.`)
-                        .setColor(ayarlar.renk)
-                        .setTimestamp()
-                message.channel.send(embed2)
+                message.channel.send(`<:BEEevet:519886397482729473>Sayaç başarıyla sıfırlandı.`)
                 return
         }
  
         if(isNaN(args[0])) {
-                const embed = new Discord.RichEmbed()
-                        .setDescription(`<:BEEhayir:519886397482729473>Bir sayı yazmalısın.`)
-                        .setColor(ayarlar.renk)
-                        .setTimestamp()
-                message.channel.send({embed})
+                message.channel.send(`<:BEEhayir:519886397482729473>Bir sayı yazmalısın.`)
                 return
         }
  
         if(args[0] <= message.guild.members.size) {
-                const embed32 = new Discord.RichEmbed()
-                        .setDescription(`<:BEEhayir:519886397482729473>Sunucu sayısından (${message.guild.members.size}) daha yüksek bir değer girmelisin.`)
-                        .setColor(ayarlar.renk)
-                        .setTimestamp()
-                message.channel.send(embed32)
+                message.channel.send(`<:BEEhayir:519886397482729473>Sunucudaki kullanıcı sayısından (${message.guild.members.size}) daha yüksek bir değer girmelisin.`)
                 return
         }
  
         db.set(`sayac_${message.guild.id}`, args[0])
-        const embe99 = new Discord.RichEmbed()
-                .setDescription(`<:BEEevet:519886383456714784>Sayaç başarıyla ${args[0]} olarak ayarlandı.`)
-                .setColor(ayarlar.renk)
-                .setTimestamp()
-        message.channel.send(embe99)
+        message.channel.send(`<:BEEevet:519886383456714784>Sayaç başarıyla ${args[0]} olarak ayarlandı.`)
 }
  
 exports.conf = {

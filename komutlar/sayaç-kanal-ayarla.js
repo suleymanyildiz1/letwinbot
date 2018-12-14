@@ -12,10 +12,7 @@ if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(
 
     db.set(`sayacK_${message.guild.id}`, channel.name)
   
-    const embed = new Discord.RichEmbed()
-    .setDescription(`<:BEEevet:519886383456714784>Sayaç kanalı başarıyla ${channel} olarak ayarlandı.`)
-    .setColor("RANDOM")
-    message.channel.send(embed)
+    message.channel.send(`<:BEEevet:519886383456714784>Sayaç kanalı başarıyla ${channel} olarak ayarlandı.`)
 }
     
 exports.conf = {

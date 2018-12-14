@@ -12,16 +12,13 @@ if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(
   
     db.set(`modlogK_${message.guild.id}`, channel.name)
   
-    const embed = new Discord.RichEmbed()
-    .setDescription(`<:BEEevet:519886383456714784>Log kanalı başarıyla ${channel} olarak ayarlandı.`)
-    .setColor("RANDOM")
-    message.channel.send(embed)
+    message.channel.send(`<:BEEevet:519886383456714784>Log kanalı başarıyla ${channel} olarak ayarlandı.`)
 }
     
 exports.conf = {
     enabled: true,
     guildOnly: true,
-    aliases: ['mod-log', 'mod-log','modlogayarla', 'modlog','log','logayarla','log-ayarla'],
+    aliases: ['mod-log', 'mod-log','modlogayarla', 'modlog','log','logayarla','log-ayarla', 'logkanal', 'log-kanal'],
     permLevel: 3
 }
 

@@ -11,18 +11,15 @@ if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(
     }
 
     db.set(`otorol_${message.guild.id}`, rol.name)
-  
-    const embed = new Discord.RichEmbed()
-    .setDescription(`<:BEEevet:519886383456714784>Otorol başarıyla \`${rol.name}\` olarak ayarlandı.`)
-    .setColor("GREEN")
-    message.channel.send(embed)
+
+    message.channel.send(`<:BEEevet:519886383456714784>Otorol başarıyla \`${rol.name}\` olarak ayarlandı.`)
 }
     
 exports.conf = {
     enabled: true,
     guildOnly: true,
     aliases: ['otorol-ayarla', 'oto-rol','otorol','otorolayarla'],
-    permLevel: 3
+    permLevel: 0
 }
 
 exports.help = {
