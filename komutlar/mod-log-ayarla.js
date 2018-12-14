@@ -2,16 +2,13 @@ const Discord = require('discord.js')
 const db = require('quick.db');
 
 exports.run = async (client, message, args) => {
-if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
-  
+
+  if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
   let channel = message.mentions.channels.first()
-  
     if (!channel) {
         return message.channel.send(`<:BEEhayir:519886397482729473>Log kanalı olarak ayarlamak istediğin kanalı etiketlemelisin.`)
     }
-  
     db.set(`modlogK_${message.guild.id}`, channel.name)
-  
     message.channel.send(`<:BEEevet:519886383456714784>Log kanalı başarıyla ${channel} olarak ayarlandı.`)
 }
     

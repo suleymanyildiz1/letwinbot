@@ -8,13 +8,14 @@ module.exports.run = async (client, message, args) => {
            var embed = new Discord.RichEmbed()
            .setColor("BLUE")
            .setThumbnail(message.guild.iconURL)
-           .addField("Kanal ID'si", `\`${message.channel.id}\``)
+           .addField("ID", `\`${message.channel.id}\``)
            if (message.channel.nsfw) {
-             embed.addField("NSFW Kanalı mı ?", `${evet}`, true)
+             embed.addField("NSFW Kanalı", `${evet}`, true)
            } else {
-             embed.addField("NSFW Kanalı mı ?", `${hayir}`, true)
+             embed.addField("NSFW Kanalı", `${hayir}`, true)
            }
   embed.addField('Oluşturulduğu Tarih', moment(message.channel.createdAt).format('DD/MM/YYYY'), true)
+  .setFooter(`${message.author.tag} tarafından istendi.`, message.author.avatarURL)
   message.channel.send(embed)
 };
 

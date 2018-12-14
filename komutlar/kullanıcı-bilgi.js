@@ -10,12 +10,12 @@ exports.run = (client, message, params) => {
       .setAuthor(message.author.username, message.author.avatarURL)
       .setColor(Durm)
       .setTimestamp()
-      .addField('Ad:', message.author.username + '#' + message.author.discriminator)
-      .addField('ID:', message.author.id)
-      .addField('Kayıt tarihi:', message.author.createdAt)
-      .addField('Durum:', durm)
-      .addField('Şu an oynadığı oyun:', message.author.presence.game ? message.author.presence.game.name : 'Şu an oyun oynamıyor')
-      .addField('BOT mu?', message.author.bot ? '\n Evet' : 'Hayır')
+      .addField('Ad', message.author.username + '#' + message.author.discriminator, true)
+      .addField('ID', message.author.id, true)
+      .addField('Kayıt Tarihi', message.author.createdAt, true)
+      .addField('Durum', durm, true)
+      .addField('Oynanan Oyun', message.author.presence.game ? message.author.presence.game.name : 'Şu an oyun oynamıyor.')
+      .addField('BOT', message.author.bot ? '\n <:BEEevet:519886383456714784>' : '<:BEEhayir:519886397482729473>')
       return message.channel.sendEmbed(kullanicibilgimk);
   }
 };
@@ -23,7 +23,7 @@ exports.run = (client, message, params) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['kullanıcı', 'kullanıcı bilgim', 'kbilgim'],
+  aliases: ['kullanıcı', 'kullanıcı-bilgim', 'kbilgim','kullanıcıbilgi','kullanıcı-bilgi'],
   permLevel: 0
 };
 

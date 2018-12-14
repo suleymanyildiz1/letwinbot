@@ -1,13 +1,17 @@
 const Discord = require("discord.js");
 const ms = require("ms");
+const db = require('quick.db');
 
 module.exports.run = async (bot, message, args) => {
 
+  const user = message.mentions.members.first()
+  let guild = message.guild
+  let modlog = await db.fetch(`modlogK_${message.guild.id}`);
+  let modlog2 = guild.channels.find('name', modlog);
   //!sustur @üye 1s/m/h/d | 1s = 1 saniye , 1m = 1 dakika , 1h = 1 saat, 1d = 1 gün
-
-  let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-  if(!tomute) return message.channel.send(`<:BEEhayir:519886397482729473>Muteleyeceğin kişiyi etiketlemelisin.`);
-  if(tomute.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Mesajları Yönet\`" yetkisine sahip olmalısın.`);
+  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Mesajları Yönet\`" yetkisine sahip olmalısın.`);
+  
+  if(!user) return message.channel.send(`<:BEEhayir:519886397482729473>Muteleyeceğin kişiyi etiketlemelisin.`);
 let muterole = message.guild.roles.find(r => r.name === "Susturuldu");
 
   if(!muterole){
@@ -29,35 +33,27 @@ let muterole = message.guild.roles.find(r => r.name === "Susturuldu");
   }
   //end of create role
   let mutetime = args[1];
-  if(!mutetime) return message.channel.send(`<:hayir:519886397482729473>Süreyi yazmalısın.`);
-const muteli = args.slice(0).join('  ');
-  await(tomute.addRole(muterole.id));
-  const mute = new Discord.RichEmbed()
-  .addField('Susturma', message.author.tag + ' adlı yetkili ' + muteli + ' adlı kullanıcıyı susturdu. ')
-  .addField('Süre', `${ms(ms(mutetime))}`)
-  message.channel.send(mute);
+  if(!mutetime) return message.channel.send(`<:BEEhayir:519886397482729473>Süreyi yazmalısın.`); 
+  await(user.addRole(muterole.id));
+  
+  modlog2.send(`${message.author} adlı yetkili ${user} adlı kullanıcıyı susturdu. Süre : ${ms(ms(mutetime))}`);
   
   setTimeout(function(){
-    tomute.removeRole(muterole.id);
-    const bitti = new Discord.RichEmbed()
-    .addFile('Süre Bitti', muteli + ' adlı kullanıcının susturulma süresi doldu.Bu yüzden susturulması kaldırıldı.')
-    message.channel.send(bitti);
+    user.removeRole(muterole.id);
+    modlog2.send(`${user} adlı kullanıcının susturulma süresi dolduğu için susturulması kaldırıldı.`);
     
   }, ms(mutetime));
-
-
-
 }
 
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['sustur'],
+  aliases: ['mute'],
   permLevel: 2
 };
 
 exports.help = {
-  name: 'mute',
+  name: 'sustur',
   description: 'Sureli Susturur.',
-  usage: 'mute [Kullanıcı] [Süre]'
+  usage: 'sustur [Kullanıcı] [Süre]'
 };

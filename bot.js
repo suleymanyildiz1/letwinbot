@@ -8,6 +8,17 @@ const db = require('quick.db');
 const Jimp = require('jimp');
 require('./util/eventLoader')(client);
 
+const express = require('express');
+const app = express();
+
+app.use(express.static('public'));
+
+app.get('/', function(request, response) {
+});
+
+const listener = app.listen(process.env.PORT, function() {
+});
+
 const prefix = ayarlar.prefix;
 
 const log = message => {
