@@ -14,9 +14,13 @@ rb!canlıdestek     :: Yetkili kişilerle canlı desteğe geçmenizi sağlar.
 rb!hatalıkomut     :: Belirttiğiniz komutun hatalı olduğunu yetkili kişilere bildirir.
 rb!istatistik      :: Botun istatistiklerini görmenizi sağlar.
 rb!istek-kod       :: İstediğiniz kodu Paylaşımcılara bildirir.
+rb!kanalbilgi      :: Komutu kullandığınız kanalın bilgilerini gösterir.
 rb!kullanıcıbilgi  :: Kullanıcı bilgilerinizi görmenizi sağlar.
 rb!öneri           :: Bot sahiplerine öneride bulunmanızı sağlar.
 rb!ping            :: Botun pingini görmenizi sağlar.
+rb!rolbilgi        :: Etiketlediğiniz rolün bilgilerini gösterir.
+rb!sor             :: Bota soru sorarsınız.
+rb!sunucubilgi     :: Sunucu bilgilerini gösterir.
 
 = Müzik Komutları =
 
