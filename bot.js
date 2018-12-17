@@ -8,6 +8,8 @@ const db = require('quick.db');
 const Jimp = require('jimp');
 require('./util/eventLoader')(client);
 
+const prefix = ayarlar.prefix;
+
 const express = require('express');
 const app = express();
 
@@ -18,8 +20,6 @@ app.get('/', function(request, response) {
 
 const listener = app.listen(process.env.PORT, function() {
 });
-
-const prefix = ayarlar.prefix;
 
 const log = message => {
   console.log(`[-] BOT: ${message}`);
@@ -95,7 +95,6 @@ client.unload = command => {
 
 client.on("message", msg => {
   
-  
   db.fetch(`saas_${msg.guild.id}`).then(i => {
     if (i == 'acik') {
       if (msg.content.toLowerCase() == 'sa' || msg.content.toLowerCase() == 'sea' || msg.content.toLowerCase() == 'selamun aleyküm' || msg.content.toLowerCase() == 'selam') {
@@ -111,68 +110,55 @@ client.on("message", msg => {
 
 ////////////////////////
 
-client.on("guildMemberAdd", async member => {
-  let gck = await db.fetch(`gckanal_${member.guild.id}`);
-  if (!gck) return;
-  const gck31 = member.guild.channels.find('name', gck)
-  gck31.send(`:inbox_tray: \`${member.user.tag}\` adlı kullanıcı sunucuya katıldı.`)
-});
-
-client.on("guildMemberRemove", async member => {
-  let gck = await db.fetch(`gckanal_${member.guild.id}`);
-  if (!gck) return;
-  const gck31 = member.guild.channels.find('name', gck)
-  gck31.send(`:outbox_tray: \`${member.user.tag}\` adlı kullanıcı sunucudan ayrıldı.`)
-});
-
-////////////////////////
-
 
 
 ////////////////////////
 
 client.on("guildMemberAdd", async member => {
-  let gckanal10 = await db.fetch(`gcK2_${member.guild.id}`);
-  if (!gckanal10) return;
-  const gckanal32 = member.guild.channels.find('name', gckanal10)
+  
+  let gck = await db.fetch(`gckanal_${member.guild.id}`);
+  if (!gck) return;
+  const gck31 = member.guild.channels.find('name', gck)
   let username = member.user.username;
-  const bg = await Jimp.read("https://cdn.discordapp.com/attachments/522760787396395052/523149432707874817/BEE-giris.png");
+  const bg = await Jimp.read("https://cdn.discordapp.com/attachments/522760787396395052/524221713961975808/BEE-hosgeldin.jpg");
   const userimg = await Jimp.read(member.user.avatarURL);
   var font;
   if (member.user.tag.length < 15) font = await Jimp.loadFont(Jimp.FONT_SANS_128_WHITE);
   else if (member.user.tag.length > 15) font = await Jimp.loadFont(Jimp.FONT_SANS_64_WHITE);
   else font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
-  await bg.print(font, 430, 170, member.user.tag);
+  await bg.print(font, 235, 400, member.user.username);
   await userimg.resize(362, 362);
-  await bg.composite(userimg, 43, 26).write("./giris-cikis/giris.png");
+  await bg.composite(userimg, 300, 26).write("./giris-cikis/BEE-hosgeldin.png");
   setTimeout(function () {
-    gckanal32.send(new Discord.Attachment("./giris-cikis/giris.png"));
+    gck31.send(`:inbox_tray:${member.user} adlı kullanıcı sunucuya katıldı.`)
+    gck31.send(new Discord.Attachment("./giris-cikis/BEE-hosgeldin.png"));
   }, 1000);
   setTimeout(function () {
-    fs.unlink("./giris-cikis/giris.png");
+    fs.unlink("./giris-cikis/BEE-hosgeldin.png");
   }, 10000);
 })
 
 client.on("guildMemberRemove", async member => {
  
-  let gckanal10 = await db.fetch(`gcK2_${member.guild.id}`);
-  if (!gckanal10) return;
-  const gckanal32 = member.guild.channels.find('name', gckanal10)
+  let gck = await db.fetch(`gckanal_${member.guild.id}`);
+  if (!gck) return;
+  const gck31 = member.guild.channels.find('name', gck)
   let username = member.user.username;          
-  const bg = await Jimp.read("https://cdn.discordapp.com/attachments/522760787396395052/523149477784322058/BEE-cikis.png");
+  const bg = await Jimp.read("https://cdn.discordapp.com/attachments/522760787396395052/524221726083514379/BEE-gorusuruz.jpg");
   const userimg = await Jimp.read(member.user.avatarURL);
   var font;
   if (member.user.tag.length < 15) font = await Jimp.loadFont(Jimp.FONT_SANS_128_WHITE);
   else if (member.user.tag.length > 15) font = await Jimp.loadFont(Jimp.FONT_SANS_64_WHITE);
   else font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
-  await bg.print(font, 430, 170, member.user.tag);
+  await bg.print(font, 235, 400, member.user.username);
   await userimg.resize(362, 362);
-  await bg.composite(userimg, 43, 26).write("./giris-cikis/cikis.png");
+  await bg.composite(userimg, 300, 26).write("./giris-cikis/BEE-gorusuruz.png");
   setTimeout(function () {
-    gckanal32.send(new Discord.Attachment("./giris-cikis/cikis.png"));
+    gck31.send(`:outbox_tray:${member.user} adlı kullanıcı sunucudan ayrıldı.`)
+    gck31.send(new Discord.Attachment("./giris-cikis/BEE-gorusuruz.png"));
   }, 1000);
   setTimeout(function () {
-    fs.unlink("./giris-cikis/cikis.png");
+    fs.unlink("./giris-cikis/BEE-gorusuruz.png");
   }, 10000);
 })
 
@@ -183,19 +169,21 @@ client.on("guildMemberRemove", async member => {
 ////////////////////////
  
 client.on("guildMemberAdd", async member => {
-    let sayac = await db.fetch(`sayac_${member.guild.id}`);
+  
+  let sayac = await db.fetch(`sayac_${member.guild.id}`);
   let skanal9 = await db.fetch(`sayacK_${member.guild.id}`);
   if (!skanal9) return;
   const skanal31 = member.guild.channels.find('name', skanal9)
-  skanal31.send(`:inbox_tray: Sunucuya bir kullanıcı katıldı. Sunucunun \`${sayac}\` kullanıcı olmasına \`${sayac - member.guild.members.size}\` kullanıcı kaldı.`)
+  skanal31.send(`:inbox_tray:${member.user} adlı kullanıcı sunucuya katıldı. \`${sayac}\` kullanıcı olmaya \`${sayac - member.guild.members.size}\` kullanıcı kaldı.`)
 });
 
 client.on("guildMemberRemove", async member => {
-    let sayac = await db.fetch(`sayac_${member.guild.id}`);
+  
+  let sayac = await db.fetch(`sayac_${member.guild.id}`);
   let skanal9 = await db.fetch(`sayacK_${member.guild.id}`);
   if (!skanal9) return;
   const skanal31 = member.guild.channels.find('name', skanal9)
-  skanal31.send(`:outbox_tray: Sunucudan bir kullanıcı ayrıldı. Sunucunun \`${sayac}\` kullanıcı olmasına \`${sayac - member.guild.members.size}\` kullanıcı kaldı.`)
+  skanal31.send(`:outbox_tray:${member.user} adlı kullanıcı sunucudan ayrıldı. \`${sayac}\` kullanıcı olmaya \`${sayac - member.guild.members.size}\` kullanıcı kaldı.`)
 });
 
 ////////////////////////
@@ -205,13 +193,16 @@ client.on("guildMemberRemove", async member => {
 ////////////////////////
 
 client.on('guildMemberAdd', async member => {
+  
   let rol = await db.fetch(`otorol_${member.guild.id}`);
   let rol2 = member.guild.roles.find('name', rol);
-    let gckanal9 = await db.fetch(`gcK_${member.guild.id}`);
-  if (!gckanal9) return;
-  const gckanal31 = member.guild.channels.find('name', gckanal9)
+  
+  const rolk = await db.fetch(`rolK_${member.guild.id}`);
+  if(!rolk) return;
+  const rolk2 = member.guild.channels.find('name', rolk)
+  
   member.addRole(rol2);
-  gckanal31.send(`<:BEEevet:519886383456714784>\`${member.user.tag}\` adlı kullanıcıya \`${rol2.name}\` rolü verildi.`)
+  rolk2.send(`<:BEEevet:519886383456714784>${member.user} adlı kullanıcıya \`${rol2.name}\` rolü verildi.`)
 });
 
 ////////////////////////
@@ -221,6 +212,7 @@ client.on('guildMemberAdd', async member => {
 ////////////////////////
 
 const serverStats = {
+  
   guildID: '507311180583534635',
   totalUsersID: '515997648042459156',
   memberCountID: '515997663448137730',
@@ -250,11 +242,14 @@ client.on('guildMemberRemove', member => {
 
 ////////////////////////
 
+
+
+////////////////////////
+
 client.elevation = message => {
   if(!message.guild) {
 	return; }
   let permlvl = 0;
-  if (message.member.hasPermission("BAN_MEMBERS")) permlvl = 2;
   if (message.member.hasPermission("ADMINISTRATOR")) permlvl = 3;
   if (message.author.id === ayarlar.sahip) permlvl = 4;
   return permlvl;

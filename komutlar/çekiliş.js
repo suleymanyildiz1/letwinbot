@@ -6,16 +6,8 @@ exports.run = (client, message, args) => {
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
     if (mesaj.length < 1) return message.channel.send(`<:BEEhayir:519886397482729473>Ödülü yazmalısın.`);
     message.delete();
-    const embed = new Discord.RichEmbed()
-    .addField('Sunucu İsmi:', message.guild.name , true)
-    .setColor("BLUE")
-    .addField('Ödül', mesaj)
-    .addField("Çekilişi Başlatan:", `<@${message.author.id}>`, true)
-    .addField("Çekilişin Yapıldığı Kanal:", message.channel)
-    .addField("Çekilişin Yapıldığı Zaman:", message.createdAt)
-    .addField('Çekilişi Kazanan', `<@${message.guild.members.random().id}>`)
-    .setThumbnail(message.guild.iconURL)
-    return message.channel.sendEmbed(embed);
+  
+    return message.channel.send(`**Çekilişi Yapan Yetkili :** ${message.author}\n**Çekilişi Kazanan :** ${message.guild.members.random()}\n**Ödül** : ${mesaj}`);
 };
 
 exports.conf = {

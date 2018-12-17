@@ -2,13 +2,13 @@ const Discord = require('discord.js');
 
 
 exports.run = function(client, message, args) {
-
-  if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
+if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
+  
   let mesaj = args.slice(0).join("  ")
   if (mesaj.length < 1) return message.channel.send(`<:BEEhayir:519886397482729473>Bir oylama yazısı yazmalısın.`);
   message.delete()
   
-  message.channel.send(`${mesaj}`).then(function(message) {
+  message.channel.send(`${mesaj}\n\nOylamayı Yapan Yetkili : ${message.author}`).then(function(message) {
     
     message.react('519886383456714784');
     message.react('519886397482729473');
