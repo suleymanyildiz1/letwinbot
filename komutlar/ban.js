@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
   let modlog2 = guild.channels.find('name', modlog);
   if (message.mentions.users.size < 1) return message.channel.send(`<:BEEhayir:519886397482729473>Banlayacağın kişiyi etiketlemelisin.`).catch(console.error);
   message.guild.member(user).ban();
-  modlog2.send(`<:BEEhayir:519886397482729473>${user.username}#${user.discriminator} adlı kullanıcı sunucudan yasaklandı.`);
+  modlog2.send(`<:BEEhayir:519886397482729473>${user} adlı kullanıcı sunucudan yasaklandı.`);
 };
 
 exports.conf = {

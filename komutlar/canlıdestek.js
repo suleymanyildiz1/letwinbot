@@ -5,13 +5,13 @@ exports.run = async(client, message, args) => {
   let isEnabled;
   message.channel.send(`<:BEEevet:519886383456714784>Birazdan yetkili ekibimiz sizinle ilgilenecektir.`);
   let chan = message.channel;
-  let destekKanal = "510806190184202240";
+  let destekKanal = "522107479048454144";
   const embed = new Discord.RichEmbed()
       .addField('Dikkat', `Canlı Destek Talebi`)
       .setDescription(`${message.author.tag}`, `${message.author.avatarURL}`)
       .setColor("BLUE")
       .addField(`Bilgiler`, `Sunucu: ${message.guild.name} \n Kanal: ${message.channel.name} \n Destek İsteyen: ${message.author.tag}`)
-      .setFooter("Bee | Canlı Destek")
+      .setFooter("Real Bot | Canlı Destek")
   client.channels.get(destekKanal).send(embed);
   const collector = client.channels.get(destekKanal).createCollector(message => message.content.startsWith(''), {
     time: 0

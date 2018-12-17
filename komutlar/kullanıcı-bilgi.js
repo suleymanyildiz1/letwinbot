@@ -8,14 +8,14 @@ exports.run = (client, message, params) => {
         var durm = (Durum == "online" ? ("Çevrimiçi") : (Durum == "offline" ? ("Çevrimdışı") : (Durum == "idle" ? ("Boşta") : (Durum == "dnd" ? ("Rahatsız Etmeyin") : ("Bilinmiyor/bulunamadı.")))))
       const kullanicibilgimk = new Discord.RichEmbed()
       .setAuthor(message.author.username, message.author.avatarURL)
-      .setColor(Durm)
+      .setColor('BLUE')
       .setTimestamp()
       .addField('Ad', message.author.username + '#' + message.author.discriminator, true)
       .addField('ID', message.author.id, true)
       .addField('Kayıt Tarihi', message.author.createdAt, true)
       .addField('Durum', durm, true)
-      .addField('Oynanan Oyun', message.author.presence.game ? message.author.presence.game.name : 'Şu an oyun oynamıyor.')
-      .addField('BOT', message.author.bot ? '\n <:BEEevet:519886383456714784>' : '<:BEEhayir:519886397482729473>')
+      .addField('Oynanan Oyun', message.author.presence.game ? message.author.presence.game.name : 'Şu an oyun oynamıyor.', true)
+      .addField('BOT', message.author.bot ? '\n <:BEEevet:519886383456714784>' : '<:BEEhayir:519886397482729473>', true)
       return message.channel.sendEmbed(kullanicibilgimk);
   }
 };
