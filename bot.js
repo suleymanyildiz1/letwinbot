@@ -91,6 +91,13 @@ client.unload = command => {
   });
 };
 
+
+//////////////////
+
+  ///RAİNBOW ROL KOMUT EKLENCEK/////
+ 
+///////////////////
+
 ////////////////////////
 
 client.on("message", msg => {
