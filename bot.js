@@ -129,13 +129,13 @@ client.on("guildMemberAdd", async member => {
   else font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
   await bg.print(font, 235, 450, member.user.username);
   await userimg.resize(362, 362);
-  await bg.composite(userimg, 300, 26).write("./giris-cikis/BEE-hosgeldin.png");
+  await bg.composite(userimg, 300, 26).write("./giris-cikis/RB-hosgeldin.png");
   setTimeout(function () {
     gck31.send(`:inbox_tray:${member.user} adlı kullanıcı sunucuya katıldı.`)
-    gck31.send(new Discord.Attachment("./giris-cikis/BEE-hosgeldin.png"));
+    gck31.send(new Discord.Attachment("./giris-cikis/RB-hosgeldin.png"));
   }, 1000);
   setTimeout(function () {
-    fs.unlink("./giris-cikis/BEE-hosgeldin.png");
+    fs.unlink("./giris-cikis/RB-hosgeldin.png");
   }, 10000);
 })
 
@@ -153,13 +153,13 @@ client.on("guildMemberRemove", async member => {
   else font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
   await bg.print(font, 235, 450, member.user.username);
   await userimg.resize(362, 362);
-  await bg.composite(userimg, 300, 26).write("./giris-cikis/BEE-gorusuruz.png");
+  await bg.composite(userimg, 300, 26).write("./giris-cikis/RB-gorusuruz.png");
   setTimeout(function () {
     gck31.send(`:outbox_tray:${member.user} adlı kullanıcı sunucudan ayrıldı.`)
-    gck31.send(new Discord.Attachment("./giris-cikis/BEE-gorusuruz.png"));
+    gck31.send(new Discord.Attachment("./giris-cikis/RB-gorusuruz.png"));
   }, 1000);
   setTimeout(function () {
-    fs.unlink("./giris-cikis/BEE-gorusuruz.png");
+    fs.unlink("./giris-cikis/RB-gorusuruz.png");
   }, 10000);
 })
 
@@ -214,10 +214,10 @@ client.on('guildMemberAdd', async member => {
 
 const serverStats = {
   
-  guildID: '487908863358664706',
-  totalUsersID: '516005159487275008',
-  memberCountID: '516005256744796170',
-  botCountID: '516005275761770498'
+  guildID: '507311180583534635',
+  totalUsersID: '515997648042459156',
+  memberCountID: '515997663448137730',
+  botCountID: '515997681819058216'
 };
 
 client.on('guildMemberAdd', member => {
@@ -244,18 +244,6 @@ client.on('guildMemberRemove', member => {
 ////////////////////////
 
 
-
-////////////////////////
-
-client.on('guildCreate', guild => {
-  
-  client.channels.get('520268854186737679').send(`**Bir Sunucuya Eklendim.**\n**Sunucu Adı :** ${guild.name}\n**Sunucu Sahibi :** ${guild.owner}`);
-});
-
-client.on('guildDelete', guild => {
-  
-  client.channels.get('520268854186737679').send(`**Bir Sunucudan Atıldım.**\n**Sunucu Adı :** ${guild.name}\n**Sunucu Sahibi :** ${guild.owner}`);
-});
 
 ////////////////////////
 
