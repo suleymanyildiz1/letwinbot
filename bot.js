@@ -16,6 +16,7 @@ const app = express();
 app.use(express.static('public'));
 
 app.get('/', function(request, response) {
+  response.sendFile(__dirname + '/views/index.html');
 });
 
 const listener = app.listen(process.env.PORT, function() {
@@ -91,13 +92,6 @@ client.unload = command => {
   });
 };
 
-
-//////////////////
-
-  ///RAİNBOW ROL KOMUT EKLENCEK/////
- 
-///////////////////
-
 ////////////////////////
 
 client.on("message", msg => {
@@ -133,7 +127,7 @@ client.on("guildMemberAdd", async member => {
   if (member.user.tag.length < 15) font = await Jimp.loadFont(Jimp.FONT_SANS_128_WHITE);
   else if (member.user.tag.length > 15) font = await Jimp.loadFont(Jimp.FONT_SANS_64_WHITE);
   else font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
-  await bg.print(font, 235, 400, member.user.username);
+  await bg.print(font, 235, 450, member.user.username);
   await userimg.resize(362, 362);
   await bg.composite(userimg, 300, 26).write("./giris-cikis/BEE-hosgeldin.png");
   setTimeout(function () {
@@ -157,7 +151,7 @@ client.on("guildMemberRemove", async member => {
   if (member.user.tag.length < 15) font = await Jimp.loadFont(Jimp.FONT_SANS_128_WHITE);
   else if (member.user.tag.length > 15) font = await Jimp.loadFont(Jimp.FONT_SANS_64_WHITE);
   else font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
-  await bg.print(font, 235, 400, member.user.username);
+  await bg.print(font, 235, 450, member.user.username);
   await userimg.resize(362, 362);
   await bg.composite(userimg, 300, 26).write("./giris-cikis/BEE-gorusuruz.png");
   setTimeout(function () {
@@ -220,10 +214,10 @@ client.on('guildMemberAdd', async member => {
 
 const serverStats = {
   
-  guildID: '507311180583534635',
-  totalUsersID: '515997648042459156',
-  memberCountID: '515997663448137730',
-  botCountID: '515997681819058216'
+  guildID: '487908863358664706',
+  totalUsersID: '516005159487275008',
+  memberCountID: '516005256744796170',
+  botCountID: '516005275761770498'
 };
 
 client.on('guildMemberAdd', member => {
@@ -250,6 +244,18 @@ client.on('guildMemberRemove', member => {
 ////////////////////////
 
 
+
+////////////////////////
+
+client.on('guildCreate', guild => {
+  
+  client.channels.get('520268854186737679').send(`**Bir Sunucuya Eklendim.**\n**Sunucu Adı :** ${guild.name}\n**Sunucu Sahibi :** ${guild.owner}`);
+});
+
+client.on('guildDelete', guild => {
+  
+  client.channels.get('520268854186737679').send(`**Bir Sunucudan Atıldım.**\n**Sunucu Adı :** ${guild.name}\n**Sunucu Sahibi :** ${guild.owner}`);
+});
 
 ////////////////////////
 

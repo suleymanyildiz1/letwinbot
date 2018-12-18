@@ -11,7 +11,7 @@ exports.run = async(client, message, args) => {
       .setDescription(`${message.author.tag}`, `${message.author.avatarURL}`)
       .setColor("BLUE")
       .addField(`Bilgiler`, `Sunucu: ${message.guild.name} \n Kanal: ${message.channel.name} \n Destek İsteyen: ${message.author.tag}`)
-      .setFooter("Real Bot | Canlı Destek")
+      .setFooter("Rote | Canlı Destek")
   client.channels.get(destekKanal).send(embed);
   const collector = client.channels.get(destekKanal).createCollector(message => message.content.startsWith(''), {
     time: 0

@@ -1,6 +1,8 @@
 const Discord = require('discord.js');
 const db = require('quick.db');
+
 exports.run = async (client, message, args) => {
+  
   if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Üyeleri At\`" yetkisine sahip olmalısın.`);
   let guild = message.guild
   let user = message.mentions.users.first();
