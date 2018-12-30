@@ -19,6 +19,6 @@ exports.conf = {
   
   exports.help = {
     name: 'çekiliş',
-    description: 'embedyaz',
-    usage: 'embedyaz'
+    description: 'Çekiliş yapar.',
+    usage: 'çekiliş <ödül>'
   };

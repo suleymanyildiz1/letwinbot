@@ -8,10 +8,9 @@ exports.run = async(client, message, args) => {
   let destekKanal = "522107479048454144";
   const embed = new Discord.RichEmbed()
       .addField('Dikkat', `Canlı Destek Talebi`)
-      .setDescription(`${message.author.tag}`, `${message.author.avatarURL}`)
       .setColor("BLUE")
       .addField(`Bilgiler`, `Sunucu: ${message.guild.name} \n Kanal: ${message.channel.name} \n Destek İsteyen: ${message.author.tag}`)
-      .setFooter("Rote | Canlı Destek")
+      .setFooter("Real Bot | Canlı Destek")
   client.channels.get(destekKanal).send(embed);
   const collector = client.channels.get(destekKanal).createCollector(message => message.content.startsWith(''), {
     time: 0
@@ -63,6 +62,6 @@ exports.run = async(client, message, args) => {
 
 exports.help = {
   name: 'canlıdestek',
-  description: 'Canlı Destek Oluşturur.',
+  description: 'Yetkililerle canlı desteğe geçersiniz.',
   usage: 'canlıdestek'
 };

@@ -23,12 +23,12 @@ exports.run = (client, message, params) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['kullanıcı', 'kullanıcı-bilgim', 'kbilgim','kullanıcıbilgi','kullanıcı-bilgi'],
+  aliases: ['kullanıcı-bilgi'],
   permLevel: 0
 };
 
 exports.help = {
-  name: 'kullanıcıbilgim',
-  description: 'Komutu kullanan kişi hakkında bilgi verir.',
-  usage: 'kullanıcıbilgim'
+  name: 'kullanıcıbilgi',
+  description: 'Kullanıcı bilginizi gönderir.',
+  usage: 'kullanıcıbilgi'
 };

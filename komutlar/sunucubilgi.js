@@ -130,7 +130,6 @@ exports.run = async (client, message, params) => {
   .addField(`Giriş-Çıkış Kanalı`, gcKanalyazi, true)
   .addField(`Sayaç Kanalı`, sayacKanalyazi, true)
   .addField(`Kayıt Kanalı`, logKanalyazi, true)
-  .addField(`Sunucu Emojileri`, `${message.guild.emojis.map(e=>e.toString()).join(" **|** ") ? message.guild.emojis.map(e=>e.toString()).join(" **|** ") : 'Bu sunucuda emoji bulunmuyor.'}`,true)
   .setFooter(`${message.author.tag} tarafından istendi.`, message.author.avatarURL)
   return message.channel.sendEmbed(sunucubilgi);
 };
@@ -144,6 +143,6 @@ exports.conf = {
 
 exports.help = {
   name: 'sunucubilgi',
-  description: 'Sunucu hakkında bilgi verir.',
+  description: 'Sunucunun bilgilerini gönderir.',
   usage: 'sunucubilgi'
 };

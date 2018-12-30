@@ -10,6 +10,7 @@ exports.run = async (client, message, args) => {
   let modlog2 = guild.channels.find('name', modlog);
   if (message.mentions.users.size < 1) return message.channel.send(`<:BEEhayir:519886397482729473>Atacağın kişiyi etiketlemelisin.`).catch(console.error);
   message.guild.member(user).kick();
+  if(!modlog2) return;
   modlog2.send(`<:BEEhayir:519886397482729473>${user} adlı kullanıcı sunucudan atıldı.`);
 };
 
