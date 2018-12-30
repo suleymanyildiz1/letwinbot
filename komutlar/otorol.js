@@ -15,23 +15,24 @@ exports.run = async (client, message, args) => {
   if (!rolk) {
     return message.channel.send(`<:BEEhayir:519886397482729473>Otorol kanalını etiketlemelisin.`)
   }
-
+  
+  
   db.set(`otorol_${message.guild.id}`, rol.name)
   db.set(`rolK_${message.guild.id}` ,rolk.name)
   
     message.channel.send(`<:BEEevet:519886383456714784>Otorol \`${rol.name}\`, otorol kanalı ${rolk} olarak ayarlandı.`)
-}
+  
+  };
     
 exports.conf = {
     enabled: true,
     guildOnly: true,
-    aliases: ['otorol-ayarla', 'oto-rol','otorol','otorolayarla'],
+    aliases: ['oto-rol'],
     permLevel: 0
 }
 
 exports.help = {
-    name: 'oto-rol-ayarla',
-    kategori: 'ayarlar',
-    description: 'Sayaç kanalını ayarlar.',
-    usage: 'giriş-kanal-ayarla <#kanal>'
+    name: 'otorol',
+    description: 'Otorolü ayarlar.',
+    usage: 'otorol <@rol>'
 }

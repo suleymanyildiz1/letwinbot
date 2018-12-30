@@ -27,7 +27,7 @@ exports.run = async (client, message, args) => {
     
     db.delete(`sayac_${message.guild.id}`)
     db.delete(`sayacK_${message.guild.id}`)
-    message.channel.send(`<:BEEevet:519886397482729473>Sayaç başarıyla sıfırlandı.`)
+    message.channel.send(`<:BEEevet:519886383456714784>Sayaç başarıyla sıfırlandı.`)
     return
   }
   
@@ -56,7 +56,6 @@ exports.conf = {
  
 exports.help = {
         name: 'sayaç',
-        kategori: "ayarlar",
         description: 'Sayacı ayarlar.',
-        usage: 'sayaç-ayarla [sayı/sıfırla]'
+        usage: 'sayaç <sayı> <#kanal> / sıfırla'
 }

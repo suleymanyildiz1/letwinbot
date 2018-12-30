@@ -94,74 +94,24 @@ client.unload = command => {
 
 ////////////////////////
 
-client.on("message", msg => {
-  
-  db.fetch(`saas_${msg.guild.id}`).then(i => {
-    if (i == 'acik') {
-      if (msg.content.toLowerCase() == 'sa' || msg.content.toLowerCase() == 'sea' || msg.content.toLowerCase() == 'selamun aleyküm' || msg.content.toLowerCase() == 'selam') {
-                  return msg.channel.send('Aleyküm selam.')
-      }
-    }
-    else if (i == 'kapali') {
-      
-    }
-    if (!i) return;
-  })
-    });
-
-////////////////////////
-
-
-
-////////////////////////
-
 client.on("guildMemberAdd", async member => {
-  
-  let gck = await db.fetch(`gckanal_${member.guild.id}`);
-  if (!gck) return;
-  const gck31 = member.guild.channels.find('name', gck)
-  let username = member.user.username;
-  const bg = await Jimp.read("https://cdn.discordapp.com/attachments/522760787396395052/524221713961975808/BEE-hosgeldin.jpg");
-  const userimg = await Jimp.read(member.user.avatarURL);
-  var font;
-  if (member.user.tag.length < 15) font = await Jimp.loadFont(Jimp.FONT_SANS_128_WHITE);
-  else if (member.user.tag.length > 15) font = await Jimp.loadFont(Jimp.FONT_SANS_64_WHITE);
-  else font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
-  await bg.print(font, 235, 450, member.user.username);
-  await userimg.resize(362, 362);
-  await bg.composite(userimg, 300, 26).write("./giris-cikis/RB-hosgeldin.png");
-  setTimeout(function () {
-    gck31.send(`:inbox_tray:${member.user} adlı kullanıcı sunucuya katıldı.`)
-    gck31.send(new Discord.Attachment("./giris-cikis/RB-hosgeldin.png"));
-  }, 1000);
-  setTimeout(function () {
-    fs.unlink("./giris-cikis/RB-hosgeldin.png");
-  }, 10000);
-})
+  const kanal30 = await db.fetch(`gckanal_${member.guild.id}`)
+  const kanal31 = member.guild.channels.find('name', kanal30)
+  const girismesaj = await db.fetch(`girism_${member.guild.id}`)
+  if (!kanal31) return
+  if (!girismesaj) return
+  kanal31.send(girismesaj ? girismesaj.replace('-kullanıcı-', `\`${member.user.tag}\``) .replace('-sunucu-', `${member.guild.name}`) : `:inbox_tray: \`${member.user.tag}\` adlı kullanıcı sunucuya katıldı.`);
+});
+
 
 client.on("guildMemberRemove", async member => {
- 
-  let gck = await db.fetch(`gckanal_${member.guild.id}`);
-  if (!gck) return;
-  const gck31 = member.guild.channels.find('name', gck)
-  let username = member.user.username;          
-  const bg = await Jimp.read("https://cdn.discordapp.com/attachments/522760787396395052/524221726083514379/BEE-gorusuruz.jpg");
-  const userimg = await Jimp.read(member.user.avatarURL);
-  var font;
-  if (member.user.tag.length < 15) font = await Jimp.loadFont(Jimp.FONT_SANS_128_WHITE);
-  else if (member.user.tag.length > 15) font = await Jimp.loadFont(Jimp.FONT_SANS_64_WHITE);
-  else font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
-  await bg.print(font, 235, 450, member.user.username);
-  await userimg.resize(362, 362);
-  await bg.composite(userimg, 300, 26).write("./giris-cikis/RB-gorusuruz.png");
-  setTimeout(function () {
-    gck31.send(`:outbox_tray:${member.user} adlı kullanıcı sunucudan ayrıldı.`)
-    gck31.send(new Discord.Attachment("./giris-cikis/RB-gorusuruz.png"));
-  }, 1000);
-  setTimeout(function () {
-    fs.unlink("./giris-cikis/RB-gorusuruz.png");
-  }, 10000);
-})
+  const kanal30 = await db.fetch(`gckanal_${member.guild.id}`)
+  const kanal31 = member.guild.channels.find('name', kanal30)
+  const cikismesaj = await db.fetch(`cikism_${member.guild.id}`)
+  if (!kanal31) return
+  if (!cikismesaj) return
+  kanal31.send(cikismesaj ? cikismesaj.replace('-kullanıcı-', `\`${member.user.tag}\``) .replace('-sunucu-', `${member.guild.name}`) : `:outbox_tray: \`${member.user.tag}\` adlı kullanıcı sunucudan ayrıldı.`);
+});
 
 ////////////////////////
 
@@ -175,7 +125,8 @@ client.on("guildMemberAdd", async member => {
   let skanal9 = await db.fetch(`sayacK_${member.guild.id}`);
   if (!skanal9) return;
   const skanal31 = member.guild.channels.find('name', skanal9)
-  skanal31.send(`:inbox_tray:${member.user} adlı kullanıcı sunucuya katıldı. \`${sayac}\` kullanıcı olmaya \`${sayac - member.guild.members.size}\` kullanıcı kaldı.`)
+  if (!skanal31) return
+  skanal31.send(`:inbox_tray: \`${member.user.tag}\` adlı kullanıcı sunucuya katıldı. \`${sayac}\` kullanıcı olmaya \`${sayac - member.guild.members.size}\` kullanıcı kaldı.`)
 });
 
 client.on("guildMemberRemove", async member => {
@@ -184,7 +135,8 @@ client.on("guildMemberRemove", async member => {
   let skanal9 = await db.fetch(`sayacK_${member.guild.id}`);
   if (!skanal9) return;
   const skanal31 = member.guild.channels.find('name', skanal9)
-  skanal31.send(`:outbox_tray:${member.user} adlı kullanıcı sunucudan ayrıldı. \`${sayac}\` kullanıcı olmaya \`${sayac - member.guild.members.size}\` kullanıcı kaldı.`)
+  if (!skanal31) return
+  skanal31.send(`:outbox_tray: \`${member.user.tag}\` adlı kullanıcı sunucudan ayrıldı. \`${sayac}\` kullanıcı olmaya \`${sayac - member.guild.members.size}\` kullanıcı kaldı.`)
 });
 
 ////////////////////////
@@ -199,11 +151,14 @@ client.on('guildMemberAdd', async member => {
   let rol2 = member.guild.roles.find('name', rol);
   
   const rolk = await db.fetch(`rolK_${member.guild.id}`);
-  if(!rolk) return;
   const rolk2 = member.guild.channels.find('name', rolk)
+  const otorolmesaj = await db.fetch(`otorolm_${member.guild.id}`)
+  if (!rolk) return
+  if (!rolk2) return
+  if (!otorolmesaj) return
   
   member.addRole(rol2);
-  rolk2.send(`<:BEEevet:519886383456714784>${member.user} adlı kullanıcıya \`${rol2.name}\` rolü verildi.`)
+  rolk2.send(otorolmesaj ? otorolmesaj.replace('-kullanıcı-', `\`${member.user.tag}\``) .replace('-rol-',`${rol2.name}`) : `<:BEEevet:519886383456714784> \`${member.user.tag}\` adlı kullanıcıya \`${rol2.name}\` rolü verildi.`)
 });
 
 ////////////////////////
