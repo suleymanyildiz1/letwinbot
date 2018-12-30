@@ -13,11 +13,9 @@ module.exports = client => {
 
     var Games = [
      
-      `| ${prefix}yardım | ${prefix}canlıdestek |`,
+      `| ${prefix}yardım  Real Code 🔸`,
       
-      `| ${client.guilds.size} Sunucu | ${client.channels.size} Kanal | ${client.users.size} Kullanıcı |`,
-      
-      `| Prefixim: ${prefix} |`
+
 
     ];
 
