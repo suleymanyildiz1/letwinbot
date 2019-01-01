@@ -97,9 +97,9 @@ client.on("guildMemberAdd", async member => {
   const kanal30 = await db.fetch(`gckanal_${member.guild.id}`)
   const kanal31 = member.guild.channels.find('name', kanal30)
   const girismesaj = await db.fetch(`girism_${member.guild.id}`)
-  if (!kanal31) return
-  if (!girismesaj) return
-  kanal31.send(girismesaj ? girismesaj.replace('-kullanıcı-', `\`${member.user.tag}\``) .replace('-sunucu-', `${member.guild.name}`) : `:inbox_tray: \`${member.user.tag}\` adlı kullanıcı sunucuya katıldı.`);
+  if (!kanal31) return;
+  if (!girismesaj) return;
+;  kanal31.send(girismesaj ? girismesaj.replace('-kullanıcı-', `\`${member.user.tag}\``) .replace('-sunucu-', `${member.guild.name}`) : `:inbox_tray: \`${member.user.tag}\` adlı kullanıcı sunucuya katıldı.`);
 });
 
 
@@ -107,8 +107,8 @@ client.on("guildMemberRemove", async member => {
   const kanal30 = await db.fetch(`gckanal_${member.guild.id}`)
   const kanal31 = member.guild.channels.find('name', kanal30)
   const cikismesaj = await db.fetch(`cikism_${member.guild.id}`)
-  if (!kanal31) return
-  if (!cikismesaj) return
+  if (!kanal31) return;
+  if (!cikismesaj) return;
   kanal31.send(cikismesaj ? cikismesaj.replace('-kullanıcı-', `\`${member.user.tag}\``) .replace('-sunucu-', `${member.guild.name}`) : `:outbox_tray: \`${member.user.tag}\` adlı kullanıcı sunucudan ayrıldı.`);
 });
 
@@ -124,7 +124,7 @@ client.on("guildMemberAdd", async member => {
   let skanal9 = await db.fetch(`sayacK_${member.guild.id}`);
   if (!skanal9) return;
   const skanal31 = member.guild.channels.find('name', skanal9)
-  if (!skanal31) return
+  if (!skanal31) return;
   skanal31.send(`:inbox_tray: \`${member.user.tag}\` adlı kullanıcı sunucuya katıldı. \`${sayac}\` kullanıcı olmaya \`${sayac - member.guild.members.size}\` kullanıcı kaldı.`)
 });
 
@@ -134,7 +134,7 @@ client.on("guildMemberRemove", async member => {
   let skanal9 = await db.fetch(`sayacK_${member.guild.id}`);
   if (!skanal9) return;
   const skanal31 = member.guild.channels.find('name', skanal9)
-  if (!skanal31) return
+  if (!skanal31) return;
   skanal31.send(`:outbox_tray: \`${member.user.tag}\` adlı kullanıcı sunucudan ayrıldı. \`${sayac}\` kullanıcı olmaya \`${sayac - member.guild.members.size}\` kullanıcı kaldı.`)
 });
 
@@ -152,12 +152,11 @@ client.on('guildMemberAdd', async member => {
   const rolk = await db.fetch(`rolK_${member.guild.id}`);
   const rolk2 = member.guild.channels.find('name', rolk)
   const otorolmesaj = await db.fetch(`otorolm_${member.guild.id}`)
-  if (!rolk) return
-  if (!rolk2) return
-  if (!otorolmesaj) return
+  if (!rolk) return;
+  if (!rolk2) return;
   
   member.addRole(rol2);
-  rolk2.send(otorolmesaj ? otorolmesaj.replace('-kullanıcı-', `\`${member.user.tag}\``) .replace('-rol-',`${rol2.name}`) : `<:BEEevet:519886383456714784> \`${member.user.tag}\` adlı kullanıcıya \`${rol2.name}\` rolü verildi.`)
+  rolk2.send(`<:BEEevet:519886383456714784> \`${member.user.tag}\` adlı kullanıcıya \`${rol2.name}\` rolü verildi.`)
 });
 
 ////////////////////////
