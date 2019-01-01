@@ -155,7 +155,7 @@ client.on('guildMemberAdd', async member => {
   if (!rolk) return;
   if (!rolk2) return;
   
-  member.addRole(rol2);
+  member.addRole(rol2)
   rolk2.send(`<:BEEevet:519886383456714784> \`${member.user.tag}\` adlı kullanıcıya \`${rol2.name}\` rolü verildi.`)
 });
 
