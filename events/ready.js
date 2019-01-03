@@ -15,6 +15,10 @@ module.exports = client => {
      
       `| ${prefix}yardım  Real Code 🔸`,
       
+      ` ${prefix}yardım  Real Code Discord KOD TÜRKİTE. 🔸`,
+      
+      `| ${prefix}yardım  Real Code HER ZAMAN DAHA İYİSİ. 🔸`,
+      
 
 
     ];
