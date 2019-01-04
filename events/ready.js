@@ -13,11 +13,11 @@ module.exports = client => {
 
     var Games = [
      
-      `| ${prefix}yardım  Real Code 🔸`,
+      ` ${prefix}yardım  Real Code 🔸`,
       
-      ` ${prefix}yardım  Real Code Discord KOD TÜRKİTE. 🔸`,
+      ` rb!js JavaScript rolü verir. 🔸`,
       
-      `| ${prefix}yardım  Real Code HER ZAMAN DAHA İYİSİ. 🔸`,
+      ` rb!commando Commando Rolü verir.  🔸`,
       
 
 
