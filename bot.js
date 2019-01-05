@@ -196,8 +196,6 @@ client.on('guildMemberRemove', member => {
 
 ////////////////////////
 
-
-
 ////////////////////////
 
 client.elevation = message => {
