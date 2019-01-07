@@ -8,7 +8,7 @@ exports.run = function(client, message) {
   const embed = new Discord.RichEmbed()
       .setColor(0xffa300)
       .setDescription(`Kayıt olmak için aşağıdaki emojiye tıkla!`).then(function(message) {
-         message.react("");
+         message.react("👍🏻");
         message.channel.send(embed)
       });
                                                                         };
