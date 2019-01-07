@@ -5,8 +5,13 @@ exports.run = function(client, message) {
   var rol = message.guild.roles.find(rol => rol.name === "Kayıtsız Üye");
   message.member.removeRole(rol);
   message.member.addRole(role);
-  message.channel.send(`<:BEEevet:519886383456714784>Deneniyor bu başka bişi`);
-};
+  const embed = new Discord.RichEmbed()
+      .setColor(0xffa300)
+      .setDescription(`Kayıt olmak için aşağıdaki emojiye tıkla!`).then(function(message) {
+         message.react("");
+        message.channel.send(embed)
+      });
+                                                                        };
 
 exports.conf = {
   enabled: true,
@@ -16,7 +21,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: '123  ',
+  name: '123',
   description: 'Discord.js Kanallarını Görürsünüz.',
   usage: 'kayıt'
 };
