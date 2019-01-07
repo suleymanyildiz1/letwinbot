@@ -95,11 +95,9 @@ client.on('message', async message => {
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
   let u = message.mentions.users.first() || message.author;
-  let emoji = 
-  if (command === "kayıt") {
-    const embed = new Discord.RichEmbed()
-      .setColor(0xffa300)
-      .setDescription(`Kayıt olmak için aşağıdaki emojiye tıkla!`).then(function(message) {
+  let emoji = "👍🏻"
+  if (command === "lanbukapalı") {
+   message.channel.send(`Kayıt olmak için aşağıdaki emojiye tıkla!`).then(function(message) {
          message.react(emoji);
        });
   }
