@@ -38,7 +38,7 @@ fs.readdir('./komutlar/', (err, files) => {
       client.aliases.set(alias, props.help.name);
     });
   });
-});
+}
 
 client.reload = command => {
   return new Promise((resolve, reject) => {
