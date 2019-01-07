@@ -95,23 +95,11 @@ client.on('message', async message => {
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
   let u = message.mentions.users.first() || message.author;
-  let emoji = "👍🏻"
-  if (command === "lanbukapalı") {
+  if (command === "kayıt") {
    message.channel.send(`Kayıt olmak için aşağıdaki emojiye tıkla!`).then(function(message) {
-         message.react(emoji);
        });
   }
 })
-
-
-client.on('messageReactionAdd', (reaction, user) => {
-    if (reaction.emoji.name == "👍🏻"){
-      reaction.message.guild.members.get(user.id).removeRole("507315788235931648")
-      reaction.message.guild.members.get(user.id).addRole("511884979383566370")
-      client.channels.get("529352602333478924").send(`**${user.tag}** onaylandı!`)
-      client.guilds.get("507311180583534635").members.get(user.id).setNickname(user.username)
-    }
-});
 
 
 ////////////////////////
