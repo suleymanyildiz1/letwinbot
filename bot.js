@@ -91,6 +91,65 @@ client.unload = command => {
   });
 };
 
+const yourID = ayarlar.sahip; //Instructions on how to get this: https://redd.it/40zgse //Kendi İD'nizi Yazın
+const setupCMD = "rb!kayıt" //İstediğiniz Komut Yapabilirsiniz örn : !kayıtol
+let initialMessage = ``; //Dilediğiniz Şeyi Yazabilirsiniz
+const roles = ["Üye"]; //İstediğiniz Rolü Yazabilirsiniz
+const reactions = ["👍🏻"]; //İstediğiniz Emojiyi Ekleyebilirsiniz
+
+if (roles.length !== reactions.length) throw "Roles list and reactions list are not the same length!";
+
+function generateMessages(){
+    var messages = [];
+    messages.push(initialMessage);
+    for (let role of roles) messages.push(`Kayıt Olmak İçin **"${reactions}"** Emojisine Tıkla!`); 
+    return messages;
+}
+
+
+
+client.on("message", message => {
+    if (message.author.id == yourID && message.content.toLowerCase() == setupCMD){
+        var toSend = generateMessages();
+        let mappedArray = [[toSend[0], false], ...toSend.slice(1).map( (message, idx) => [message, reactions[idx]])];
+        for (let mapObj of mappedArray){
+            message.channel.send(mapObj[0]).then( sent => {
+                if (mapObj[1]){
+                  sent.react(mapObj[1]);  
+                } 
+            });
+        }
+    }
+})
+
+
+client.on('raw', event => {
+    if (event.t === 'MESSAGE_REACTION_ADD' || event.t == "MESSAGE_REACTION_REMOVE"){
+        
+        let channel = client.channels.get(event.d.channel_id);
+        let message = channel.fetchMessage(event.d.message_id).then(msg=> {
+        let user = msg.guild.members.get(event.d.user_id);
+        
+        if (msg.author.id == client.user.id && msg.content != initialMessage){
+       
+            var re = `\\*\\*"(.+)?(?="\\*\\*)`;
+            var role = msg.content.match(re)[1];
+        
+            if (user.id != client.user.id){
+                var roleObj = msg.guild.roles.find(r => r.name === role);
+                var memberObj = msg.guild.members.get(user.id);
+                
+                if (event.t === "MESSAGE_REACTION_ADD"){
+                    memberObj.addRole(roleObj)
+                } else {
+                    memberObj.removeRole(roleObj);
+                }
+            }
+        }
+        })
+ 
+    }
+});
 
 ////////////////////////
 
@@ -115,52 +174,7 @@ client.on("guildMemberRemove", async member => {
 
 ////////////////////////
 
-client.on("guildMemberAdd", async member => {
-  const channel = member.guild.channels.find('name', 'giriş-çıkış');//log ismini ayarlıyacaksınız log adında kanal açın
-  if (!channel) return;
-        let username = member.user.username;
-        if (channel === undefined || channel === null) return;
-        if (channel.type === "text") {
-            const bg = await Jimp.read("https://cdn.discordapp.com/attachments/450693709076365323/473184528148725780/guildAdd.png");
-            const userimg = await Jimp.read(member.user.avatarURL);
-            var font;
-            if (member.user.tag.length < 15) font = await Jimp.loadFont(Jimp.FONT_SANS_128_WHITE);
-            else if (member.user.tag.length > 15) font = await Jimp.loadFont(Jimp.FONT_SANS_64_WHITE);
-            else font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
-            await bg.print(font, 430, 170, member.user.tag);
-            await userimg.resize(362, 362);
-            await bg.composite(userimg, 43, 26).write("./img/"+ member.id + ".png");
-              setTimeout(function () {
-                    channel.send(new Discord.Attachment("./img/" + member.id + ".png"));
-              }, 1000);
-              setTimeout(function () {
-                fs.unlink("./img/" + member.id + ".png");
-              }, 10000);
-        }
-    })
-client.on("guildMemberRemove", async member => {
-  const channel = member.guild.channels.find('name', 'giriş-çıkış');
-  if (!channel) return;
-        let username = member.user.username;
-        if (channel === undefined || channel === null) return;
-        if (channel.type === "text") {            
-          const bg = await Jimp.read("https://cdn.discordapp.com/attachments/450693709076365323/473184546477572107/guildRemove.png");
- const userimg = await Jimp.read(member.user.avatarURL);
-            var font;
-            if (member.user.tag.length < 15) font = await Jimp.loadFont(Jimp.FONT_SANS_128_WHITE);
-            else if (member.user.tag.length > 15) font = await Jimp.loadFont(Jimp.FONT_SANS_64_WHITE);
-            else font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
-            await bg.print(font, 430, 170, member.user.tag);
-            await userimg.resize(362, 362);
-            await bg.composite(userimg, 43, 26).write("./img/"+ member.id + ".png");
-              setTimeout(function () {
-                    channel.send(new Discord.Attachment("./img/" + member.id + ".png"));
-              }, 1000);
-              setTimeout(function () {
-                fs.unlink("./img/" + member.id + ".png");
-              }, 10000);
-        }
-    })                               
+
 
 ////////////////////////
  

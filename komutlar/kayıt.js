@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+/*const Discord = require('discord.js');
 
 exports.run = function(client, message) {
   var role = message.guild.roles.find(role => role.name === "Üye");
@@ -6,7 +6,7 @@ exports.run = function(client, message) {
   message.member.removeRole(rol);
   message.member.addRole(role);
   message.channel.send(`<:BEEevet:519886383456714784>Başarıyla sunucuya kaydoldunuz`);
-};
+};*/
 
 exports.conf = {
   enabled: true,
