@@ -91,12 +91,23 @@ client.unload = command => {
   });
 };
 
+client.on('messageReactionAdd', (reaction, user) => {
+    if (reaction.emoji.name == "👍🏻"){
+      reaction.message.guild.members.get(user.id).removeRole("507315788235931648")
+      reaction.message.guild.members.get(user.id).addRole("511884979383566370")
+    }
+});
+
 client.on('message', async message => {
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
   let u = message.mentions.users.first() || message.author;
+  let emoji = "👍🏻"
   if (command === "kayıt") {
-   message.channel.send(`Kayıt olmak için aşağıdaki emojiye tıkla!`).then(function(message) {
+    const embed = new Discord.RichEmbed()
+      .setColor(0xffa300)
+      .setDescription(`Kayıt olmak için aşağıdaki emojiye tıkla!`).then(function(message) {
+         message.react(emoji);
        });
   }
 })
