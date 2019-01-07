@@ -93,8 +93,8 @@ client.unload = command => {
 
 const yourID = ayarlar.sahip; //Instructions on how to get this: https://redd.it/40zgse //Kendi İD'nizi Yazın
 const setupCMD = "rb!kayıt" //İstediğiniz Komut Yapabilirsiniz örn : !kayıtol
-let initialMessage = `1`; //Dilediğiniz Şeyi Yazabilirsiniz
-const roles = ["Üye"]; //İstediğiniz Rolü Yazabilirsiniz
+let initialMessage = ``; //Dilediğiniz Şeyi Yazabilirsiniz
+const roles = ["511884979383566370"]; //İstediğiniz Rolü Yazabilirsiniz
 const reactions = ["👍🏻"]; //İstediğiniz Emojiyi Ekleyebilirsiniz
 
 if (roles.length !== reactions.length) throw "Roles list and reactions list are not the same length!";
@@ -102,6 +102,7 @@ if (roles.length !== reactions.length) throw "Roles list and reactions list are 
 function generateMessages(){
     var messages = [];
     messages.push(initialMessage);
+    for (let role of roles) messages.push(`Kayıt Olmak İçin ${reactions} Emojisine Tıkla!`); 
     return messages;
 }
 
@@ -132,7 +133,7 @@ client.on('raw', event => {
         if (msg.author.id == client.user.id && msg.content != initialMessage){
        
             var re = `\\*\\*"(.+)?(?="\\*\\*)`;
-            var role = msg.content.match(re)[1];
+            var role = roles;
         
             if (user.id != client.user.id){
                 var roleObj = msg.guild.roles.find(r => r.name === roles);
@@ -149,6 +150,17 @@ client.on('raw', event => {
  
     }
 });
+
+
+client.on('messageReactionAdd', (reaction, user) => {
+    if (reaction.emoji.name == "👍🏻"){
+      reaction.message.guild.members.get(user.id).removeRole("507315788235931648")
+      reaction.message.guild.members.get(user.id).addRole("511884979383566370")
+      client.channels.get("529352602333478924").send(`**${user.tag}** onaylandı!`)
+      client.guilds.get("507311180583534635").members.get(user.id).setNickname(user.username)
+    }
+});
+
 
 ////////////////////////
 

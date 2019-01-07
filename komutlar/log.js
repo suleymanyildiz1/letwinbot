@@ -15,7 +15,7 @@ exports.run = async (client, message, args) => {
 exports.conf = {
     enabled: true,
     guildOnly: true,
-    aliases: ['mod-log', 'mod-log','modlogayarla', 'modlog','log','logayarla','log-ayarla', 'logkanal', 'log-kanal','kayıt-kanal-ayarla','kayıt','kayıtkanal','kayıt-kanal','kayıtkanalayarla'],
+    aliases: ['mod-log', 'mod-log','modlogayarla', 'modlog','log','logayarla','log-ayarla', 'logkanal', 'log-kanal'],
     permLevel: 3
 }
 
