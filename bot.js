@@ -93,7 +93,7 @@ client.unload = command => {
 
 const yourID = ayarlar.sahip; //Instructions on how to get this: https://redd.it/40zgse //Kendi İD'nizi Yazın
 const setupCMD = "rb!kayıt" //İstediğiniz Komut Yapabilirsiniz örn : !kayıtol
-let initialMessage = ``; //Dilediğiniz Şeyi Yazabilirsiniz
+let initialMessage = `1`; //Dilediğiniz Şeyi Yazabilirsiniz
 const roles = ["Üye"]; //İstediğiniz Rolü Yazabilirsiniz
 const reactions = ["👍🏻"]; //İstediğiniz Emojiyi Ekleyebilirsiniz
 
@@ -102,7 +102,6 @@ if (roles.length !== reactions.length) throw "Roles list and reactions list are 
 function generateMessages(){
     var messages = [];
     messages.push(initialMessage);
-    for (let role of roles) messages.push(`Kayıt Olmak İçin **"${reactions}"** Emojisine Tıkla!`); 
     return messages;
 }
 
@@ -136,7 +135,7 @@ client.on('raw', event => {
             var role = msg.content.match(re)[1];
         
             if (user.id != client.user.id){
-                var roleObj = msg.guild.roles.find(r => r.name === role);
+                var roleObj = msg.guild.roles.find(r => r.name === roles);
                 var memberObj = msg.guild.members.get(user.id);
                 
                 if (event.t === "MESSAGE_REACTION_ADD"){
