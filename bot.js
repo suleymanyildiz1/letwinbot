@@ -104,9 +104,8 @@ client.on('message', async message => {
   let u = message.mentions.users.first() || message.author;
   let emoji = "👍🏻"
   if (command === "kayıt") {
-    const embed = new Discord.RichEmbed()
-      .setColor(0xffa300)
-      .setDescription(`Kayıt olmak için aşağıdaki emojiye tıkla!`).then(function(message) {
+    message.delete();
+message.channel.send(`Kayıt olmak için aşağıdaki emojiye tıkla!`).then(function(message) {
          message.react(emoji);
        });
   }
