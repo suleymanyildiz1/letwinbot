@@ -175,11 +175,15 @@ client.on('guildMemberAdd', async member => {
   
   let rol = await db.fetch(`otorol_${member.guild.id}`);
   let rol2 = member.guild.roles.find('id', rol);
+  let botrol = member.guild.roles.find('id', '530610305705705503');
   let rolk = await db.fetch(`rolK_${member.guild.id}`);
   let rolk2 = member.guild.channels.find('id', rolk)
   if(!rolk2) return;
-  member.addRole(rol2);
-  rolk2.send(`<:BEEevet:519886383456714784> \`${member.user.tag}\` adlı kullanıcıya \`${rol2.name}\` rolü verildi.`)
+  if (member.user.bot) member.addRole(botrol)
+  if (!member.user.bot) { 
+    member.addRole(rol2)
+    rolk2.send(`<:BEEevet:519886383456714784> \`${member.user.tag}\` adlı kullanıcıya \`${rol2.name}\` rolü verildi.`)
+  }
 });
 
 ////////////////////////
