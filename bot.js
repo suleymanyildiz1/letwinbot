@@ -174,7 +174,7 @@ client.on("guildMemberRemove", async member => {
 client.on('guildMemberAdd', async member => {
   
   let rol = await db.fetch(`otorol_${member.guild.id}`);
-  let rol2 = member.guild.roles.find('id', rol);
+  let rol2 = member.guild.roles.find('name', rol);
   let botrol = member.guild.roles.find('name', 'Bot');
   let rolk = await db.fetch(`rolK_${member.guild.id}`);
   let rolk2 = member.guild.channels.find('id', rolk)
