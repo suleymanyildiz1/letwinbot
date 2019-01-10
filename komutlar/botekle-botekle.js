@@ -5,9 +5,10 @@ exports.run = function(client, message, args) {
 
 	let botid = args[0]
 	let prefix = args[1]
-	let channelID = "532890489062555678";
+	let basvuru = "532890489062555678";
+  let log = "532890489062555678";
 	
-  if (!message.channel.id == channelID) return message.channel.send(`Bu komutu sadece <#${channelID}> kanalında kullanabilirsin.`) 
+  if (!message.channel.id == '532890489062555678') return message.channel.send(`Bu komutu sadece <#${basvuru}> kanalında kullanabilirsin.`) 
 	if (!botid) return message.channel.send(`<:BEEhayir:519886397482729473>Botunun ID'sini yazmalısın.`)
   if (!prefix) return message.channel.send(`<:BEEhayir:519886397482729473>Botunun prefixini yazmalısın.`)
   
@@ -18,7 +19,7 @@ exports.run = function(client, message, args) {
   .addField("Bot Sahibi", message.author.tag)
   .addField("Bot ID", botid)
   .addField("Bot Prefix", prefix)
-  client.channels.get(channelID).send(embed);
+  client.channels.get(basvuru).send(embed)
   message.channel.send(`<:BEEevet:519886383456714784>Bot ekleme istediniz alındı.`)
 };
 
