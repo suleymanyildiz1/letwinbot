@@ -7,8 +7,9 @@ exports.run = function(client, message, args) {
 	let prefix = args[1]
 	let channelID = "532890489062555678";
 	
+  if (!message.channel.id == channelID) return message.channel.send(`Bu komutu sadece <#${channelID}> kanalında kullanabilirsin.`) 
 	if (!botid) return message.channel.send(`<:BEEhayir:519886397482729473>Botunun ID'sini yazmalısın.`)
-  if (!prefix) return message.channel.send(`<:BEEhayir:519886397482729473>Botunun prefixini yazmalısın.`)  
+  if (!prefix) return message.channel.send(`<:BEEhayir:519886397482729473>Botunun prefixini yazmalısın.`)
   
   const embed = new Discord.RichEmbed()
   .setColor("BLUE")
