@@ -10,7 +10,7 @@ exports.run = function(client, message, args) {
 	if (!botisim) return message.channel.send(`<:BEEhayir:519886397482729473>Botun ismini yazmalısın.`)
   if (!sebep) return message.channel.send(`<:BEEhayir:519886397482729473>Botu neden onaylamadığını yazmalısın.`)  
   
-		client.channels.get(channelID).send(`${botisim} adlı bot reddedildi. Sebep : ${sebep} Reddeden yetkili : ${message.author}`);
+		client.channels.get(channelID).send(`<:BEEhayir:519886397482729473>${botisim} adlı bot reddedildi. Sebep : ${sebep} Reddeden yetkili : ${message.author}`);
 		message.channel.send(`<:BEEevet:519886383456714784>Botu reddettiniz.`)
 };
 
