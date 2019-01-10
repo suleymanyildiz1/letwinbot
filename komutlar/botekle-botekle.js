@@ -5,11 +5,13 @@ exports.run = function(client, message, args) {
 
 	let botid = args[0]
 	let prefix = args[1]
-	let basvuru = "532890489062555678";
-  let log = "532890489062555678";
+  let yetkili = "532890489062555678"
+	let basvuru = "532524953774456864"
+  let log = "532525090517286927"
 	
-  if (!message.channel.id == '532890489062555678') return message.channel.send(`Bu komutu sadece <#${basvuru}> kanalında kullanabilirsin.`) 
-	if (!botid) return message.channel.send(`<:BEEhayir:519886397482729473>Botunun ID'sini yazmalısın.`)
+  if (message.channel.id !== basvuru) return message.channel.send(`Bu komutu sadece <#${basvuru}> kanalında kullanabilirsin.`) 
+	if (message.channel.id == basvuru) {
+  if (!botid) return message.channel.send(`<:BEEhayir:519886397482729473>Botunun ID'sini yazmalısın.`)
   if (!prefix) return message.channel.send(`<:BEEhayir:519886397482729473>Botunun prefixini yazmalısın.`)
   
   const embed = new Discord.RichEmbed()
@@ -19,8 +21,10 @@ exports.run = function(client, message, args) {
   .addField("Bot Sahibi", message.author.tag)
   .addField("Bot ID", botid)
   .addField("Bot Prefix", prefix)
-  client.channels.get(basvuru).send(embed)
-  message.channel.send(`<:BEEevet:519886383456714784>Bot ekleme istediniz alındı.`)
+  client.channels.get(yetkili).send(embed)
+  client.channels.get(log).send(`${message.author} adlı kullanıcı <@${botid}> adlı botunu sıraya ekledi. Botu onaylanmayı bekliyor.`)
+  message.channel.send(`<:BEEevet:519886383456714784>Bot ekleme isteğiniz alındı.`)
+  }  
 };
 
 exports.conf = {
