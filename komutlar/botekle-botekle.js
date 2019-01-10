@@ -11,14 +11,14 @@ exports.run = function(client, message, args) {
   if (!prefix) return message.channel.send(`<:BEEhayir:519886397482729473>Botunun prefixini yazmalısın.`)  
   
   const embed = new Discord.RichEmbed()
-    .setColor("BLUE")
-    .addField("Eylem", "Bot Ekletme")
-    .addField("Bot Sahibi", message.author.tag)
-    .addField("Bot ID", botid)
-    .addField("Bot Prefix", prefix)
-    .addField("Botu Ekle", `[Link](https://discordapp.com/oauth2/authorize?client_id=${botid}&scope=bot&permissions=0)`)
-		client.channels.get(channelID).send(embed);
-		message.channel.send(`<:BEEevet:519886383456714784>Bot ekleme istediniz alındı.`)
+  .setColor("BLUE")
+  .setDescription(`[Ekle](https://discordapp.com/oauth2/authorize?client_id=${botid}&scope=bot&permissions=0)`, true)
+  .setTitle("Bot Ekletme")
+  .addField("Bot Sahibi", message.author.tag)
+  .addField("Bot ID", botid)
+  .addField("Bot Prefix", prefix)
+  client.channels.get(channelID).send(embed);
+  message.channel.send(`<:BEEevet:519886383456714784>Bot ekleme istediniz alındı.`)
 };
 
 exports.conf = {
