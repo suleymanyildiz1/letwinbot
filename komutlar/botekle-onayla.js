@@ -9,7 +9,7 @@ exports.run = function(client, message, args) {
 	
 	if (!botisim) return message.channel.send(`<:BEEhayir:519886397482729473>Botun ismini yazmalısın.`)
   
-		client.channels.get(channelID).send(`${botisim} adlı bot onaylandı.\Onaylayan yetkili : ${message.author.tag}`);
+		client.channels.get(channelID).send(`${botisim} adlı bot onaylandı. Onaylayan yetkili : ${message.author}`);
 		message.channel.send(`<:BEEevet:519886383456714784>Botu onayladınız.`)
 };
 

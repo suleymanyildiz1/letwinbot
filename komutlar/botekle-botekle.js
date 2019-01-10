@@ -22,9 +22,9 @@ exports.run = function(client, message, args) {
   .addField("Bot ID", botid)
   .addField("Bot Prefix", prefix)
   client.channels.get(yetkili).send(embed)
-  client.channels.get(log).send(`${message.author} adlı kullanıcı <@${botid}> adlı botunu sıraya ekledi. Botu onaylanmayı bekliyor.`)
+  client.channels.get(log).send(`${message.author} adlı kullanıcı botunu sıraya ekledi. Botu onaylanmayı bekliyor.`)
   message.channel.send(`<:BEEevet:519886383456714784>Bot ekleme isteğiniz alındı.`)
-  }  
+  }
 };
 
 exports.conf = {
