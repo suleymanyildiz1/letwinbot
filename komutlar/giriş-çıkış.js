@@ -9,7 +9,7 @@ exports.run = async (client, message, args) => {
   if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
   let channel = message.mentions.channels.first() || message.channel
     if (!channel) {
-        return message.channel.send(`<:BEEhayir:519886397482729473>Giriş-çıkış kanalı olarak ayarlamak istediğin kanalı etiketlemelisin.`)
+        return message.channel.send(`<:BEEhayir:519886397482729473>Giriş-çıkış kanalı olarak ayarlamak istediğin kanalı etiketlemelisin. \`${prefix}giriş-çıkış #giriş-çıkış\``)
     }
     db.set(`gckanal_${message.guild.id}`, channel.id)
     message.channel.send(`<:BEEevet:519886383456714784>Giriş-çıkış kanalı başarıyla ${channel} olarak ayarlandı. Kapatmak için \`${prefix}kapat giriş-çıkış\` yazmalısın.`)

@@ -5,18 +5,18 @@ exports.run = function(client, message, args) {
 
 	let botid = args[0]
 	let prefix = args[1]
-	let channelID = "511934212618584094";
+	let channelID = "532890489062555678";
 	
 	if (!botid) return message.channel.send(`<:BEEhayir:519886397482729473>Botunun ID'sini yazmalısın.`)
   if (!prefix) return message.channel.send(`<:BEEhayir:519886397482729473>Botunun prefixini yazmalısın.`)  
-		const embed = new Discord.RichEmbed()
-			.setColor("BLUE")
-			.addField("Eylem", "Bot Ekletme")
-			.addField("Bot Sahibi", message.author.tag)
-			.addField("Bot ID", botid)
-			.addField("Bot Prefix", prefix)
+  
+  const embed = new Discord.RichEmbed()
+    .setColor("BLUE")
+    .addField("Eylem", "Bot Ekletme")
+    .addField("Bot Sahibi", message.author.tag)
+    .addField("Bot ID", botid)
+    .addField("Bot Prefix", prefix)
     .addField("Botu Ekle", `[Link](https://discordapp.com/oauth2/authorize?client_id=${botid}&scope=bot&permissions=0)`)
-		
 		client.channels.get(channelID).send(embed);
 		message.channel.send(`<:BEEevet:519886383456714784>Bot ekleme istediniz alındı.`)
 };
@@ -30,6 +30,6 @@ exports.conf = {
 
 exports.help = {
   name: 'botekle', 
-  description: "Bot hakkındaki önerilerinizi bot sahibine ulaştırır.",
+  description: "Sunucuya bot eklemenizi sağlar.",
   usage: 'botekle <botid> <prefix>'
 };

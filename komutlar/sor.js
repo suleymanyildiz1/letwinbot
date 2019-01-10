@@ -10,7 +10,7 @@ exports.run = async (client, message, args) => {
   bot.setNick('Bee');
   
   let yazi = args.join(' ');
-  if (yazi.length < 1) return message.channel.send(`<:BEEhayir:519886397482729473>Bir soru sormalısın.`);
+  if (yazi.length < 1) return message.channel.send(`<:BEEhayir:519886397482729473>Bir soru sormalısın. \`${prefix}sor Nasılsın ?\``);
   
   message.channel.send(`${emoji} | Cevap yükleniyor...`).then (message => {
   bot.create(function (err, session) {

@@ -9,7 +9,7 @@ exports.run = async (client, message, args) => {
   if (message.channel.type !== "text") return;
   const limit = args[0] ? args[0] : 0;
   if(!limit) {
-    message.channel.send(`<:BEEhayir:519886397482729473>Bir sayı yazmalısın.`)
+    message.channel.send(`<:BEEhayir:519886397482729473>Bir sayı yazmalısın. \`${prefix}slowmode 5\``)
     return
   }
   if (limit > 100) {

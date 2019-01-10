@@ -48,7 +48,7 @@ exports.run = async (client, message, args) => {
   var rol = message.content.split(" ").slice(1).join(" ");
   let role = message.guild.roles.find("name", rol)
   
-  if(!role) return message.channel.send(`<:BEEhayir:519886397482729473>Bir rol ismi yazmalısın.`);
+  if(!role) return message.channel.send(`<:BEEhayir:519886397482729473>Bir rol ismi yazmalısın. \`${prefix}rolbilgi Üye\``);
   var temps = moment(message.createdTimestamp).format("LLLL");
   var roleinfoEmbed = new Discord.RichEmbed()
   .setColor('BLUE')

@@ -9,10 +9,10 @@ exports.run = async (client, message, args) => {
   if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
   let channel = message.mentions.channels.first() || message.channel
     if (!channel) {
-        return message.channel.send(`<:BEEhayir:519886397482729473>Kayıt kanalı olarak ayarlamak istediğin kanalı etiketlemelisin.`)
+        return message.channel.send(`<:BEEhayir:519886397482729473>Kayıt kanalı olarak ayarlamak istediğin kanalı etiketlemelisin. \`${prefix}kayıt #kayıt-kanal\``)
     }
     db.set(`modlogK_${message.guild.id}`, channel.id)
-    message.channel.send(`<:BEEevet:519886383456714784>Kayıt kanalı başarıyla ${channel} olarak ayarlandı.`)
+    message.channel.send(`<:BEEevet:519886383456714784>Kayıt kanalı başarıyla ${channel} olarak ayarlandı. Kapatmak için \`${prefix}kapat kayıtkanal\` yazmalısın.`)
 }
     
 exports.conf = {

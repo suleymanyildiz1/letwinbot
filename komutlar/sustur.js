@@ -14,7 +14,7 @@ exports.run = async (client, message, args) => {
   //!sustur @üye 1s/m/h/d | 1s = 1 saniye , 1m = 1 dakika , 1h = 1 saat, 1d = 1 gün
   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Mesajları Yönet\`" yetkisine sahip olmalısın.`);
   
-  if(!user) return message.channel.send(`<:BEEhayir:519886397482729473>Susturacağın kişiyi etiketlemelisin. Etiketledikten sonra süreyi yazmalısın.`);
+  if(!user) return message.channel.send(`<:BEEhayir:519886397482729473>Susturacağın kişiyi etiketlemelisin. Etiketledikten sonra süreyi yazmalısın.\`${prefix}sustur @Furkan 5m\``);
   let muterole = message.guild.roles.find(r => r.name === "Susturuldu");
 
   if(!muterole){
