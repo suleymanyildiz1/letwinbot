@@ -9,11 +9,11 @@ exports.run = function(client, message, args) {
 	let basvuru = "532524953774456864"
   let log = "532525090517286927"
 	
-  if (message.channel.id !== basvuru) return message.channel.send(`Bu komutu sadece <#${basvuru}> kanalında kullanabilirsin.`) 
+  if (message.channel.id !== basvuru) return message.channel.send(`Bu komutu sadece <#${basvuru}> kanalında kullanabilirsin.`).then(msg => msg.delete(10000))
 	if (message.channel.id == basvuru) {
-  if (!botid) return message.channel.send(`<:BEEhayir:519886397482729473>Botunun ID'sini yazmalısın.`)
-  if (!prefix) return message.channel.send(`<:BEEhayir:519886397482729473>Botunun prefixini yazmalısın.`)
-  
+  if (!botid) return message.channel.send(`<:BEEhayir:519886397482729473>Botunun ID'sini yazmalısın.`).then(msg => msg.delete(10000))
+  if (!prefix) return message.channel.send(`<:BEEhayir:519886397482729473>Botunun prefixini yazmalısın.`).then(msg => msg.delete(10000))
+  message.delete()
   const embed = new Discord.RichEmbed()
   .setColor("BLUE")
   .setDescription(`[Ekle](https://discordapp.com/oauth2/authorize?client_id=${botid}&scope=bot&permissions=0)`, true)
@@ -23,7 +23,7 @@ exports.run = function(client, message, args) {
   .addField("Bot Prefix", prefix)
   client.channels.get(yetkili).send(embed)
   client.channels.get(log).send(`${message.author} adlı kullanıcı botunu sıraya ekledi. Botu onaylanmayı bekliyor.`)
-  message.channel.send(`<:BEEevet:519886383456714784>Bot ekleme isteğiniz alındı.`)
+  message.channel.send(`<:BEEevet:519886383456714784>Bot ekleme isteğiniz alındı.`).then(msg => msg.delete(10000))
   }
 };
 

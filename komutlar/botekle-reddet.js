@@ -7,11 +7,11 @@ exports.run = function(client, message, args) {
 	let [botisim, sebep] = args.join(" ").split(" - ")
 	let channelID = "532525090517286927";
 	
-	if (!botisim) return message.channel.send(`<:BEEhayir:519886397482729473>Botun ismini yazmalısın.`)
-  if (!sebep) return message.channel.send(`<:BEEhayir:519886397482729473>Botu neden onaylamadığını yazmalısın.`)  
-  
+	if (!botisim) return message.channel.send(`<:BEEhayir:519886397482729473>Botun ismini yazmalısın.`).then(msg => msg.delete(10000))
+  if (!sebep) return message.channel.send(`<:BEEhayir:519886397482729473>Botu neden onaylamadığını yazmalısın.`).then(msg => msg.delete(10000))
+  message.delete()
 		client.channels.get(channelID).send(`<:BEEhayir:519886397482729473>${botisim} adlı bot reddedildi. Sebep : ${sebep} Reddeden yetkili : ${message.author}`);
-		message.channel.send(`<:BEEevet:519886383456714784>Botu reddettiniz.`)
+		message.channel.send(`<:BEEevet:519886383456714784>Botu reddettiniz.`).then(msg => msg.delete(10000))
 };
 
 exports.conf = {

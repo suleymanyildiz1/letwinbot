@@ -7,10 +7,10 @@ exports.run = function(client, message, args) {
 	let botisim = args.join(" ")
 	let channelID = "532525090517286927";
 	
-	if (!botisim) return message.channel.send(`<:BEEhayir:519886397482729473>Botun ismini yazmalısın.`)
-  
+	if (!botisim) return message.channel.send(`<:BEEhayir:519886397482729473>Botun ismini yazmalısın.`).then(msg => msg.delete(10000))
+  message.delete()
 		client.channels.get(channelID).send(`:tada:${botisim} adlı bot onaylandı. Onaylayan yetkili : ${message.author}`);
-		message.channel.send(`<:BEEevet:519886383456714784>Botu onayladınız.`)
+		message.channel.send(`<:BEEevet:519886383456714784>Botu onayladınız.`).then(msg => msg.delete(10000))
 };
 
 exports.conf = {
