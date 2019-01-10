@@ -1,13 +1,15 @@
 const Discord = require('discord.js');
-const ayarlar = require('../ayarlar.json');
-const Cleverbot = require('cleverbot.io');
-let bot = new Cleverbot('oLmW97rzhDPyVO9A','EDfTd6ENv6cQjt4zHjblB4raWQEwPhsJ');
+const cleverbot = require('cleverbot.io');
+const bot = new cleverbot('oLmW97rzhDPyVO9A','EDfTd6ENv6cQjt4zHjblB4raWQEwPhsJ');
+const ayarlar = require('../ayarlar.json')
 
-exports.run = (client, message, params) => {
+exports.run = async (client, message, args) => {
+  
+  let prefix = await require('quick.db').fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
   const emoji = (client.emojis.find("name", "BEEyukleniyor").toString())
   bot.setNick('Bee');
   
-  let yazi = params.slice(0).join(' ');
+  let yazi = args.join(' ');
   if (yazi.length < 1) return message.channel.send(`<:BEEhayir:519886397482729473>Bir soru sormalısın.`);
   
   message.channel.send(`${emoji} | Cevap yükleniyor...`).then (message => {

@@ -1,6 +1,9 @@
 const Discord = require('discord.js');
+const ayarlar = require('../ayarlar.json')
 
-exports.run = async(client, message, args) => {
+exports.run = async (client, message, args) => {
+  
+  let prefix = await require('quick.db').fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
  
   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Mesajları Yönet\`" yetkisine sahip olmalısın.`);
   if (message.channel.type !== "text") return;
@@ -12,7 +15,7 @@ exports.run = async(client, message, args) => {
   if (limit > 100) {
     return message.channel.send(`<:BEEhayir:519886397482729473>Süre limiti maksimum \`100\` saniye olabilir.`)
   }
-  message.channel.sendEmbed(`<:BEEevet:519886383456714784>Bu kanal için yazma süre limiti **${limit}** saniye olarak ayarlanmıştır.`)
+  message.channel.send(`<:BEEevet:519886383456714784>Başarıyla bu kanal için yazma süre limiti \`${limit}\` saniye olarak ayarlandı.`)
   var request = require('request');
   request({
     url: `https://discordapp.com/api/v7/channels/${message.channel.id}`,
@@ -28,12 +31,12 @@ exports.run = async(client, message, args) => {
   exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["slow-mode", "slowmode", "yavas-mod", 'yavasmod', 'yavaşmod'],
+  aliases: ["slow-mode", "yavaşmod", "yavaş-mod"],
   permLevel: 3,
 };
 
 exports.help = {
   name: 'slowmode',
-  description: 'Sohbete yazma sınır (süre) ekler.',
-  usage: 'slowmode [1/10]',
+  description: 'Komutu kullandığınız kanalda belirttiğiniz saniyelik yavaş mod uygular.',
+  usage: 'slowmode <1/100>',
 };

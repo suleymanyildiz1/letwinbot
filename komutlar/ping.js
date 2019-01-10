@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 
 exports.run = function(client, message) {
 
-    message.channel.send(`Pingim \`${client.ping}\` ms.`);
+    message.channel.send(`Gecikme: ${client.ping}ms, mesaj gecikmesi: ${new Date().getTime() - message.createdTimestamp}ms.`);
 };
 
 exports.conf = {

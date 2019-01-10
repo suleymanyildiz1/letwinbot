@@ -88,31 +88,10 @@ exports.run = async (client, message, params) => {
             var tarih = `${moment(message.guild.createdAt).format('DD')}/12/${moment(message.guild.createdAt).format('YYYY HH:mm:ss')} `
         }
   
-  let gcKanal = await db.fetch(`gckanal_${message.guild.id}`);
-  let gcKanalyazi;
-  if (gcKanal == null) gcKanalyazi = 'Ayarlanmamış.'
-  else gcKanalyazi = `#${gcKanal}`
-  
-  let sayacKanal = await db.fetch(`sayacK_${message.guild.id}`);
-  let sayacKanalyazi;
-  if (sayacKanal == null) sayacKanalyazi = 'Ayarlanmamış.'
-  else sayacKanalyazi = `#${sayacKanal}`
-  
-  let logKanal = await db.fetch(`modlogK_${message.guild.id}`);
-  let logKanalyazi;
-  if (logKanal == null) logKanalyazi = 'Ayarlanmamış.'
-  else logKanalyazi = `#${logKanal}`
-  
-  let otorol1 = await db.fetch(`otorol_${message.guild.id}`);
-  let otorol2;
-  if (otorol1 == null) otorol2 = 'Ayarlanmamış.'
-  else otorol2 = `${otorol1}`
-  
-  let otorolK = await db.fetch(`otorol_${message.guild.id}`);
-  let otorol;
-  if (otorolK == null) otorol = 'Ayarlanmamış.'
-  else otorol = `${otorolK}`
-  
+  let emoji = message.guild.emojis.map(emoji => emoji).join(' | ')
+  let emojiler;
+  if (emoji == null) emojiler = 'Sunucuda emoji bulunmuyor.'
+  else emojiler = `${emoji}`
   
   const sunucubilgi = new Discord.RichEmbed()
   .setAuthor(`${message.guild.name}`, message.guild.iconURL)
@@ -125,11 +104,7 @@ exports.run = async (client, message, params) => {
   .addField(`Sunucu Bölgesi`, konum, true)
   .addField(`Oluşturulma Tarihi`, tarih, true)
   .addField(`ID`,message.guild.id ,true)
-  .addField(`Otorol`, otorol2, true)
-  .addField(`Otorol Kanalı`, otorol, true)
-  .addField(`Giriş-Çıkış Kanalı`, gcKanalyazi, true)
-  .addField(`Sayaç Kanalı`, sayacKanalyazi, true)
-  .addField(`Kayıt Kanalı`, logKanalyazi, true)
+  .addField(`Sunucuda Bulunan Emojiler`, emojiler, true)
   .setFooter(`${message.author.tag} tarafından istendi.`, message.author.avatarURL)
   return message.channel.sendEmbed(sunucubilgi);
 };
@@ -138,6 +113,7 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ['sunucu-bilgi'],
+  kategori: "ekstra",
   permLevel: 0
 };
 

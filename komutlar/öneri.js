@@ -3,26 +3,21 @@ const Discord = require('discord.js');
 
 exports.run = function(client, message, args) {
 
-	var öneri = args.slice(0).join(' ');
-	var guildID = "507311180583534635";
-	var channelID = "511934212618584094";
+	let öneri = args.slice(0).join(' ');
+	let guildID = "507311180583534635";
+	let channelID = "511934212618584094";
 	
-	if (!öneri){
-		return message.channel.send(`<:BEEhayir:519886397482729473>Bir öneri belirtmelisin.`);
-	} else {
+	if (!öneri) return message.channel.send(`<:BEEhayir:519886397482729473>Bir öneri belirtmelisin.`);
 		
-		var embed = new Discord.RichEmbed()
-			.setTimestamp()
-			.addField("Eylem:", "Öneri")
-			.addField("Kullanıcı:", message.author.tag)
+		const embed = new Discord.RichEmbed()
+			.setColor("BLUE")
+			.addField("Eylem", "Öneri")
+			.addField("Kullanıcı", message.author.tag)
 			.addField("ID", message.author.id)
 			.addField("Öneri", öneri)
-		
-		client.guilds.get(guildID).channels.get(channelID).send(embed);
-		message.channel.send(`<:BEEevet:519886383456714784>Öneriniz alınmıştır. Teşekkür ederiz.`);
-	};
-
-
+    
+		client.guilds.channels.get(channelID).send(embed)
+		message.channel.send(`<:BEEevet:519886383456714784>Öneriniz alınmıştır. Teşekkür ederiz.`)
 };
 
 exports.conf = {

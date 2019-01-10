@@ -23,11 +23,12 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ['kanal-bilgi'],
+  kategori: "ekstra",
   permLevel: 0
 };
 
 exports.help = {
   name: 'kanalbilgi',
-  description: 'Kanal ile ilgili bilgi verir.',
+  description: 'Komutu kullandığınız kanalın bilgilerini gösterir.',
   usage: 'kanalbilgi'
 }

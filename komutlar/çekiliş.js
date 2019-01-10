@@ -1,9 +1,11 @@
 const Discord = require('discord.js')
+const ayarlar = require('../ayarlar.json')
 
-
-exports.run = (client, message, args) => {
+exports.run = async (client, message, args) => {
+  
+  let prefix = await require('quick.db').fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
     let mesaj = args.slice(0).join(' ');
-    if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
+    if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Mesajları Yönet\`" yetkisine sahip olmalısın.`);
     if (mesaj.length < 1) return message.channel.send(`<:BEEhayir:519886397482729473>Ödülü yazmalısın.`);
     message.delete();
   

@@ -1,7 +1,10 @@
 const Discord = require('discord.js')
 const db = require('quick.db');
+const ayarlar = require('../ayarlar.json')
 
 exports.run = async (client, message, args) => {
+  
+  let prefix = await require('quick.db').fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
  
   if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
   
@@ -9,23 +12,12 @@ exports.run = async (client, message, args) => {
   
   let mesaj = args.slice(0).join(' ')
   
-  if(mesaj === "sıfırla") {
-    if(!mesaj2) {
-      message.channel.send(`<:BEEhayir:519886397482729473>Ayarlanmayan şeyi sıfırlayamazsın.`)
-      return
-    }
-    
-    db.delete(`cikism_${message.guild.id}`)
-    message.channel.send(`<:BEEevet:519886383456714784>Çıkış mesajı başarıyla sıfırlandı.`)
-    return
-  }
-  
       if (!mesaj) {
-        return message.channel.send(`<:BEEhayir:519886397482729473>Çıkış mesajını yazmalısın.`)
+        return message.channel.send(`<:BEEhayir:519886397482729473>Çıkış mesajını yazmalısın. \`${prefix}çıkışmesaj -kullanıcı- adlı kullanıcı -sunucu- adlı sunucudan ayrıldı.\``)
     }
   
     db.set(`cikism_${message.guild.id}`, mesaj)
-    message.channel.send(`<:BEEevet:519886383456714784>Çıkış mesajı \`${mesaj}\` olarak ayarlandı.`)
+    message.channel.send(`<:BEEevet:519886383456714784>Çıkış mesajı \`${mesaj}\` olarak ayarlandı. Kapatmak için \`${prefix}kapat çıkışmesaj\` yazmalısın.`)
 }
     
 exports.conf = {

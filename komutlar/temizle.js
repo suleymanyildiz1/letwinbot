@@ -1,12 +1,17 @@
 const Discord = require('discord.js');
-exports.run = function(client, message, args) {
+const ayarlar = require('../ayarlar.json')
 
-if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Mesajları Yönet\`" yetkisine sahip olmalısın.`);
-if(!args[0]) return message.channel.send(`<:BEEhayir:519886397482729473>Silinecek mesaj miktarını yazmalısın.`);
-message.channel.bulkDelete(args[0]).then(() => {
-  message.channel.send(`<:BEEevet:519886383456714784>Başarıyla \`${(args[0])}\` adet mesaj silindi.`).then(msg => msg.delete(5000));
-})
-}
+exports.run = async (client, message, args) => {
+  
+  let prefix = await require('quick.db').fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
+  
+  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Mesajları Yönet\`" yetkisine sahip olmalısın.`);
+ 
+  if(!args[0]) return message.channel.send(`<:BEEhayir:519886397482729473>Silinecek mesaj miktarını yazmalısın.`);
+  message.delete().then(message => message.channel.bulkDelete(args[0]).then(() => {
+    message.channel.send(`<:BEEevet:519886383456714784>Başarıyla \`${(args[0])}\` adet mesaj silindi.`).then(msg => msg.delete(5000));
+  }))
+};
 
 exports.conf = {
   enabled: true,
@@ -17,6 +22,6 @@ exports.conf = {
 
 exports.help = {
   name: 'temizle',
-  description: 'Belirlenen miktarda mesajı siler.',
-  usage: 'temizle <silinicek mesaj sayısı>'
+  description: 'Belirttiğiniz miktarda mesaj siler.',
+  usage: 'temizle <1/99>'
 };

@@ -5,7 +5,7 @@ var prefix = ayarlar.prefix;
 
 exports.run = (client, message, params) => {
   
-  if ([0]) {
+  if (params[0]) {
     message.channel.sendCode("asciidoc", `= Real Bot Komutlar =
 
 rb!kaydol           ::     Sunucuya kaydolmanızı sağlar.
@@ -31,7 +31,27 @@ rb!durdur           ::     Müziği durdurur.
 rb!geç              ::     Müziği geçer.
 rb!ses              ::     Sesi ayarlar.
 rb!sıra             ::     Sırayı gösterir.`);
-  }
+  } else {
+ 
+    let command = params[0];
+    if (client.commands.has(command)) {
+      command = client.commands.get(command);
+      let komut = command.help.name
+      let kullanim = `!${command.help.usage}`
+      let aciklama = command.help.description
+      let alternatifler = command.conf.aliases
+      let ss;
+      if (alternatifler == '') ss = 'Bulunmamakta.'
+      else ss = alternatifler
+      
+      let embedyardim = new Discord.RichEmbed()
+      .setColor("BLUE")
+      .setAuthor(`${komut} komutu`, client.user.avatarURL)
+      .addField(`Kullanım`, `${kullanim}`)
+      .addField(`Açıklama`, `${aciklama}`)
+      .addField(`Alternatifler`, `${ss}`)
+      message.channel.send(embedyardim) 
+  }}
 };
 
 exports.conf = {

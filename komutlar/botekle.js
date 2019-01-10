@@ -10,7 +10,7 @@ exports.run = function(client, message, args) {
 	if (!botid) return message.channel.send(`<:BEEhayir:519886397482729473>Botunun ID'sini yazmalısın.`)
   if (!prefix) return message.channel.send(`<:BEEhayir:519886397482729473>Botunun prefixini yazmalısın.`)  
 		const embed = new Discord.RichEmbed()
-			.setTimestamp()
+			.setColor("BLUE")
 			.addField("Eylem", "Bot Ekletme")
 			.addField("Bot Sahibi", message.author.tag)
 			.addField("Bot ID", botid)
