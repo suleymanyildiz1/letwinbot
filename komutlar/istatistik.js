@@ -10,7 +10,7 @@ exports.run = (client, message) => {
   const iembed = new Discord.RichEmbed()
   .setAuthor(`Bee | İstatistik`, client.user.avatarURL || client.user.defaultAvatarURL)
   .setColor("BLUE")
-  .addField(`Geliştirici`,`<@362692630062301195>`, true)
+  .addField(`Geliştirici`,`<@409705213813850113>`, true)
   .addField(`Çalışma Süresi`,`\`${duration}\``, true)
   .addField(`Bellek Kullanımı`,`\`${(process.memoryUsage().heapUsed /1024 / 1024).toFixed(2)}\` MB`, true)
   .addField(`Sürümler`, `Discord.js Sürümü : \`v${Discord.version}\` \n Node.js Sürümü : \`${process.version}\``, true)
@@ -27,6 +27,7 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ['bot-durum', 'i', 'bi', 'istatistikler', 'kullanımlar', 'botdurum', 'bd', 'istatisik', 'stats', 'stat'],
+  kategori: "ekstra",
   permLevel: 0
 };
 
