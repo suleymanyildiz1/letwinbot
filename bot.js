@@ -139,6 +139,17 @@ client.on("guildMemberRemove", async member => {
 
 ////////////////////////
 
+client.on('message', msg => {  
+   if (msg.content.toLowerCase() === 'sa') {
+      msg.reply('Aleyküm selam,  Hoş Geldin :raised_hands:');
+      msg.react("🇦")
+      msg.react("🇸")
+	}
+   if (msg.content.toLowerCase() === 'Sa') {
+      msg.reply('Aleyküm selam,  Hoş Geldin :raised_hands:');
+	}
+});
+//AdemCan
 
 ////////////////////////
  
