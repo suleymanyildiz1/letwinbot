@@ -22,7 +22,7 @@ const http = require('http');
     }, 280000);
 
 const log = message => {
-  console.log(`[-] BOT: ${message}`);
+  console.log(`[Real Code] BOT: ${message}`);
 };
 
 client.commands = new Discord.Collection();

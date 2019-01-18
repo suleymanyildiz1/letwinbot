@@ -6,18 +6,18 @@ const ayarlar = require('../ayarlar.json');
 var prefix = ayarlar.prefix;
 
 module.exports = client => {
-  console.log(`[-] BOT: Komutları yükledim!`);
-  console.log(`[-] BOT: ${client.user.username} ismi ile giriş yaptım!`);
-  console.log(`[-] BOT: Oyun ismimi ayarladım!`);
-  console.log(`[-] BOT: Şu an ` + client.channels.size + ` adet kanala, ` + client.guilds.size + ` adet sunucuya ve ` + client.users.size + ` kullanıcıya hizmet veriyorum!`);
+  console.log(`[</>] BOT: Komutları yükledim!`);
+  console.log(`[</>] BOT: ${client.user.username} ismi ile giriş yaptım!`);
+  console.log(`[</>] BOT: Oyun ismimi ayarladım!`);
+  console.log(`[</>] BOT: Şu an ` + client.channels.size + ` adet kanala, ` + client.guilds.size + ` adet sunucuya ve ` + client.users.size + ` kullanıcıya hizmet veriyorum!`);
 
     var Games = [
      
       ` ${prefix}yardım  Real Code 🔸`,
       
-      ` rb!js JavaScript rolü verir. 🔸`,
+      ` ${prefix}js JavaScript rolü verir. 🔸`,
       
-      ` rb!commando Commando Rolü verir.  🔸`,
+      ` ${prefix}commando Commando Rolü verir.  🔸`,
       
 
 
