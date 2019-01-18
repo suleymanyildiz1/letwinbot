@@ -10,14 +10,15 @@
     "start": "node bot.js"
   },
   "dependencies": {
-    "express": "^4.16.3",
-    "discord.js": "^11.4.2",
     "chalk": "^2.4.1",
-    "moment": "^2.22.2",
-    "quick.db": "^6.3.2",
-    "moment-duration-format": "^2.2.2",
     "cleverbot.io": "^1.0.4",
-    "jimp": "^0.6.0"
+    "discord-anti-spam-tr": "^0.7.4",
+    "discord.js": "^11.4.2",
+    "express": "^4.16.3",
+    "jimp": "^0.6.0",
+    "moment": "^2.22.2",
+    "moment-duration-format": "^2.2.2",
+    "quick.db": "^6.3.2"
   },
   "engines": {
     "node": "8.x"

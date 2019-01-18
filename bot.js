@@ -140,7 +140,6 @@ client.on("guildMemberRemove", async member => {
 ////////////////////////
 
 
-
 ////////////////////////
  
 client.on("guildMemberAdd", async member => {

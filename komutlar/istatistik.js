@@ -8,9 +8,9 @@ exports.run = (client, message) => {
   const duration = moment.duration(client.uptime).format(" D [gün], H [saat], m [dakika], s [saniye]");
   
   const iembed = new Discord.RichEmbed()
-  .setAuthor(`Bee | İstatistik`, client.user.avatarURL || client.user.defaultAvatarURL)
+  .setAuthor(`Real Code </> | İstatistik`, client.user.avatarURL || client.user.defaultAvatarURL)
   .setColor("BLUE")
-  .addField(`Geliştirici`,`<@409705213813850113> <@459054720938672139>`, true)
+  .addField(`Real Code </> Yönetim Ekibi`,`<@459054720938672139> <@369428477818175490> <@362692630062301195> <@324874497163395073>`, true)
   .addField(`Çalışma Süresi`,`\`${duration}\``, true)
   .addField(`Bellek Kullanımı`,`\`${(process.memoryUsage().heapUsed /1024 / 1024).toFixed(2)}\` MB`, true)
   .addField(`Sürümler`, `Discord.js Sürümü : \`v${Discord.version}\` \n Node.js Sürümü : \`${process.version}\``, true)
