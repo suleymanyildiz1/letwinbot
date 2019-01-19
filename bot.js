@@ -91,7 +91,7 @@ client.unload = command => {
   });
 };
 
-////////////////////////
+
 
 client.on('messageReactionAdd', (reaction, user) => {
     if (reaction.emoji.name == "👍🏻"){
