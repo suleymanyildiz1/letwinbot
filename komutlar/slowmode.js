@@ -5,17 +5,17 @@ exports.run = async (client, message, args) => {
   
   let prefix = await require('quick.db').fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
  
-  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Mesajları Yönet\`" yetkisine sahip olmalısın.`);
+  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`:no_entry: Bu komutu kullanabilmek için "\`Mesajları Yönet\`" yetkisine sahip olmalısın.`);
   if (message.channel.type !== "text") return;
   const limit = args[0] ? args[0] : 0;
   if(!limit) {
-    message.channel.send(`<:BEEhayir:519886397482729473>Bir sayı yazmalısın. \`${prefix}slowmode 5\``)
+    message.channel.send(`:no_entry: Bir sayı yazmalısın. \`${prefix}slowmode 5\``)
     return
   }
   if (limit > 100) {
-    return message.channel.send(`<:BEEhayir:519886397482729473>Süre limiti maksimum \`100\` saniye olabilir.`)
+    return message.channel.send(`:no_entry: Süre limiti maksimum \`100\` saniye olabilir.`)
   }
-  message.channel.send(`<:BEEevet:519886383456714784>Başarıyla bu kanal için yazma süre limiti \`${limit}\` saniye olarak ayarlandı.`)
+  message.channel.send(`:white_check_mark: Başarıyla bu kanal için yazma süre limiti \`${limit}\` saniye olarak ayarlandı.`)
   var request = require('request');
   request({
     url: `https://discordapp.com/api/v7/channels/${message.channel.id}`,

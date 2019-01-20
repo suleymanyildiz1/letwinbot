@@ -6,14 +6,14 @@ exports.run = async (client, message, args) => {
   
   let prefix = await require('quick.db').fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
   
-    if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
+    if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send(`:no_entry: Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
   let guild = message.guild
   let reason = args.slice(1).join(' ');
   let user = message.mentions.users.first();
   let modlog = await db.fetch(`modlogK_${message.guild.id}`);
   let modlog2 = guild.channels.find('id', modlog);
-  if (!user) return message.channel.send(`<:BEEhayir:519886397482729473>Uyaracağın kişiyi etiketlemelisin. Etiketledikten sonra uyarı sebebini yazmalısın.`)
-  if (!reason) return message.channel.send(`<:BEEhayir:519886397482729473>Uyarı sebebini yazmalısın.`);
+  if (!user) return message.channel.send(`:no_entry: Uyaracağın kişiyi etiketlemelisin. Etiketledikten sonra uyarı sebebini yazmalısın.`)
+  if (!reason) return message.channel.send(`:no_entry: Uyarı sebebini yazmalısın.`);
 
   if (modlog2 == null) return message.channel.send(`${user} adlı kullanıcı ${message.author} adlı yetkili tarafından uyarıldı. Sebep : ${reason}`);
   modlog2.send(`${user} adlı kullanıcı ${message.author} adlı yetkili tarafından uyarıldı. Sebep : ${reason}`);

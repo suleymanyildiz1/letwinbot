@@ -5,10 +5,10 @@ exports.run = async (client, message, args) => {
   
   let prefix = await require('quick.db').fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
   
-if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
+if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`:no_entry: Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
   
   let mesaj = args.slice(0).join(" ")
-  if (mesaj.length < 1) return message.channel.send(`<:BEEhayir:519886397482729473>Bir oylama yazısı yazmalısın.`);
+  if (mesaj.length < 1) return message.channel.send(`:no_entry: Bir oylama yazısı yazmalısın.`);
   message.delete()
   
   message.channel.send(`${mesaj}\n\nOylamayı Yapan Yetkili : ${message.author}`).then(function(message) {

@@ -6,18 +6,18 @@ exports.run = async (client, message, args) => {
   
   let prefix = await require('quick.db').fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
  
-  if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
+  if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`:no_entry: Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
   
   const mesaj2 = await db.fetch(`girism_${message.guild.id}`);
   
   let mesaj = args.slice(0).join(' ')
   
       if (!mesaj) {
-        return message.channel.send(`<:BEEhayir:519886397482729473>Giriş mesajını yazmalısın. \`${prefix}girişmesaj -kullanıcı- adlı kullanıcı -sunucu- adlı sunucuya katıldı.\``)
+        return message.channel.send(`:no_entry: Giriş mesajını yazmalısın. \`${prefix}girişmesaj -kullanıcı- adlı kullanıcı -sunucu- adlı sunucuya katıldı.\``)
     }
   
     db.set(`girism_${message.guild.id}`, mesaj)
-    message.channel.send(`<:BEEevet:519886383456714784>Giriş mesajı \`${mesaj}\` olarak ayarlandı. Kapatmak için \`${prefix}kapat girişmesaj\` yazmalısın.`)
+    message.channel.send(`:white_check_mark: Giriş mesajı \`${mesaj}\` olarak ayarlandı. Kapatmak için \`${prefix}kapat girişmesaj\` yazmalısın.`)
 }
     
 exports.conf = {

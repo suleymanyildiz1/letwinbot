@@ -2,8 +2,8 @@ const Discord = require("discord.js");
 const moment = require('moment');
 
 module.exports.run = async (client, message, args) => {
-  const evet = (client.emojis.find("name", "BEEevet").toString())
-  const hayir = (client.emojis.find("name", "BEEhayir").toString())
+  const evet = (client.emojis.find("name", "white_check_mark").toString())
+  const hayir = (client.emojis.find("name", "no_entry").toString())
   
            var embed = new Discord.RichEmbed()
            .setColor("BLUE")

@@ -6,13 +6,13 @@ exports.run = async (client, message, args) => {
   
   let prefix = await require('quick.db').fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
 
-  if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
+  if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`:no_entry: Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
   let channel = message.mentions.channels.first() || message.channel
     if (!channel) {
-        return message.channel.send(`<:BEEhayir:519886397482729473>Kayıt kanalı olarak ayarlamak istediğin kanalı etiketlemelisin. \`${prefix}kayıt #kayıt-kanal\``)
+        return message.channel.send(`:no_entry: Kayıt kanalı olarak ayarlamak istediğin kanalı etiketlemelisin. \`${prefix}kayıt #kayıt-kanal\``)
     }
     db.set(`modlogK_${message.guild.id}`, channel.id)
-    message.channel.send(`<:BEEevet:519886383456714784>Kayıt kanalı başarıyla ${channel} olarak ayarlandı. Kapatmak için \`${prefix}kapat kayıtkanal\` yazmalısın.`)
+    message.channel.send(`:white_check_mark: Kayıt kanalı başarıyla ${channel} olarak ayarlandı. Kapatmak için \`${prefix}kapat kayıtkanal\` yazmalısın.`)
 }
     
 exports.conf = {

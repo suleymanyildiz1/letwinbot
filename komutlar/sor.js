@@ -6,13 +6,12 @@ const ayarlar = require('../ayarlar.json')
 exports.run = async (client, message, args) => {
   
   let prefix = await require('quick.db').fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
-  const emoji = (client.emojis.find("name", "BEEyukleniyor").toString())
-  bot.setNick('Bee');
+  bot.setNick('Real Bot');
   
   let yazi = args.join(' ');
-  if (yazi.length < 1) return message.channel.send(`<:BEEhayir:519886397482729473>Bir soru sormalısın. \`${prefix}sor Nasılsın ?\``);
+  if (yazi.length < 1) return message.channel.send(`:no_entry: Bir soru sormalısın. \`${prefix}sor Nasılsın ?\``);
   
-  message.channel.send(`${emoji} | Cevap yükleniyor...`).then (message => {
+  message.channel.send(`Cevap yükleniyor...`).then (message => {
   bot.create(function (err, session) {
     bot.ask(yazi, function (err, response) {
      message.edit(response);

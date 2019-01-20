@@ -9,27 +9,27 @@ exports.run = async (client, message, args) => {
   const sayacsayi = await db.fetch(`sayac_${message.guild.id}`);
   const sayackanal = message.mentions.channels.first() || message.channel
   
-  if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
+  if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`:no_entry: Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
         
   if(!args[0]) {
-    message.channel.send(`<:BEEhayir:519886397482729473>Bir sayı yazmalısın. Yazdıktan sonra bir kanal etiketlemelisin. \`${prefix}sayaç 100 #sayaç\``)
+    message.channel.send(`:no_entry: Bir sayı yazmalısın. Yazdıktan sonra bir kanal etiketlemelisin. \`${prefix}sayaç 100 #sayaç\``)
     return
   }
   
   if(isNaN(args[0])) {
-    message.channel.send(`<:BEEhayir:519886397482729473>Bir sayı yazmalısın.`)
+    message.channel.send(`:no_entry: Bir sayı yazmalısın.`)
     return
   }
  
         if(args[0] <= message.guild.members.size) {
-                message.channel.send(`<:BEEhayir:519886397482729473>Sunucudaki kullanıcı sayısından (${message.guild.members.size}) daha yüksek bir değer girmelisin.`)
+                message.channel.send(`:no_entry: :no_entry: Sunucudaki kullanıcı sayısından (${message.guild.members.size}) daha yüksek bir değer girmelisin.`)
                 return
         }
   
   db.set(`sayac_${message.guild.id}`, args[0])
   db.set(`sayacK_${message.guild.id}`, sayackanal.id)
   
-  message.channel.send(`<:BEEevet:519886383456714784>Sayaç \`${args[0]}\`, sayaç kanalı ${sayackanal} olarak ayarlandı. Kapatmak için \`${prefix}kapat sayaç\` yazmalısın.`)
+  message.channel.send(`:white_check_mark: Sayaç \`${args[0]}\`, sayaç kanalı ${sayackanal} olarak ayarlandı. Kapatmak için \`${prefix}kapat sayaç\` yazmalısın.`)
 }
  
 exports.conf = {

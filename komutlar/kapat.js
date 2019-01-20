@@ -3,11 +3,11 @@ const db = require('quick.db');
 const ayarlar = require('../ayarlar.json')
 
 exports.run = async (client, message, args) => {
-  if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
+  if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`:no_entry: Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
 
   const komut = args.join(" ")
-  const evet = (client.emojis.find("name", "BEEevet").toString())
-  const hayir = (client.emojis.find("name", "BEEhayir").toString())
+  const evet = (client.emojis.find("name", "white_check_mark").toString())
+  const hayir = (client.emojis.find("name", "no_entry").toString())
   let preffix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
   
   let girişm = await db.fetch(`girism_${message.guild.id}`)

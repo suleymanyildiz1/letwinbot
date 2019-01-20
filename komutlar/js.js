@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 exports.run = function(client, message) {
   var role = message.guild.roles.find(role => role.name === "JavaScript");
   message.member.addRole(role);
-  message.channel.send(`<:BEEevet:519886383456714784>JavaScript rolü başarıyla verildi.`);
+  message.channel.send(`:white_check_mark: JavaScript rolü başarıyla verildi.`);
 };
 
 exports.conf = {

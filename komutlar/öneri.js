@@ -7,7 +7,7 @@ exports.run = function(client, message, args) {
 	let guildID = "507311180583534635";
 	let channelID = "511934212618584094";
 	
-	if (!öneri) return message.channel.send(`<:BEEhayir:519886397482729473>Bir öneri belirtmelisin.`);
+	if (!öneri) return message.channel.send(`:no_entry: Bir öneri belirtmelisin.`);
 		
 		const embed = new Discord.RichEmbed()
 			.setColor("BLUE")
@@ -17,7 +17,7 @@ exports.run = function(client, message, args) {
 			.addField("Öneri", öneri)
     
 		client.guilds.channels.get(channelID).send(embed)
-		message.channel.send(`<:BEEevet:519886383456714784>Öneriniz alınmıştır. Teşekkür ederiz.`)
+		message.channel.send(`:white_check_mark: Öneriniz alınmıştır. Teşekkür ederiz.`)
 };
 
 exports.conf = {

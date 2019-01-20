@@ -48,7 +48,7 @@ exports.run = async (client, message, args) => {
   var rol = message.content.split(" ").slice(1).join(" ");
   let role = message.guild.roles.find("name", rol)
   
-  if(!role) return message.channel.send(`<:BEEhayir:519886397482729473>Bir rol ismi yazmalısın. \`${prefix}rolbilgi Üye\``);
+  if(!role) return message.channel.send(`:no_entry: Bir rol ismi yazmalısın. \`${prefix}rolbilgi Üye\``);
   var temps = moment(message.createdTimestamp).format("LLLL");
   var roleinfoEmbed = new Discord.RichEmbed()
   .setColor('BLUE')
@@ -56,7 +56,7 @@ exports.run = async (client, message, args) => {
   .addField('ID', role.id, true)
   .addField('Role Sahip Kullanıcılar', role.members.size, true)
   .addField('Renk', role.hexColor, true)
-  .addField('Etiketlenme İzni', role.mentionable ? '\n<:BEEevet:519886383456714784>' : '<:BEEhayir:519886397482729473>', true)
+  .addField('Etiketlenme İzni', role.mentionable ? '\n:white_check_mark: ' : ':no_entry:', true)
   .addField('Oluşturulma Tarihi', tarih, true)
   .setFooter(`${message.author.tag} tarafından istendi.`, message.author.avatarURL)
   message.channel.send(roleinfoEmbed)

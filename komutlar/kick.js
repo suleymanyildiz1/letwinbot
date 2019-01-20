@@ -6,16 +6,16 @@ exports.run = async (client, message, args) => {
   
   let prefix = await require('quick.db').fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
   
-  if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Üyeleri At\`" yetkisine sahip olmalısın.`);
+  if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send(`:no_entry: Bu komutu kullanabilmek için "\`Üyeleri At\`" yetkisine sahip olmalısın.`);
   let guild = message.guild
   let user = message.mentions.users.first();
   let modlog = await db.fetch(`modlogK_${message.guild.id}`)
   let modlog2 = guild.channels.find('id', modlog)
-  if (message.mentions.users.size < 1) return message.channel.send(`<:BEEhayir:519886397482729473>Atacağın kişiyi etiketlemelisin. \`${prefix}at @Furkan\``).catch(console.error);
+  if (message.mentions.users.size < 1) return message.channel.send(`:no_entry: Atacağın kişiyi etiketlemelisin. \`${prefix}at @Furkan\``).catch(console.error);
   message.guild.member(user).kick();
-  if(!modlog) return message.channel.send(`<:BEEhayir:519886397482729473>${user.tag} adlı kullanıcı sunucudan atıldı.`)
-  if(!modlog2) return message.channel.send(`<:BEEhayir:519886397482729473>${user.tag} adlı kullanıcı sunucudan atıldı.`)
-  modlog2.send(`<:BEEhayir:519886397482729473>${user.tag} adlı kullanıcı sunucudan atıldı.`);
+  if(!modlog) return message.channel.send(`:no_entry: ${user.tag} adlı kullanıcı sunucudan atıldı.`)
+  if(!modlog2) return message.channel.send(`:no_entry: ${user.tag} adlı kullanıcı sunucudan atıldı.`)
+  modlog2.send(`:no_entry: ${user.tag} adlı kullanıcı sunucudan atıldı.`);
 };
 
 exports.conf = {
