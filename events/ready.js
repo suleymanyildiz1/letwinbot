@@ -13,7 +13,7 @@ module.exports = client => {
 
     var Games = [
      
-      ` Sunucuda rol`,
+      ` Sunucuda rol almak için  rb!js rb!html   komutunu kullanın`,
       
       
       
