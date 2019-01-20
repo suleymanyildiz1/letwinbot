@@ -13,11 +13,9 @@ module.exports = client => {
 
     var Games = [
      
-      ` ${prefix}yardım  Real Code 🔸`,
+      ` Sunucuda rol`,
       
-      ` ${prefix}js JavaScript rolü verir. 🔸`,
       
-      ` ${prefix}commando Commando Rolü verir.  🔸`,
       
 
 
