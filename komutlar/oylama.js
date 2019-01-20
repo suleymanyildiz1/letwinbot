@@ -13,8 +13,8 @@ if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(
   
   message.channel.send(`${mesaj}\n\nOylamayı Yapan Yetkili : ${message.author}`).then(function(message) {
     
-    message.react('519886383456714784');
-    message.react('519886397482729473');
+    message.react('✔');
+    message.react('✘');
        });
 };
 
