@@ -3,11 +3,11 @@ const Discord = require('discord.js');
 
 exports.run = function(client, message, args) {
   
-  if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`<:BEEhayir:519886397482729473>Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
+  if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`:no_entry: Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
 	let botisim = args.join(" ")
 	let channelID = "532525090517286927";
 	
-	if (!botisim) return message.channel.send(`<:BEEhayir:519886397482729473>Botun ismini yazmalısın.`).then(msg => msg.delete(10000))
+	if (!botisim) return message.channel.send(`:no_entry: Botun ismini yazmalısın.`).then(msg => msg.delete(10000))
   message.delete()
 		client.channels.get(channelID).send(`:tada:${botisim} adlı bot onaylandı. Onaylayan yetkili : ${message.author}`);
 		message.channel.send(`<:BEEevet:519886383456714784>Botu onayladınız.`).then(msg => msg.delete(10000))
