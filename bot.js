@@ -91,28 +91,6 @@ client.unload = command => {
   });
 };
 
-
-
-client.on('messageReactionAdd', (reaction, user) => {
-    if (reaction.emoji.name == "👍🏻"){
-      reaction.message.guild.members.get(user.id).removeRole("507315788235931648")
-      reaction.message.guild.members.get(user.id).addRole("511884979383566370")
-    }
-});
-
-client.on('message', async message => {
-  const args = message.content.slice(prefix.length).trim().split(/ +/g);
-  const command = args.shift().toLowerCase();
-  let u = message.mentions.users.first() || message.author;
-  let emoji = "👍🏻"
-  if (command === "kayıt") {
-    message.delete();
-message.channel.send(`Kayıt olmak için aşağıdaki emojiye tıkla!`).then(function(message) {
-         message.react(emoji);
-       });
-  }
-})
-
 ////////////////////////
 
 client.on("guildMemberAdd", async member => {
@@ -136,20 +114,6 @@ client.on("guildMemberRemove", async member => {
   if (!cikismesaj) return kanal31.send(`:outbox_tray: \`${member.user.tag}\` adlı kullanıcı sunucudan ayrıldı.`)
   kanal31.send(cikismesaj ? cikismesaj.replace('-kullanıcı-', `\`${member.user.tag}\``) .replace('-sunucu-', `${member.guild.name}`) : `:outbox_tray: \`${member.user.tag}\` adlı kullanıcı sunucudan ayrıldı.`);
 });
-
-////////////////////////
-
-client.on('message', msg => {  
-   if (msg.content.toLowerCase() === 'sa') {
-      msg.reply('Aleyküm selam,  Hoş Geldin :raised_hands:');
-      msg.react("🇦")
-      msg.react("🇸")
-	}
-   if (msg.content.toLowerCase() === 'Sa') {
-      msg.reply('Aleyküm selam,  Hoş Geldin :raised_hands:');
-	}
-});
-//AdemCan
 
 ////////////////////////
  
@@ -195,7 +159,7 @@ client.on('guildMemberAdd', async member => {
   else if (!member.user.bot) {
    return member.addRole(rol2)
   }
-  rolk2.send(`<:BEEevet:519886383456714784> \`${member.user.tag}\` adlı kullanıcıya \`${rol2.name}\` rolü verildi.`)
+  rolk2.send(`:white_check_mark: \`${member.user.tag}\` adlı kullanıcıya \`${rol2.name}\` rolü verildi.`)
 });
 
 ////////////////////////

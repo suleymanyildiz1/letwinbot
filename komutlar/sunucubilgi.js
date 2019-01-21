@@ -96,7 +96,7 @@ exports.run = async (client, message, params) => {
   const sunucubilgi = new Discord.RichEmbed()
   .setAuthor(`${message.guild.name}`, message.guild.iconURL)
   .setColor("BLUE")
-  .addField(`Kullanıcılar [${message.guild.memberCount}]`, `<:BEEonline:522416875347640360>${message.guild.members.filter(m => m.user.presence.status === "online").size} | <:BEEdnd:522416860164128788>${message.guild.members.filter(m => m.user.presence.status === "dnd").size} | <:BEEbot:522043587240656906>${message.guild.members.filter(m => m.user.bot).size}`, true)
+  .addField(`Kullanıcılar [${message.guild.memberCount}]`, `${message.guild.members.filter(m => m.user.presence.status === "online").size} Aktif | ${message.guild.members.filter(m => m.user.presence.status === "dnd").size} Rahatsız Etmeyin | ${message.guild.members.filter(m => m.user.bot).size} Bot`, true)
   .addField(`Kanallar [${message.guild.channels.size}]`, `${message.guild.channels.filter(c => c.type === "text").size} yazı, ${message.guild.channels.filter(c => c.type === "voice").size} ses`, true)
   .addField(`Kurucu`, message.guild.owner, true)
   .addField(`Rol Sayısı`, `${message.guild.roles.size}`, true)
