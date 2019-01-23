@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 
 exports.run = function(client, message, args) {
 
-	let botid = args[0]
+	/*let botid = args[0]
 	let prefix = args[1]
   let yetkili = "532890489062555678"
 	let basvuru = "532524953774456864"
@@ -24,7 +24,9 @@ exports.run = function(client, message, args) {
   client.channels.get(yetkili).send(embed)
   client.channels.get(log).send(`${message.author} adlı kullanıcı botunu sıraya ekledi. Botu onaylanmayı bekliyor.`)
   message.channel.send(`:white_check_mark: Bot ekleme isteğiniz alındı.`).then(msg => msg.delete(10000))
-  }
+  }*/
+  
+  message.channel.send(`:no_entry: Bu özellik yakında eklenecektir.`)
 };
 
 exports.conf = {

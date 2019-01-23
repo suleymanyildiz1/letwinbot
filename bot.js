@@ -100,8 +100,7 @@ client.on("guildMemberAdd", async member => {
   if (!kanal30) return;
   if (!kanal31) return;
   if (!girismesaj) return kanal31.send(`:inbox_tray: \`${member.user.tag}\` adlı kullanıcı sunucuya katıldı.`)
-  if (member.user.bot) return kanal31.send(girismesaj ? girismesaj.replace('-kullanıcı-', `\`${member.user.tag}\``) .replace('-sunucu-', `${member.guild.name}`) : `:inbox_tray: \`${member.user.tag}\` adlı kullanıcı sunucuya katıldı.`) + kanal31.send(`:robot: ${member.user.tag} bir bot !`);
-  if (!member.user.bot) return kanal31.send(girismesaj ? girismesaj.replace('-kullanıcı-', `\`${member.user.tag}\``) .replace('-sunucu-', `${member.guild.name}`) : `:inbox_tray: \`${member.user.tag}\` adlı kullanıcı sunucuya katıldı.`);
+  kanal31.send(girismesaj ? girismesaj.replace('-kullanıcı-', `\`${member.user.tag}\``) .replace('-sunucu-', `${member.guild.name}`) : `:inbox_tray: \`${member.user.tag}\` adlı kullanıcı sunucuya katıldı.`);
 });
 
 
@@ -113,6 +112,16 @@ client.on("guildMemberRemove", async member => {
   if (!kanal31) return;
   if (!cikismesaj) return kanal31.send(`:outbox_tray: \`${member.user.tag}\` adlı kullanıcı sunucudan ayrıldı.`)
   kanal31.send(cikismesaj ? cikismesaj.replace('-kullanıcı-', `\`${member.user.tag}\``) .replace('-sunucu-', `${member.guild.name}`) : `:outbox_tray: \`${member.user.tag}\` adlı kullanıcı sunucudan ayrıldı.`);
+});
+
+
+client.on("guildMemberAdd", async member => {
+  const kanal30 = await db.fetch(`gckanal_${member.guild.id}`)
+  const kanal31 = member.guild.channels.find('id', kanal30)
+  const cikismesaj = await db.fetch(`cikism_${member.guild.id}`)
+  if (!kanal30) return;
+  if (!kanal31) return;
+  if (member.user.bot) return kanal31.send(`:robot: \`${member.user.tag}\`, bir bot !`);
 });
 
 ////////////////////////

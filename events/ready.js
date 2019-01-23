@@ -1,31 +1,16 @@
-const chalk = require('chalk');
-const moment = require('moment');
 const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
+const log = message => {
+  console.log(`Bee : ${message}`);
+};
 
 var prefix = ayarlar.prefix;
 
 module.exports = client => {
-  console.log(`[</>] BOT: Komutları yükledim!`);
-  console.log(`[</>] BOT: ${client.user.username} ismi ile giriş yaptım!`);
-  console.log(`[</>] BOT: Oyun ismimi ayarladım!`);
-  console.log(`[</>] BOT: Şu an ` + client.channels.size + ` adet kanala, ` + client.guilds.size + ` adet sunucuya ve ` + client.users.size + ` kullanıcıya hizmet veriyorum!`);
-
-    var Games = [
-     
-      ` Sunucuda rol almak için  rb!js rb!html   komutunu kullanın`,
-      
-      
-      
-
-
-    ];
-
-    setInterval(function() {
-
-        var random = Math.floor(Math.random()*(Games.length-0+1)+0);
-
-        client.user.setGame(Games[random], "https://twitch.tv/troyunculuk");
-        }, 2 * 2500);
-
+  log(`Komutları yükledim!`)
+  log(`${client.user.username} ismi ile giriş yaptım!`)
+  log(`Oyun ismimi ayarladım!`)
+  log(`Şu an ${client.channels.size} kanala, ${client.guilds.size} sunucuya ve ${client.users.size} kullanıcıya hizmet veriyorum!`)
+  client.user.setStatus("online")
+  client.user.setGame(`YENİ KOMUT: ${prefix}güncellemeler | ${prefix}yardım`)
 };
