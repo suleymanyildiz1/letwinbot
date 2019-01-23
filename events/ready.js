@@ -12,5 +12,5 @@ module.exports = client => {
   log(`Oyun ismimi ayarladım!`)
   log(`Şu an ${client.channels.size} kanala, ${client.guilds.size} sunucuya ve ${client.users.size} kullanıcıya hizmet veriyorum!`)
   client.user.setStatus("online")
-  client.user.setGame(`YENİ KOMUT: ${prefix}güncellemeler | ${prefix}yardım`)
+  client.user.setGame(`${prefix}js | ${prefix}yardım`)
 };

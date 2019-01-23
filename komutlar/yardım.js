@@ -5,13 +5,13 @@ var prefix = ayarlar.prefix;
 
 exports.run = (client, message, params) => {
   
-  if (params[0]) {
-    message.channel.sendCode("asciidoc", `= Real Bot Komutlar =
+  message.channel.send(`Eklenecek.`)
+  
+  /*if (params[0]) {
+    message.channel.sendCode("js", `KOMUTLAR:
 
-rb!kaydol           ::     Sunucuya kaydolmanızı sağlar.
-rb!js               ::     JavaScript kanallarına erişim sağlar.
+?js                 ::     JavaScript kanallarına erişim sağlar.
 rb!canlıdestek      ::     Yetkili kişilerle canlı desteğe geçmenizi sağlar.
-rb!hatalıkomut      ::     Belirttiğiniz komutun hatalı olduğunu yetkili kişilere bildirir.
 rb!istatistik       ::     Botun istatistiklerini görmenizi sağlar.
 rb!istek-kod        ::     İstediğiniz kodu Paylaşımcılara bildirir.
 rb!kanalbilgi       ::     Komutu kullandığınız kanalın bilgilerini gösterir.
@@ -51,7 +51,7 @@ rb!sıra             ::     Sırayı gösterir.`);
       .addField(`Açıklama`, `${aciklama}`)
       .addField(`Alternatifler`, `${ss}`)
       message.channel.send(embedyardim) 
-  }}
+  }}*/
 };
 
 exports.conf = {
