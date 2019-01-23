@@ -173,7 +173,6 @@ client.elevation = message => {
 	return; }
   let permlvl = 0;
   if (message.member.hasPermission("ADMINISTRATOR")) permlvl = 3;
-  if (message.author.id === ayarlar.sahip) permlvl = 4;
   return permlvl;
 };
 
