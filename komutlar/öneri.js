@@ -4,8 +4,7 @@ const Discord = require('discord.js');
 exports.run = function(client, message, args) {
 
 	let öneri = args.slice(0).join(' ');
-	let guildID = "507311180583534635";
-	let channelID = "511934212618584094";
+	let channelID = "537740243978289172";
 	
 	if (!öneri) return message.channel.send(`:no_entry: Bir öneri belirtmelisin.`);
 		
@@ -16,7 +15,7 @@ exports.run = function(client, message, args) {
 			.addField("ID", message.author.id)
 			.addField("Öneri", öneri)
     
-		client.guilds.channels.get(channelID).send(embed)
+		client.channels.get(channelID).send(embed)
 		message.channel.send(`:white_check_mark: Öneriniz alınmıştır. Teşekkür ederiz.`)
 };
 
