@@ -1,16 +1,16 @@
 const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 
-var prefix = ayarlar.prefix;
+let prefix = ayarlar.prefix;
 
 exports.run = (client, message, params) => {
   
   message.channel.send(`Eklenecek.`)
   
-  /*if (params[0]) {
+  if (params[0]) {
     message.channel.sendCode("js", `KOMUTLAR:
 
-?js                 ::     JavaScript kanallarına erişim sağlar.
+${prefix}js                 ::     JavaScript kanallarına erişim sağlar.
 rb!canlıdestek      ::     Yetkili kişilerle canlı desteğe geçmenizi sağlar.
 rb!istatistik       ::     Botun istatistiklerini görmenizi sağlar.
 rb!istek-kod        ::     İstediğiniz kodu Paylaşımcılara bildirir.
@@ -50,8 +50,8 @@ rb!sıra             ::     Sırayı gösterir.`);
       .addField(`Kullanım`, `${kullanim}`)
       .addField(`Açıklama`, `${aciklama}`)
       .addField(`Alternatifler`, `${ss}`)
-      message.channel.send(embedyardim) 
-  }}*/
+      message.channel.send(embedyardim)
+  }}
 };
 
 exports.conf = {

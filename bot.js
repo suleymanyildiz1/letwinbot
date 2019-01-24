@@ -22,7 +22,7 @@ const http = require('http');
     }, 280000);
 
 const log = message => {
-  console.log(`[Real Code] BOT: ${message}`);
+  console.log(`BOT: ${message}`);
 };
 
 client.commands = new Discord.Collection();
@@ -134,8 +134,16 @@ client.on("guildMemberAdd", async member => {
   if (!sayac) return;
   if (!skanal9) return;
   if (!skanal31) return;
+  
   skanal31.send(`:inbox_tray: \`${member.user.tag}\` adlı kullanıcı sunucuya katıldı. \`${sayac}\` kullanıcı olmaya \`${sayac - member.guild.members.size}\` kullanıcı kaldı.`)
+  
+  if (member.guild.members.size == sayac) {
+    skanal31.send(`:tada: Sunucu \`${sayac}\` kullanıcıya ulaştı. Sayaç sıfırlandı.`)
+    .then(db.delete(`sayac_${member.guild.id}`))
+    .then(db.delete(`sayacK_${member.guild.id}`))
+  }
 });
+
 
 client.on("guildMemberRemove", async member => {
   
@@ -163,10 +171,10 @@ client.on('guildMemberAdd', async member => {
   let rolk2 = member.guild.channels.find('id', rolk)
   if(!rolk2) return;
   if (member.user.bot) {
-    return member.addRole(botrol)
+    member.addRole(botrol)
   }
-  else if (!member.user.bot) {
-   return member.addRole(rol2)
+  if (!member.user.bot) {
+    member.addRole(rol2)
   }
   rolk2.send(`:white_check_mark: \`${member.user.tag}\` adlı kullanıcıya \`${rol2.name}\` rolü verildi.`)
 });
@@ -185,4 +193,4 @@ client.elevation = message => {
   return permlvl;
 };
 
-client.login(ayarlar.token);client.login(ayarlar.token);
+client.login(ayarlar.token);

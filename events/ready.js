@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 const log = message => {
-  console.log(`Bee : ${message}`);
+  console.log(`BOT : ${message}`);
 };
 
 var prefix = ayarlar.prefix;
