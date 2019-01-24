@@ -9,7 +9,7 @@ exports.run = function(client, message) {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['p'],
+  aliases: [],
   permLevel: 0
 };
 

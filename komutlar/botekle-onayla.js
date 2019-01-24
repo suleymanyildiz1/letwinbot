@@ -19,7 +19,7 @@ exports.run = function(client, message, args) {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["bot-onayla"],
+  aliases: [],
   permLevel: 0
 };
 
