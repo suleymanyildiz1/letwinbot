@@ -17,12 +17,12 @@ exports.run = (client, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['istekkod','istek-kod','kod','komut','istek-komut','istekkomut'],
+  aliases: ['istekkod','istek'],
   permLevel: 0
 };
 
 exports.help = {
-  name: 'istek',
-  description: 'İstediğiniz şeyi bota yazdırır.',
-  usage: 'istek [yazdırmak istediğiniz şey]'
+  name: 'istek-kod',
+  description: 'İstediğiniz kodu bildirir.',
+  usage: 'istek-kod <istediğiniz kod>'
 };
