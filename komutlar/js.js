@@ -15,6 +15,6 @@ exports.conf = {
 
 exports.help = {
   name: 'js',
-  description: 'Discord.js Kanallarını Görürsünüz.',
+  description: 'JavaScript kanallarına erişim sağlar.',
   usage: 'js'
 };
