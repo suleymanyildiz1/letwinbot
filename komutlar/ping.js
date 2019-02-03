@@ -1,9 +1,8 @@
 const Discord = require('discord.js');
 
-
 exports.run = function(client, message) {
 
-    message.channel.send(`Pingim ${client.ping}ms.`);
+  message.channel.send(`Pingim ${client.ping}ms.`);
 };
 
 exports.conf = {

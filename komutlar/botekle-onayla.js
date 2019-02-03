@@ -11,7 +11,6 @@ exports.run = function(client, message, args) {
   message.delete()
 		client.channels.get(log).send(`:tada:${botisim} adlı bot onaylandı. Onaylayan yetkili : ${message.author}`);
 		message.channel.send(`:white_check_mark: Botu onayladınız.`).then(msg => msg.delete(10000))
-  
 };
 
 exports.conf = {
