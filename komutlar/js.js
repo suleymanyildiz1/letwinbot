@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 exports.run = function(client, message) {
-  var role = message.guild.roles.find(role => role.name === "ROL"); // verilecek rol ismi
+  var role = message.guild.roles.find(role => role.name === "ROL"); // verilecek rol ismi (isterseniz "role.name" yerine "role.id" yapıp "ROL" yazan yere rol id de yazabilirsiniz.
   message.member.addRole(role);
   message.channel.send(`:white_check_mark: Rol ismi rolü başarıyla verildi.`);
 };
