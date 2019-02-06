@@ -6,11 +6,11 @@ exports.run = function(client, message, args) {
 	let botid = args[0]
 	let prefix = args[1]
   let yetkili = "kanalid" // başvurunun gideceği kanal
-	let basvuru = "kanalid" // başvurunun yapılacağı kanal
+	let kanal = "kanalid" // başvurunun yapılacağı kanal
   let log = "kanalid" // bot eklendi / onaylandı / reddedildi kanalı
 	
-  if (message.channel.id !== basvuru) return message.channel.send(`Bu komutu sadece <#${basvuru}> kanalında kullanabilirsin.`).then(msg => msg.delete(10000))
-	if (message.channel.id == basvuru) {
+  if (message.channel.id !== kanal) return message.channel.send(`Bu komutu sadece <#${kanal}> kanalında kullanabilirsin.`).then(msg => msg.delete(10000))
+	if (message.channel.id == kanal) {
   if (!botid) return message.channel.send(`:no_entry: Botunun ID'sini yazmalısın.`).then(msg => msg.delete(10000))
   if (!prefix) return message.channel.send(`:no_entry: Botunun prefixini yazmalısın.`).then(msg => msg.delete(10000))
   message.delete()
