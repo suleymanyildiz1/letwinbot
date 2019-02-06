@@ -16,12 +16,12 @@ exports.run = function(client, message, args) {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: [],
+  aliases: ['bot-onayla', 'onayla'],
   permLevel: 0
 };
 
 exports.help = {
-  name: 'onayla', 
+  name: 'botonayla', 
   description: "Sunucuya eklenen botu onaylar.",
-  usage: 'onayla <bot ismi>'
+  usage: 'botonayla <bot ismi>'
 };

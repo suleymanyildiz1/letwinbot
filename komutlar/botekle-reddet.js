@@ -17,12 +17,12 @@ exports.run = function(client, message, args) {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: [],
+  aliases: ['bot-reddet', 'reddet'],
   permLevel: 0
 };
 
 exports.help = {
-  name: 'reddet', 
+  name: 'botreddet', 
   description: "Sunucuya eklenen botu reddeder.",
-  usage: 'reddet <bot ismi> - <sebep>'
+  usage: 'botreddet <bot ismi> - <sebep>'
 };
