@@ -5,7 +5,7 @@ exports.run = function(client, message, args) {
 
 	let botid = args[0]
 	let prefix = args[1]
-  let onaylımı = args[1]
+  let onaylımı = args[2]
   let basvuru = "540629967365734400"// başvurunun gideceği kanal
 	let kanal = "540617832782757888" // başvurunun yapılacağı kanal
   let log = "540617786880163902" // bot eklendi / onaylandı / reddedildi kanalı
