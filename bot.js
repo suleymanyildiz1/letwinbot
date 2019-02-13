@@ -96,3 +96,23 @@ client.elevation = message => {
 };
 
 client.login(ayarlar.token);
+
+
+client.on('ready', () => {
+    client.user.setPresence({
+        game: {
+            name: `a!botekle | Discord Botları`,
+            type: 'WATCHING'
+            // Değerler:
+            // PLAYING: Oynuyor
+            // WATCHING: İzliyor
+            // LISTENING: Dinliyor
+        },
+        status: 'online'
+        // Değerler:
+        // online: Çevrimiçi
+        // dnd: Rahatsız Etmeyin
+        // idle: Boşta
+    })
+})
+

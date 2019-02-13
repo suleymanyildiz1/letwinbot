@@ -5,9 +5,9 @@ exports.run = function(client, message, args) {
 
 	let botid = args[0]
 	let prefix = args[1]
-  let basvuru = "kanalid" // başvurunun gideceği kanal
-	let kanal = "kanalid" // başvurunun yapılacağı kanal
-  let log = "kanalid" // bot eklendi / onaylandı / reddedildi kanalı
+  let basvuru = "540629967365734400"// başvurunun gideceği kanal
+	let kanal = "540617832782757888" // başvurunun yapılacağı kanal
+  let log = "540617786880163902" // bot eklendi / onaylandı / reddedildi kanalı
 	
   if (message.channel.id !== kanal) return message.channel.send(`Bu komutu sadece <#${kanal}> kanalında kullanabilirsin.`).then(msg => msg.delete(10000))
 	if (message.channel.id == kanal) {
