@@ -7,9 +7,9 @@ exports.run = function(client, message, args) {
 	let botisim = args.join(" ")
 	let log = "540617786880163902" // bot eklendi / onaylandı / reddedildi kanalı
 	
-	if (!botisim) return message.channel.send(`:no_entry: Botun ismini yazmalısın.`).then(msg => msg.delete(10000))
+	if (!botisim) return message.channel.send(`:no_entry: Botun idsini yazmalısın.`).then(msg => msg.delete(10000))
   message.delete()
-		client.channels.get(log).send(`:tada:${botisim} adlı bot onaylandı. Onaylayan yetkili : ${message.author}`);
+		client.channels.get(log).send(`:tada:<@${botisim}> adlı bot onaylandı. Onaylayan yetkili : ${message.author}`);
 		message.channel.send(`:white_check_mark: Botu onayladınız.`).then(msg => msg.delete(10000))
 };
 
@@ -24,4 +24,4 @@ exports.help = {
   name: 'botonayla', 
   description: "Sunucuya eklenen botu onaylar.",
   usage: 'botonayla <bot ismi>'
-};
+};6

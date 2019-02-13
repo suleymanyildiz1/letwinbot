@@ -8,7 +8,7 @@ exports.run = function(client, message, args) {
   let sebep = args[1]
 	let log = "540617786880163902" // bot eklendi / onaylandı / reddedildi kanalı
 	
-	if (!botisim) return message.channel.send(`:no_entry: Botun İdsini yazmalısın.`).then(msg => msg.delete(10000))
+	if (!botisim) return message.channel.send(`:no_entry: Botun idsini yazmalısın.`).then(msg => msg.delete(10000))
   if (!sebep) return message.channel.send(`:no_entry: Botu neden onaylamadığını yazmalısın.`).then(msg => msg.delete(10000))
   message.delete()
 		client.channels.get(log).send(':no_entry: <@${botisim}> adlı bot reddedildi. Sebep : ``${sebep}`` Reddeden yetkili : ${message.author}');
