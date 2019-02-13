@@ -14,6 +14,7 @@ exports.run = function(client, message, args) {
 	if (message.channel.id == kanal) {
   if (!botid) return message.channel.send(`:no_entry: Botunun ID'sini yazmalısın.`).then(msg => msg.delete(10000))
   if (!prefix) return message.channel.send(`:no_entry: Botunun prefixini yazmalısın.`).then(msg => msg.delete(10000))
+  if (!onaylımı) return message.channel.send(`:no_entry: Botunun Dbl onaylımı onu yazmalısın`).then(msg => msg.delete(10000))
   message.delete()
   const embed = new Discord.RichEmbed()
   .setColor("BLUE")
@@ -22,6 +23,7 @@ exports.run = function(client, message, args) {
   .addField("Bot Sahibi", message.author.tag)
   .addField("Bot ID", botid)
   .addField("Bot Prefix", prefix)
+  .addField("Bot Onaylımı?", 
   client.channels.get(basvuru).send(embed)
   client.channels.get(log).send(`${message.author} adlı kullanıcı <@${botid}> adlı botu sıraya ekledi. Botu onaylanmayı bekliyor.`)
   message.channel.send(`:white_check_mark: Bot ekleme isteğiniz alındı.`).then(msg => msg.delete(10000))
