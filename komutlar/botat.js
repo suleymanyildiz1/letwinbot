@@ -11,7 +11,7 @@ exports.run = function(client, message, args) {
 	
 	if (!botisim) return message.channel.send(`:no_entry: Botun idsini yazmalısın.`).then(msg => msg.delete(10000))
   message.delete()
-		client.channels.get(log).send(`:x: <@${sahip}> adlı kişinin <@${botisim}> adlı botu atıldı.Sebep: **<@${sebebp}>**. Atan yetkili : ${message.author}`);
+		client.channels.get(log).send(`:x: <@${sahip}> adlı kişinin <@${botisim}> adlı botu atıldı.Sebep: **${sebebp}**. Atan yetkili : ${message.author}`);
 		message.channel.send(`:white_check_mark: Botu onayladınız.`).then(msg => msg.delete(10000))
 };
 
