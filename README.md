@@ -2,7 +2,7 @@
 
 ### Hakkında
 
-Bu bot, `Furkan#8982` tarafından hazırlanmıştır. Bot ekleme sistemli bir bottur.
+Bu bot, `Yusuf` tarafından hazırlanmıştır. Bot ekleme sistemli bir bottur.
 
 ----------------------
 
