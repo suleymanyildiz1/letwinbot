@@ -15,8 +15,14 @@ Bu bot, `Yusuf` tarafından hazırlanmıştır. Bot ekleme sistemli bir bottur.
 ### Komutlar
 
 - `<prefix>js` : JavaScript rolünü verir.
-- `<prefix>botekle` : Komutu kullanan kişi sunucuya bot ekletme isteği gönderir.
-- `<prefix>botonayla` : Botu sunucuya ekledikten sonra botu onayladığınızı gönderir.
-- `<prefix>botreddet` : Botu sunucuya eklemediğinizin sebebini gönderir.
+- `<prefix>botekle` : `botid prefix dblonaylı/onaysız` şeklinde kullanın.
+- `<prefix>botonayla` : `botid sahipid şekilde` kullanın.
+- `<prefix>botreddet` : `botid sahipid sebep` şeklinde kullanın
+- `<prefix>botat` : `botsahipid botid sebep` şeklinde kullanabilirsiniz
+- `<prefix>botkapalı` :  `botid sahipid gün `şekline kullanabilirsinz.
 
+----------------------
+## Önemli
+
+- `oynuyor kısmı değişme` : Bot.js ye girin en altdan değişebilirsiniz.
 ----------------------
