@@ -21,7 +21,7 @@ exports.run = function(client, message, args) {
 	if (!botisim) return message.channel.send(`:no_entry: Botun idsini yazmalısın.`).then(msg => msg.delete(10000))
     if (!sahip) return message.channel.send(`:no_entry: Bot Sahibi id yazman lazım.`).then(msg => msg.delete(10000))
   message.delete()
-		client.channels.get(log).send(`:x: <@${botisim}> adlı bot kapalıdır. ${zaman} günden fazla kapalı olursa atılacakdır! <@${sahip}> hemen halletmesi rica olunur`);
+		client.channels.get(log).send(`<a:unlem:555512553799811093> <@${botisim}> adlı bot kapalıdır. ${zaman} günden fazla kapalı olursa atılacakdır! <@${sahip}> hemen halletmesi rica olunur`);
 		message.channel.send(`:white_check_mark: Botu reddettiniz.`).then(msg => msg.delete(10000))
 };
 
