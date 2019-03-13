@@ -10,7 +10,7 @@ exports.run = function(client, message, args) {
 	
 	if (!botisim) return message.channel.send(`:no_entry: Botun idsini yazmalısın.`).then(msg => msg.delete(10000))
   message.delete()
-		client.channels.get(log).send(`:tada:<@${sahip}> adlı kişinin <@${botisim}> adlı botu onaylandı. Onaylayan yetkili : ${message.author}`);
+		client.channels.get(log).send(`<a:evettt:555510383524315139> <@${sahip}> adlı kişinin <@${botisim}> adlı botu onaylandı.`);
 		message.channel.send(`:white_check_mark: Botu onayladınız.`).then(msg => msg.delete(10000))
 };
 

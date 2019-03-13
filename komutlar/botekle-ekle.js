@@ -25,7 +25,7 @@ exports.run = function(client, message, args) {
   .addField("Bot Prefix", prefix)
   .addField("Bot Onaylımı?", onaylımı)
   client.channels.get(basvuru).send(embed)
-  client.channels.get(log).send(`${message.author} adlı kullanıcının <@${botid}> adlı botu sıraya ekledi. Botu onaylanmayı bekliyor.`)
+  client.channels.get(log).send(`<a:tik:555510275076390954> ${message.author} adlı kullanıcının <@${botid}> adlı botu sıraya ekledi. Botu onaylanmayı bekliyor.`)
   message.channel.send(`:white_check_mark: Bot ekleme isteğiniz alındı.`).then(msg => msg.delete(10000))
   }
 };
