@@ -1,16 +1,21 @@
+const chalk = require('chalk');
+const moment = require('moment');
 const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
-const log = message => {
-  console.log(`BOT : ${message}`);
-};
 
 var prefix = ayarlar.prefix;
 
+
 module.exports = client => {
-  log(`Komutları yükledim!`)
-  log(`${client.user.username} ismi ile giriş yaptım!`)
-  log(`Oyun ismimi ayarladım!`)
-  log(`Şu an ${client.channels.size} kanala, ${client.guilds.size} sunucuya ve ${client.users.size} kullanıcıya hizmet veriyorum!`)
-  client.user.setStatus("online")
-  client.user.setGame(`${prefix}botekle | Discord Botları`)
+  console.log(`${client.user.username} ismi ile giriş yapıldı!`);
+  client.user.setStatus("idle");
+  //idle = boşta
+  //dnd = rahatsız etmeyin
+  //online = çevrimiçi
+  console.log(`                                                                                                                                                                     `)
+  client.user.setActivity(`Shydra.glitch.me`, { type: "LISTENING"});
+  //LISTENING = DİNLİYOR
+  //WATCHING = İZLİYOR
+  //PLAYING = OYNUYOR 
+  console.log(`${client.user.username}: Şu an ` + client.channels.size + ` adet kanala, ` + client.guilds.size + ` adet sunucuya ve ` + client.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString() + ` kullanıcıya hizmet veriliyor!`);
 };
