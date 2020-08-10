@@ -10,7 +10,7 @@ exports.run = function(client, message, args) {
 	
 	if (!lrowsisim) return message.channel.send(`:no_entry: Botun idsini yazmalısın.`).then(msg => msg.delete(10000))
   message.delete()
-		client.channels.get(log).send(`<a:bot:555512267907530753> <@${sahip}> adlı kişinin <@${lrowsisim}> adlı bot görüldü. Yakında Onaylanıp/Reddedilecek.`);
+		client.channels.get(log).send(`:white_check_mark: <@${sahip}> adlı kişinin <@${lrowsisim}> adlı bot görüldü. Yakında Onaylanıp/Reddedilecek.`);
 		message.channel.send(`:white_check_mark: Botu Görüldü Ye Aldınız.`).then(msg => msg.delete(10000))
 };
 
