@@ -6,9 +6,9 @@ exports.run = function(client, message, args) {
 	let botid = args[0]
 	let prefix = args[1]
   let onaylımı = args[2]
-  let basvuru = "540629967365734400"// başvurunun gideceği kanal
-	let kanal = "540617832782757888" // başvurunun yapılacağı kanal
-  let log = "540617786880163902" // bot eklendi / onaylandı / reddedildi kanalı
+  let basvuru = "742449107615875217"// başvurunun gideceği kanal
+	let kanal = "742449128117764167" // başvurunun yapılacağı kanal
+  let log = "742449138561581265" // bot eklendi / onaylandı / reddedildi kanalı
 	
   if (message.channel.id !== kanal) return message.channel.send(`Bu komutu sadece <#${kanal}> kanalında kullanabilirsin.`).then(msg => msg.delete(10000))
 	if (message.channel.id == kanal) {
@@ -17,7 +17,7 @@ exports.run = function(client, message, args) {
   if (!onaylımı) return message.channel.send(`:no_entry: Botunun Dbl onaylımı onu yazmalısın`).then(msg => msg.delete(10000))
   message.delete()
   const embed = new Discord.RichEmbed()
-  .setColor("BLUE")
+  .setColor("PURPLE")
   .setDescription(`[Ekle](https://discordapp.com/oauth2/authorize?client_id=${botid}&scope=bot&permissions=0)`, true)
   .setTitle("Bot Ekletme")
   .addField("Bot Sahibi", message.author.tag)

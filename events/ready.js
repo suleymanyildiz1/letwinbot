@@ -13,7 +13,7 @@ module.exports = client => {
   //dnd = rahatsız etmeyin
   //online = çevrimiçi
   console.log(`                                                                                                                                                                     `)
-  client.user.setActivity(`Shydra.glitch.me`, { type: "LISTENING"});
+  client.user.setActivity(`lrowsxrd`, { type: "LISTENING"});
   //LISTENING = DİNLİYOR
   //WATCHING = İZLİYOR
   //PLAYING = OYNUYOR 

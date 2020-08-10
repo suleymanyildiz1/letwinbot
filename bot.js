@@ -101,7 +101,7 @@ client.login(ayarlar.token);
 client.on('ready', () => {
     client.user.setPresence({
         game: {
-            name: `a!botekle | a!js | Discord Botları`,
+            name: `!botekle Discord BotList`,
             type: 'WATCHING'
             // Değerler:
             // PLAYING: Oynuyor
