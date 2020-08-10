@@ -6,7 +6,7 @@ exports.run = function(client, message, args) {
   if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`:no_entry: Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
 	let lrowsisim = args[0]
   let sahip = args[1]
-	let log = "742449138561581265" // bot eklendi / onaylandı / reddedildi kanalı
+	let log = "742455429677842533" // bot eklendi / onaylandı / reddedildi kanalı
 	
 	if (!lrowsisim) return message.channel.send(`:no_entry: Botun idsini yazmalısın.`).then(msg => msg.delete(10000))
   message.delete()

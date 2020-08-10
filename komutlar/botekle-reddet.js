@@ -16,7 +16,7 @@ exports.run = function(client, message, args) {
   let sebep7 = args[9]
   let sebep8 = args[10]
   let sebep9 = args[11]
-	let log = "742449138561581265" // bot eklendi / onaylandı / reddedildi kanalı
+	let log = "742455429677842533" // bot eklendi / onaylandı / reddedildi kanalı
 	
 	if (!lrowsisim) return message.channel.send(`:no_entry: Botun idsini yazmalısın.`).then(msg => msg.delete(10000))
   if (!sebep) return message.channel.send(`:no_entry: Botu neden onaylamadığını yazmalısın.`).then(msg => msg.delete(10000))
