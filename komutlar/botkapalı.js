@@ -4,7 +4,7 @@
 exports.run = function(client, message, args) {
   
   if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`:no_entry: Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
-	let botisim = args[0]
+	let lrowsisim = args[0]
   let sahip = args[1]
   let zaman = args[2]
   let sebep1 = args[3]
@@ -18,10 +18,10 @@ exports.run = function(client, message, args) {
   let sebep9 = args[11]
 	let log = "742449138561581265" // bot eklendi / onaylandı / reddedildi kanalı
 	
-	if (!botisim) return message.channel.send(`:no_entry: Botun idsini yazmalısın.`).then(msg => msg.delete(10000))
+	if (!lrowsisim) return message.channel.send(`:no_entry: Botun idsini yazmalısın.`).then(msg => msg.delete(10000))
     if (!sahip) return message.channel.send(`:no_entry: Bot Sahibi id yazman lazım.`).then(msg => msg.delete(10000))
   message.delete()
-		client.channels.get(log).send(`<a:unlem:555512553799811093> <@${botisim}> adlı bot kapalıdır. ${zaman} günden fazla kapalı olursa atılacakdır! <@${sahip}> hemen halletmesi rica olunur`);
+		client.channels.get(log).send(`<a:unlem:555512553799811093> <@${lrowsisim}> adlı bot kapalıdır. ${zaman} günden fazla kapalı olursa atılacakdır! <@${sahip}> hemen halletmesi rica olunur`);
 		message.channel.send(`:white_check_mark: Botu reddettiniz.`).then(msg => msg.delete(10000))
 };
 
