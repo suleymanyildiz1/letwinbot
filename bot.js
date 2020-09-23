@@ -117,7 +117,7 @@ client.on('ready', () => {
 })
 
 
-client.on('guildMemberAdd', (member) => {
-var tag = "✫"//Tagınız
-member.setNickname(`${tag} | ${member.user.username}`)
-}); //Maze yazdı çalma, sağlığın açısından iyi olur.
+//client.on('guildMemberAdd', (member) => {
+//var tag = "✫"//Tagınız
+//member.setNickname(`${tag} | ${member.user.username}`)
+//}); //Maze yazdı çalma, sağlığın açısından iyi olur.

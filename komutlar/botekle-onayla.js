@@ -9,8 +9,8 @@ exports.run = function(client, message, args) {
 	let log = "758379780751491143" // bot eklendi / onaylandı / reddedildi kanalı
 	
 	if (!lrowsisim) return message.channel.send(`:no_entry: Botun idsini yazmalısın.`).then(msg => msg.delete(10000))
-  message.delete() 
-		client.channels.get(log).send(`<a:tik4:756946179530424541>   <@${sahip}> adlı kişinin <@${lrowsisim}> adlı botu onaylandı.`);
+  message.delete()
+		client.channels.get(log).send(`<a:tik4:756946179530424541> <@${sahip}> adlı kişinin <@${lrowsisim}> adlı botu onaylandı.`);
 		message.channel.send(`<a:tik4:756946179530424541> Botu onayladınız.`).then(msg => msg.delete(2000))
 };
 
