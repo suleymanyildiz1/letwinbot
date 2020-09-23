@@ -128,7 +128,7 @@ client.on('message', (message) => {
   if(message.channel.id == "758400812992561232") {
  if(message.author.id == message.client.user.id) return;
 
- message.delete(10 * 1000)
+ message.delete(10 * 3000)
 }
 
 })
