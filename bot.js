@@ -121,3 +121,14 @@ client.on('ready', () => {
 //var tag = "✫"//Tagınız
 //member.setNickname(`${tag} | ${member.user.username}`)
 //}); //Maze yazdı çalma, sağlığın açısından iyi olur.
+
+
+
+client.on('message', (message) => {
+  if(message.channel.id == "758400812992561232") {
+ if(message.author.id == message.client.user.id) return;
+
+ message.delete(10 * 1000)
+}
+
+})
