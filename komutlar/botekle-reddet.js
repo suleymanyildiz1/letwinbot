@@ -22,8 +22,8 @@ exports.run = function(client, message, args) {
   if (!sebep) return message.channel.send(`:no_entry: Botu neden onaylamadığını yazmalısın.`).then(msg => msg.delete(10000))
     if (!sahip) return message.channel.send(`:no_entry: Bot Sahibi id yazman lazım.`).then(msg => msg.delete(10000))
   message.delete()
-		client.channels.get(log).send(`:no_entry: <@${sahip}> adlı kişini <@${lrowsisim}> adlı botu reddedildi. Sebep : **${sebep} ${sebep1} ** `);
-		message.channel.send(`:white_check_mark: Botu reddettiniz.`).then(msg => msg.delete(10000))
+		client.channels.get(log).send(`<a:no:740278046921195612> <@${sahip}> _adlı kişinin_ <@${lrowsisim}> _adlı botu reddedildi. Sebep :_ **${sebep} ${sebep1} ** `);
+		message.channel.send(`<a:tik4:756946179530424541> Botu reddettiniz.`).then(msg => msg.delete(10000))
 };
 
 exports.conf = {
