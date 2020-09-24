@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 
 exports.run = function(client, message, args) {
   
-  if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`:no_entry: Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
+  if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`:no_entry: Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);  
   let sahip = message.guild.members.get(args[0])
 	let botisim = message.guild.members.get(args[1])
   
