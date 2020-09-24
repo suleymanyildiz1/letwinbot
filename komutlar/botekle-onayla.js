@@ -12,7 +12,8 @@ exports.run = function(client, message, args) {
 	if (!lrowsisim) return message.channel.send(`:no_entry: Botun idsini yazmalısın.`).then(msg => msg.delete(10000))
   if(!sahip) return message.reply("Bir sahip id girmen gerekiyor")
   message.delete()
-    sahip.addRole()
+    sahip.addRole(rol)
+   
 		client.channels.get(log).send(`<a:tik4:756946179530424541> <@${sahip}> adlı kişinin <@${lrowsisim}> adlı botu onaylandı.`)
 		message.channel.send(`<a:tik4:756946179530424541> Botu onayladınız.`).then(msg => msg.delete(2000))
     
