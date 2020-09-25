@@ -25,7 +25,7 @@ exports.run = function(client, message, args) {
   .addField("<a:jke:754772326704218112> Bot Prefix", prefix ,)
   .addField("<a:jke:754772326704218112> Bot Onaylımı?", onaylımı ) 
   client.channels.get(basvuru).send(embed)
-  client.channels.get(log).send(`<a:load:758389302861889566>` + `<@${message.author.id}> adlı kullanıcının <@${lrowsid}> adlı botu sıraya ekledi. Botu onaylanmayı bekliyor.`)
+  client.channels.get(log).send(`<a:load:758389302861889566>` + `<@${message.author.id}> adlı kullanıcının <@${lrowsid}> adlı botu sıraya ekledi.En yakın zamanda test edilecektir.`)
   message.channel.send(`<a:tik4:756946179530424541>__**Bot ekleme isteğiniz alındı.**__`).then(msg => msg.delete(3000  ))
   }
 };
