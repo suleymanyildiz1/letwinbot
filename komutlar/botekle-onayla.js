@@ -3,7 +3,8 @@ const Discord = require('discord.js');
 
 exports.run = function(client, message, args) {
   
-  if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`:no_entry: Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);  
+  if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`:no_entry: Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`); 
+  let yetkili = message.author
   let sahip = message.guild.members.get(args[0])
 	let botisim = message.guild.members.get(args[1])
   
@@ -18,7 +19,7 @@ exports.run = function(client, message, args) {
   botisim.addRole(b)
   sahip.send(`<a:tik4:756946179530424541>${botisim} _**Adlı botunuz Jau Bot List'te onaylandı.Developer perminiz verildi.**_`)
    
-		client.channels.get(log).send(`<a:tik4:756946179530424541> ${sahip} adlı kişinin ${botisim} adlı botu onaylandı.`)
+		client.channels.get(log).send(` <a:tik4:756946179530424541> ${sahip} **adlı kişinin** ${botisim} **adlı botu onaylandı. Onaylayan yetkili :** ${yetkili} `)
 		
     
   
