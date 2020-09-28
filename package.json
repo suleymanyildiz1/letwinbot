@@ -14,7 +14,8 @@
     "discord.js": "^11.4.2",
     "express": "^4.16.4",
     "fs": "^0.0.2",
-    "moment": "^2.27.0"
+    "moment": "^2.27.0",
+    "quick.db": "^7.1.2"
   },
   "engines": {
     "node": "8.x"
