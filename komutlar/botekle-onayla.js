@@ -19,7 +19,7 @@ exports.run = function(client, message, args) {
   botisim.addRole(b)
   sahip.send(`<a:tik4:756946179530424541>${botisim} _**Adlı botunuz Jau Bot List'te onaylandı.Developer perminiz verildi.**_`)
    
-		client.channels.get(log).send(` <a:tik4:756946179530424541> ${sahip} **adlı kişinin** ${botisim} **adlı botu onaylandı. Onaylayan yetkili :** ${yetkili} `)
+		client.channels.get(log).send(` <a:tik4:756946179530424541> ${sahip} **adlı kişinin** ${botisim} **adlı botu onaylandı. Onaylayan yetkili ->** ${yetkili} `)
 		
     
   

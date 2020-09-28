@@ -23,9 +23,8 @@ let botisim = message.guild.members.get(args[1])
   if (!sebep) return message.channel.send(`:no_entry: Botu neden onaylamadığını yazmalısın.`).then(msg => msg.delete(10000))
     if (!sahip) return message.channel.send(`:no_entry: Bot Sahibi id yazman lazım.`).then(msg => msg.delete(10000))
   message.delete()
-		client.channels.get(log).send(`<a:no:740278046921195612> ${sahip} _adlı kişinin_ ${botisim} _adlı botu reddedildi. | Sebep :_ **${sebep}** `);
-		message.channel.send(`<a:tik4:756946179530424541> Botu reddettiniz.`).then(msg => msg.delete(10000))
-    sahip.send(`<a:no:740278046921195612>  ${botisim} _**Adlı botunuz Jau Bot List'te reddedildi. | Sebep :**_ **${sebep}**`)
+		client.channels.get(log).send(`<a:no:740278046921195612> ${sahip} **adlı kişinin** ${botisim} **adlı botu reddedildi. | Sebep :** **${sebep}** `);
+    sahip.send(`<a:no:740278046921195612>  ${botisim} _**Adlı botunuz Jau Bot List'te reddedildi. | Sebep :**_ **${sebep}** `)
 };
 
 exports.conf = {
