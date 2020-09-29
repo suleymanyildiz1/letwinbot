@@ -24,6 +24,7 @@ exports.run = function(client, message, args) {
    .setColor('#5fbf00')
    .setDescription(`> <a:tik4:756946179530424541> | ${sahip} **adlı kişinin** ${botisim} **adlı botu onaylandı.** \n\n > 🔏 | **Onaylayan yetkili =** ${yetkili} `)
 		client.channels.get(log).send(embed2)
+    client.channels.get(log).send(` > 📥 | **<@${message.author.id}>**`)
 		
     
   
