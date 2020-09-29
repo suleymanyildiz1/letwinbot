@@ -17,9 +17,13 @@ exports.run = function(client, message, args) {
   message.delete()
     sahip.addRole(rol)
   botisim.addRole(b)
-  sahip.send(`<a:tik4:756946179530424541>${botisim} _**Adlı botunuz Jau Bot List'te onaylandı.Developer perminiz verildi.**_`)
-   
-		client.channels.get(log).send(` <a:tik4:756946179530424541> ${sahip} **adlı kişinin** ${botisim} **adlı botu onaylandı. Onaylayan yetkili ->** ${yetkili} `)
+  let embedd = new Discord.RichEmbed()
+  .setDescription(`> <a:tik4:756946179530424541> | **Tebrikler!** ${botisim} **adlı botun onaylandı.Developer permin verildi** \n\n > 🔏 | **Onaylayan yetkili =** ${yetkili} `)
+  sahip.send(embedd)
+   let embed2 = new Discord.RichEmbed()
+   .setColor('#5fbf00')
+   .setDescription(`> <a:tik4:756946179530424541> | ${sahip} **adlı kişinin** ${botisim} **adlı botu onaylandı.** \n\n > 🔏 | **Onaylayan yetkili =** ${yetkili} `)
+		client.channels.get(log).send(embed2)
 		
     
   
