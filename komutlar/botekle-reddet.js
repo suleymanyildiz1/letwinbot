@@ -11,9 +11,11 @@ let botisim = message.guild.members.get(args[1])
     
   if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`:no_entry: Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
   let embed2 = new Discord.RichEmbed()
+  .setColor('#7f0000')
    .setDescription(`> <a:no1:740278046921195612> |**Maalesef!** ${botisim} **adlı botun reddedildi.** \n\n > 📕 | **Sebep =** ${sebep} \n\n > 🔏 | **Reddeden yetkili =** ${yetkili} `)
 		
   let embed = new Discord.RichEmbed()
+  .setColor('#7f0000')
    .setDescription(` > <a:no1:740278046921195612> | ${sahip} **adlı kişinin** ${botisim} **adlı botu reddedildi.** \n\n > 📕 | **Sebep =** ${sebep} \n\n > 🔏 | **Reddeden yetkili =** ${yetkili} `)
 		
 	if (!botisim) return message.channel.send(`:no_entry: Botun idsini yazmalısın.`).then(msg => msg.delete(10000))
