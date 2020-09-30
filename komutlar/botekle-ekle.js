@@ -30,7 +30,7 @@ exports.run = function(client, message, args) {
     
     .setDescription(`>  <a:load:758389302861889566>` + `<@${message.author.id}> adlı kullanıcı <@${lrowsid}> adlı botu sıraya ekledi.En yakın zamanda test edilecektir. \n\n > 🔖 | **Prefix =** {  ${prefix}  }`)
   client.channels.get(log).send(embed2)
-    client.channels.get(log).send(` > 📥 | **<@${message.author.id}>**`)
+   
   message.channel.send(`<a:tik4:756946179530424541>__**Bot ekleme isteğiniz alındı.**__`).then(msg => msg.delete(3000  ))
   }
 };
