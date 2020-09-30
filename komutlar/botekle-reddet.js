@@ -23,7 +23,7 @@ let botisim = message.guild.members.get(args[1])
     if (!sahip) return message.channel.send(`:no_entry: Bot Sahibi id yazman lazım.`).then(msg => msg.delete(10000))
   message.delete()
   client.channels.get(log).send(embed);
-  client.channels.get(log).send(`> 📤 | **${sahip}**`);
+  client.channels.get(log).send(`> <a:no1:740278046921195612> | **${sahip}**`);
     sahip.send(embed2)
 };
 
