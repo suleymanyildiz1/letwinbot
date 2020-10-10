@@ -1,19 +1,19 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 const client = new Discord.Client();
-const ayarlar = require('./ayarlar.json');
-const fs = require('fs');
-require('./util/eventLoader')(client);
+const ayarlar = require("./ayarlar.json");
+const fs = require("fs");
+require("./util/eventLoader")(client);
 
-const express = require('express');
+const express = require("express");
 const app = express();
-const http = require('http');
-    app.get("/", (request, response) => {
-    response.sendStatus(200);
-    });
-    app.listen(process.env.PORT);
-    setInterval(() => {
-    http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
-    }, 280000);
+const http = require("http");
+app.get("/", (request, response) => {
+  response.sendStatus(200);
+});
+app.listen(process.env.PORT);
+setInterval(() => {
+  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+}, 280000);
 
 const log = message => {
   console.log(`BOT: ${message}`);
@@ -21,7 +21,7 @@ const log = message => {
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
-fs.readdir('./komutlar/', (err, files) => {
+fs.readdir("./komutlar/", (err, files) => {
   if (err) console.error(err);
   log(`${files.length} komut yüklenecek.`);
   files.forEach(f => {
@@ -48,7 +48,7 @@ client.reload = command => {
         client.aliases.set(alias, cmd.help.name);
       });
       resolve();
-    } catch (e){
+    } catch (e) {
       reject(e);
     }
   });
@@ -63,7 +63,7 @@ client.load = command => {
         client.aliases.set(alias, cmd.help.name);
       });
       resolve();
-    } catch (e){
+    } catch (e) {
       reject(e);
     }
   });
@@ -79,7 +79,7 @@ client.unload = command => {
         if (cmd === command) client.aliases.delete(alias);
       });
       resolve();
-    } catch (e){
+    } catch (e) {
       reject(e);
     }
   });
@@ -88,8 +88,9 @@ client.unload = command => {
 ////////////////////////
 
 client.elevation = message => {
-  if(!message.guild) {
-	return; }
+  if (!message.guild) {
+    return;
+  }
   let permlvl = 0;
   if (message.member.hasPermission("ADMINISTRATOR")) permlvl = 3;
   return permlvl;
@@ -97,47 +98,41 @@ client.elevation = message => {
 
 client.login(ayarlar.token);
 
+client.on("ready", () => {
+  client.user.setPresence({
+    game: {
+      name: `j!botekle`,
+      type: "WATCHING"
+      // Değerler:
+      // PLAYING: Oynuyor
+      // WATCHING: İzliyor
+      // LISTENING: Dinliyor
+    },
+    status: "online"
+    // Değerler:
+    // online: Çevrimiçi
+    // dnd: Rahatsız Etmeyin
+    // idle: Boşta
+  });
+});
 
-client.on('ready', () => {
-    client.user.setPresence({
-        game: {
-            name: `j!botekle`,
-            type: 'WATCHING'
-            // Değerler:
-            // PLAYING: Oynuyor
-            // WATCHING: İzliyor
-            // LISTENING: Dinliyor
-        },
-        status: 'online'
-        // Değerler:
-        // online: Çevrimiçi
-        // dnd: Rahatsız Etmeyin
-        // idle: Boşta
-    })
-})
-
-
-client.on('guildMemberAdd', (member) => {
-var tag = "✫"//Tagınız
-member.setNickname(`${tag} | ${member.user.username}`)
+client.on("guildMemberAdd", member => {
+  var tag = "✫"; //Tagınız
+  member.setNickname(`${tag} | ${member.user.username}`);
 }); //Maze yazdı çalma, sağlığın açısından iyi olur.
 
+client.on("message", message => {
+  if (message.channel.id == "758379292009955389") {
+    if (message.author.id == message.client.user.id) return;
 
+    message.delete(1 * 500);
+  }
+});
 
-client.on('message', (message) => {
-  if(message.channel.id == "758400812992561232") {
- if(message.author.id == message.client.user.id) return;
+client.on("message", (message, member) => {
+  if (message.channel.id == "764077145344442389") {
+    if (message.author.id == message.client.user.id) return;
 
- message.delete(10 * 3000)
-}
-
-})
-
-client.on('message', (message, member) => {
-  if(message.channel.id == "758400812992561232") {
- if(message.author.id == message.client.user.id) return;
-
- message.delete(10 * 3000)
-}
-
-})
+    message.delete(1 * 500);
+  }
+});
