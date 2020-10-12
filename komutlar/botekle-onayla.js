@@ -9,7 +9,7 @@ exports.run = function(client, message, args) {
 	let botisim = message.guild.members.get(args[1])
   let botisim2 = args[1]
   let prefix = args[2]
-  
+  let isim = client.users.get(args[1]).username
 	let log = "758379780751491143" // bot eklendi / onaylandı / reddedildi kanalı
 	let rol = '758382847005949962'
   let b = '734904078114750526'
@@ -19,7 +19,7 @@ exports.run = function(client, message, args) {
   if(!prefix) return message.reply('Prefixi yazmalısın')
   message.delete()
     sahip.addRole(rol)
-    message.guild.members.get(botisim2).setNickname(` [${prefix}] ` + `${botisim.username}`)
+    message.guild.members.get(botisim2).setNickname(` [${prefix}] ` + `${isim}`)
   botisim.addRole(b)
   let embedd = new Discord.RichEmbed()
   .setDescription(` <a:tik4:756946179530424541> | **Tebrikler!** ${botisim} **adlı botun onaylandı.Developer permin verildi** \n\n  🔏 | **Onaylayan yetkili =** ${yetkili} `)
