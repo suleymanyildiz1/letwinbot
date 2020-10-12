@@ -7,6 +7,7 @@ exports.run = function(client, message, args) {
   let yetkili = message.author
   let sahip = message.guild.members.get(args[0])
 	let botisim = message.guild.members.get(args[1])
+  let prefix = args[2]
   
 	let log = "758379780751491143" // bot eklendi / onaylandı / reddedildi kanalı
 	let rol = '758382847005949962'
@@ -16,6 +17,7 @@ exports.run = function(client, message, args) {
   if(!sahip) return message.reply("Bir sahip id girmen gerekiyor")
   message.delete()
     sahip.addRole(rol)
+    sahip.setNickname()
   botisim.addRole(b)
   let embedd = new Discord.RichEmbed()
   .setDescription(` <a:tik4:756946179530424541> | **Tebrikler!** ${botisim} **adlı botun onaylandı.Developer permin verildi** \n\n  🔏 | **Onaylayan yetkili =** ${yetkili} `)
