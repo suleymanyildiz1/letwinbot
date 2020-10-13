@@ -1,9 +1,9 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const ayarlar = require("./ayarlar.json");
+const kanal = (ayarlar.kanal)
 const fs = require("fs");
 require("./util/eventLoader")(client);
-
 const express = require("express");
 const app = express();
 const http = require("http");
@@ -97,32 +97,19 @@ client.elevation = message => {
 };
 
 client.login(ayarlar.token);
+console.log('Ready')
 
-client.on("ready", () => {
-  client.user.setPresence({
-    game: {
-      name: `j!botekle`,
-      type: "WATCHING"
-      // Değerler:
-      // PLAYING: Oynuyor
-      // WATCHING: İzliyor
-      // LISTENING: Dinliyor
-    },
-    status: "online"
-    // Değerler:
-    // online: Çevrimiçi
-    // dnd: Rahatsız Etmeyin
-    // idle: Boşta
-  });
-});
+//client.on("ready", () => {
+  //client.user.setPresence({game: {name: `j!botekle`,type: "WATCHING"},status: "online"})});
 
 client.on("guildMemberAdd", member => {
-  var tag = "✫"; //Tagınız
+  let tag = "✫"; 
   member.setNickname(`${tag} | ${member.user.username}`);
-}); //Maze yazdı çalma, sağlığın açısından iyi olur.
+}); 
 
 client.on("message", message => {
-  if (message.channel.id == "758379292009955389") {
+  let kanal2 = (ayarlar.kanalengel2)
+  if (message.channel.id == kanal2) {
     if (message.author.id == message.client.user.id) return;
 
     message.delete(1 * 500);
@@ -130,7 +117,8 @@ client.on("message", message => {
 });
 
 client.on("message", (message, member) => {
-  if (message.channel.id == "764077145344442389") {
+  let kanal1 = (ayarlar.kanalengel)
+  if (message.channel.id == kanal1) {
     if (message.author.id == message.client.user.id) return;
 
     message.delete(1 * 500);
