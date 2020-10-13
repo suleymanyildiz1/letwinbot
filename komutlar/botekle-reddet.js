@@ -1,41 +1,51 @@
-const Discord = require('discord.js');
-const ayarlar = require("../ayarlar.json")
+const Discord = require("discord.js");
+const ayarlar = require("../ayarlar.json");
 
 exports.run = function(client, message, args) {
-    let yetkili = message.author
-let botisim = message.guild.members.get(args[1])
-  let sahip = message.guild.members.get(args[0])
-  let sebep = args[2]
-  let log = (ayarlar.log) 
-    
-    
-   let yetkiliROL = (ayarlar.yetkiliROL)
-  if(!message.member.roles.has(yetkiliROL)) return; 
+  let yetkili = message.author;
+  let botisim = message.guild.members.get(args[1]);
+  let sahip = message.guild.members.get(args[0]);
+  let sebep = args[2];
+  let log = ayarlar.log;
+
+  let yetkiliROL = ayarlar.yetkiliROL;
+  if (!message.member.roles.has(yetkiliROL)) return;
   let embed2 = new Discord.RichEmbed()
-  .setColor('#7f0000')
-   .setDescription(` <a:no1:740278046921195612> |**Maalesef!** ${botisim} **adlı botun reddedildi.** \n  📕 | **Sebep =** ${sebep} \n  🔏 | **Reddeden yetkili =** ${yetkili} `)
-		
+    .setColor("#7f0000")
+    .setDescription(
+      ` <a:no1:740278046921195612> |**Maalesef!** ${botisim} **adlı botun reddedildi.** \n  📕 | **Sebep =** ${sebep} \n  🔏 | **Reddeden yetkili =** ${yetkili} `
+    );
+
   let embed = new Discord.RichEmbed()
-  .setColor('#7f0000')
-   .setDescription(`  <a:no1:740278046921195612> | ${sahip} **adlı kişinin** ${botisim} **adlı botu reddedildi.** \n  📕 | **Sebep =** ${sebep} \n  🔏 | **Reddeden yetkili =** ${yetkili} `)
-		
-		if (!botisim) return message.channel.send(`Onaylanacak botun ID'sini belirtmelisin.`).then(msg => msg.delete(5000))
-  if (!sebep) return message.channel.send(`Botu neden reddettiğini belirtmelisin.`).then(msg => msg.delete(5000))
-  if(!sahip) return message.reply("Reddedilecek botun sahibinin ID'sini belirtmelisin.")
-  message.delete()
+    .setColor("#7f0000")
+    .setDescription(
+      `  <a:no1:740278046921195612> | ${sahip} **adlı kişinin** ${botisim} **adlı botu reddedildi.** \n  📕 | **Sebep =** ${sebep} \n  🔏 | **Reddeden yetkili =** ${yetkili} `
+    );
+
+  if (!botisim)
+    return message.channel
+      .send(`Onaylanacak botun ID'sini belirtmelisin.`)
+      .then(msg => msg.delete(5000));
+  if (!sebep)
+    return message.channel
+      .send(`Botu neden reddettiğini belirtmelisin.`)
+      .then(msg => msg.delete(5000));
+  if (!sahip)
+    return message.reply("Reddedilecek botun sahibinin ID'sini belirtmelisin.");
+  message.delete();
   client.channels.get(log).send(embed);
-    sahip.send(embed2)
+  sahip.send(embed2);
 };
 
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['bot-reddet', 'reddet'],
+  aliases: ["bot-reddet", "reddet"],
   permLevel: 0
 };
 
 exports.help = {
-  name: 'botreddet', 
+  name: "botreddet",
   description: "Sunucuya eklenen botu reddeder.",
-  usage: 'botreddet <bot ismi> - <sebep>'
+  usage: "botreddet <bot ismi> - <sebep>"
 };

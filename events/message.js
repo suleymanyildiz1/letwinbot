@@ -1,13 +1,12 @@
-const ayarlar = require('../ayarlar.json');
+const ayarlar = require("../ayarlar.json");
 
 module.exports = async message => {
-  
   let client = message.client;
-  let prefix = ayarlar.prefix
+  let prefix = ayarlar.prefix;
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
-  let command = message.content.split(' ')[0].slice(prefix.length);
-  let params = message.content.split(' ').slice(1);
+  let command = message.content.split(" ")[0].slice(prefix.length);
+  let params = message.content.split(" ").slice(1);
   let perms = client.elevation(message);
   let cmd;
   if (client.commands.has(command)) {

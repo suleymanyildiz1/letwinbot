@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const ayarlar = require("./ayarlar.json");
-const kanal = (ayarlar.kanal)
+const kanal = ayarlar.kanal;
 const fs = require("fs");
 require("./util/eventLoader")(client);
 const express = require("express");
@@ -16,7 +16,8 @@ setInterval(() => {
 }, 280000);
 
 const log = message => {
-  console.log(`BOT: ${message}`);
+  console.log(` => { ${message} } `);
+  
 };
 
 client.commands = new Discord.Collection();
@@ -26,7 +27,7 @@ fs.readdir("./komutlar/", (err, files) => {
   log(`${files.length} komut yüklenecek.`);
   files.forEach(f => {
     let props = require(`./komutlar/${f}`);
-    log(`Yüklenen komut: ${props.help.name}.`);
+    log(`AKTİF: ${props.help.name}.`);
     client.commands.set(props.help.name, props);
     props.conf.aliases.forEach(alias => {
       client.aliases.set(alias, props.help.name);
@@ -97,18 +98,22 @@ client.elevation = message => {
 };
 
 client.login(ayarlar.token);
-console.log('Ready')
+console.log("Ready");
 
 client.on("ready", () => {
-  client.user.setPresence({game: {name: `j!botekle`,type: "WATCHING"},status: "online"})});
+  client.user.setPresence({
+    game: { name: `j!botekle`, type: "WATCHING" },
+    status: "online"
+  });
+});
 
 client.on("guildMemberAdd", member => {
-  let tag = (ayarlar.tag)
+  let tag = ayarlar.tag;
   member.setNickname(`${tag} | ${member.user.username}`);
-}); 
+});
 
 client.on("message", message => {
-  let kanal2 = (ayarlar.kanalengel2)
+  let kanal2 = ayarlar.kanalengel2;
   if (message.channel.id == kanal2) {
     if (message.author.id == message.client.user.id) return;
 
@@ -117,7 +122,7 @@ client.on("message", message => {
 });
 
 client.on("message", (message, member) => {
-  let kanal1 = (ayarlar.kanalengel)
+  let kanal1 = ayarlar.kanalengel;
   if (message.channel.id == kanal1) {
     if (message.author.id == message.client.user.id) return;
 
