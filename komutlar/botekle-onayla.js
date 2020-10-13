@@ -2,21 +2,21 @@ const Discord = require('discord.js');
 const ayarlar = require("../ayarlar.json")
 
 exports.run = function(client, message, args) {
-  
-  if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`:no_entry: Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`); 
+  let yetkiliROL = (ayarlar.yetkiliROL)
+  if(!message.member.roles.has(yetkiliROL)) return; 
   let yetkili = message.author
   let sahip = message.guild.members.get(args[0])
 	let botisim = message.guild.members.get(args[1])
   let botisim2 = args[1]
   let prefix = args[2]
   let isim = client.users.get(args[1]).username
-	let log = "758379780751491143" // bot eklendi / onaylandı / reddedildi kanalı
+	let log = "758379780751491143" 
 	let rol = '758382847005949962'
   let b = '734904078114750526'
 
-	if (!botisim) return message.channel.send(`:no_entry: Botun idsini yazmalısın.`).then(msg => msg.delete(10000))
-  if(!sahip) return message.reply("Bir sahip id girmen gerekiyor")
-  if(!prefix) return message.reply('Prefixi yazmalısın')
+	if (!botisim) return message.channel.send(`Onaylanacak botun ID'sini girmen gerekiyor.`).then(msg => msg.delete(5000))
+  if(!sahip) return message.reply("Onaylanacak botun sahibinin ID'sini girmen gerekiyor.")
+  if(!prefix) return message.reply('Onaylanacak botun prefixini yazmalısın.')
   message.delete()
     sahip.addRole(rol)
     message.guild.members.get(botisim2).setNickname(` [${prefix}] ` + `${isim}`)
