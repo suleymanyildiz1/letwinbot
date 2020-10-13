@@ -1,12 +1,12 @@
 const Discord = require('discord.js');
-
+const ayarlar = require('')
 
 exports.run = function(client, message, args) {
     let yetkili = message.author
 let botisim = message.guild.members.get(args[1])
   let sahip = message.guild.members.get(args[0])
   let sebep = args[2]
-  	let log = "764077112700174366" // bot eklendi / onaylandı / reddedildi kanalı
+let log = (ayarlar.log) 
     
     
   if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`:no_entry: Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);

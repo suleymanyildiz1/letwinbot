@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-
+const ayarlar = require("../ayarlar.json")
 
 exports.run = function(client, message, args) {
   
@@ -8,17 +8,17 @@ exports.run = function(client, message, args) {
   let sahip = message.guild.members.get(args[0])
 	let botisim = message.guild.members.get(args[1])
   
-	let log = "764077112700174366" // bot eklendi / onaylandı / reddedildi kanalı
-	let rol = '734904076567052299'
-  let b = '764076182055550997'
+  let log = (ayarlar.log) 
+	let rol = (ayarlar.sertifikaDEV)
+  let b = (ayarlar.sertifikaBOT)
 
-	if (!botisim) return message.channel.send(`:no_entry: Botun idsini yazmalısın.`).then(msg => msg.delete(10000))
-  if(!sahip) return message.reply("Bir sahip id girmen gerekiyor")
+	if (!botisim) return message.channel.send(`Sertifika verilecek botun ID'sini belirtmelisin.`).then(msg => msg.delete(5000))
+  if(!sahip) return message.reply("Sertifika verilecek botun sahibinin ID'sini belirtmelisin.")
   message.delete()
     sahip.addRole(rol)
   botisim.addRole(b)
   let embedd = new Discord.RichEmbed()
-  .setDescription(` <a:tik4:756946179530424541> | **Tebrikler!** ${botisim} **adlı botun sertifika aldı.Sertifika rolleri verildi** \n\n  🔏 | **Onaylayan yetkili =** ${yetkili} `)
+  .setDescription(` <a:tik4:756946179530424541> | **Tebrikler!** ${botisim} **adlı botun sertifika aldı. Sertifika rolleri verildi** \n\n  🔏 | **Onaylayan yetkili =** ${yetkili} `)
   sahip.send(embedd)
    let embed2 = new Discord.RichEmbed()
    .setColor('#5fbf00')

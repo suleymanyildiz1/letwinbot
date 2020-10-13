@@ -99,11 +99,11 @@ client.elevation = message => {
 client.login(ayarlar.token);
 console.log('Ready')
 
-//client.on("ready", () => {
-  //client.user.setPresence({game: {name: `j!botekle`,type: "WATCHING"},status: "online"})});
+client.on("ready", () => {
+  client.user.setPresence({game: {name: `j!botekle`,type: "WATCHING"},status: "online"})});
 
 client.on("guildMemberAdd", member => {
-  let tag = "✫"; 
+  let tag = (ayarlar.tag)
   member.setNickname(`${tag} | ${member.user.username}`);
 }); 
 

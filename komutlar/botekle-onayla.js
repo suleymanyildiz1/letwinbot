@@ -10,9 +10,9 @@ exports.run = function(client, message, args) {
   let botisim2 = args[1]
   let prefix = args[2]
   let isim = client.users.get(args[1]).username
-	let log = "758379780751491143" 
-	let rol = '758382847005949962'
-  let b = '734904078114750526'
+	let log = (ayarlar.log) 
+	let rol = (ayarlar.developerROL)
+  let b = (ayarlar.botROL)
 
 	if (!botisim) return message.channel.send(`Onaylanacak botun ID'sini girmen gerekiyor.`).then(msg => msg.delete(5000))
   if(!sahip) return message.reply("Onaylanacak botun sahibinin ID'sini girmen gerekiyor.")
@@ -45,4 +45,4 @@ exports.help = {
   name: 'botonayla', 
   description: "Sunucuya eklenen botu onaylar.",
   usage: 'botonayla <bot ismi>'
-};6
+};

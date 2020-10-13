@@ -1,15 +1,16 @@
 const Discord = require('discord.js');
-
+const ayarlar = require("../ayarlar.json")
 
 exports.run = function(client, message, args) {
     let yetkili = message.author
 let botisim = message.guild.members.get(args[1])
   let sahip = message.guild.members.get(args[0])
   let sebep = args[2]
-  	let log = "758379780751491143" // bot eklendi / onaylandı / reddedildi kanalı
+  let log = (ayarlar.log) 
     
     
-  if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`:no_entry: Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
+   let yetkiliROL = (ayarlar.yetkiliROL)
+  if(!message.member.roles.has(yetkiliROL)) return; 
   let embed2 = new Discord.RichEmbed()
   .setColor('#7f0000')
    .setDescription(` <a:no1:740278046921195612> |**Maalesef!** ${botisim} **adlı botun reddedildi.** \n  📕 | **Sebep =** ${sebep} \n  🔏 | **Reddeden yetkili =** ${yetkili} `)
@@ -18,9 +19,9 @@ let botisim = message.guild.members.get(args[1])
   .setColor('#7f0000')
    .setDescription(`  <a:no1:740278046921195612> | ${sahip} **adlı kişinin** ${botisim} **adlı botu reddedildi.** \n  📕 | **Sebep =** ${sebep} \n  🔏 | **Reddeden yetkili =** ${yetkili} `)
 		
-	if (!botisim) return message.channel.send(`:no_entry: Botun idsini yazmalısın.`).then(msg => msg.delete(10000))
-  if (!sebep) return message.channel.send(`:no_entry: Botu neden onaylamadığını yazmalısın.`).then(msg => msg.delete(10000))
-    if (!sahip) return message.channel.send(`:no_entry: Bot Sahibi id yazman lazım.`).then(msg => msg.delete(10000))
+		if (!botisim) return message.channel.send(`Onaylanacak botun ID'sini belirtmelisin.`).then(msg => msg.delete(5000))
+  if (!sebep) return message.channel.send(`Botu neden reddettiğini belirtmelisin.`).then(msg => msg.delete(5000))
+  if(!sahip) return message.reply("Reddedilecek botun sahibinin ID'sini belirtmelisin.")
   message.delete()
   client.channels.get(log).send(embed);
     sahip.send(embed2)
