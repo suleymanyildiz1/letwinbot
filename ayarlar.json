@@ -1,21 +1,22 @@
 {
-  "prefix": "j!",
-  "token": "NzE0MTQxODI4MzQwNzc3MDQz.XsqWZw.Z3rPXPzkTJ4QO42DcXrobarHk3A",
-  "sahip": "478466612803141645",
+  "prefix": "!",    
+  "token": "NjQwNTc4OTM3MjM1MTc3NDc1.Xb73oA.xl_Ec9eBGl5wSt3uQ05Xg4FWzC0",
 
-  "kanalengel": "758379292009955389",
-  "kanalengel2": "764077145344442389",
-  "tag": "✫",
+  "kanalengel": "765589868494454841",
+  "kanalengel2": "765589896705736714",
+  "tag": "✫ | ",
 
-  "log": "758379780751491143",
-  "basvurulog": "758383918570274849",
-  "eklekanal": "758379292009955389",
-  "sertifikaLOG": "764077112700174366",
-  "sertifikaKANAL": "764077112700174366",
+  "log": "765590029916700682",
+  "basvurulog": "765590052591763506",
+  "eklekanal": "765589868494454841",
+  "sertifikaLOG": "765589913944064011",
+  "sertifikaKANAL": "",
 
-  "yetkiliROL": "734904073962258512",
-  "developerROL": "758382847005949962",
-  "sertifikaDEV": "734904076567052299",
-  "sertifikaBOT": "764076182055550997",
-  "botROL": "734904078114750526"
+  "yetkiliROL": "",
+  "developerROL": "",
+  "sertifikaDEV": "",
+  "sertifikaBOT": "",
+  "botROL": ""
 }
+
+
