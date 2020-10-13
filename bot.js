@@ -98,7 +98,7 @@ client.elevation = message => {
 };
 
 client.login(ayarlar.token);
-console.log("Ready");
+
 
 client.on("ready", () => {
   client.user.setPresence({
