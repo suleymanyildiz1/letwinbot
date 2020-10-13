@@ -5,7 +5,7 @@ exports.run = function(client, message, args) {
   let yetkili = message.author;
   let botisim = message.guild.members.get(args[1]);
   let sahip = message.guild.members.get(args[0]);
-  let sebep = args[2];
+  let sebep = args.slice(2).join(" ")
   let log = ayarlar.log;
 
   let yetkiliROL = ayarlar.yetkiliROL;
