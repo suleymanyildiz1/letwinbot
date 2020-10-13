@@ -28,7 +28,7 @@ exports.run = function(client, message, args) {
 
     message.channel
       .send(
-        `<a:tik4:756946179530424541>__41>__**Sertifika isteğiniz alındı.**__`
+        `<a:tik4:756946179530424541>__**Sertifika isteğiniz alındı.**__`
       )
       .then(msg => msg.delete(3000));
   }
