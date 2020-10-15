@@ -21,7 +21,7 @@ exports.run = function(client, message, args) {
   let embed = new Discord.RichEmbed()
     .setColor("#7f0000")
     .setDescription(
-      `  <a:no1:740278046921195612> | ${sahip} **adlı kişinin** ${botisim} **adlı botunun sertifika başvurusu reddedildi.** \n  📕 | **Sebep =** ${sebep} \n  🔏 | **Reddeden yetkili =** ${yetkili} `
+      `  <a:no1:740278046921195612> | ${sahip} **adlı kişinin** ${botisim} **adlı botunun sertifikası reddedildi.** \n  📕 | **Sebep =** ${sebep} \n  🔏 | **Reddeden yetkili =** ${yetkili} `
     );
 
   if (!botisim)
