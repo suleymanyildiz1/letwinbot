@@ -24,7 +24,7 @@ exports.run = function(client, message, args) {
 
   if (!botisim)
     return message.channel
-      .send(`Onaylanacak botun ID'sini belirtmelisin.`)
+      .send(`Reddedilecek botun ID'sini belirtmelisin.`)
       .then(msg => msg.delete(5000));
   if (!sebep)
     return message.channel
