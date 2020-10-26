@@ -40,7 +40,7 @@ exports.run = function(client, message, args) {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["bot-onayla", "onayla"],
+  aliases: ["sertifika-onay"],
   permLevel: 0
 };
 
