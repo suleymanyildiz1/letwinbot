@@ -3,8 +3,8 @@ const ayarlar = require("../ayarlar.json");
 
 exports.run = function(client, message, args) {
   let yetkili = message.author;
-  let botisim = message.guild.members.get(args[1]);
-  let sahip = message.guild.members.get(args[0]);
+  let botisim = args[1]
+  let sahip = args[0]
   let sebep = args.slice(2).join(" ")
   let log = ayarlar.log;
 
