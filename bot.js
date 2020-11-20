@@ -102,7 +102,7 @@ client.login(ayarlar.token);
 
 client.on("ready", () => {
   client.user.setPresence({
-    game: { name: `SPLASHEN BOT LİST `, type: "WATCHING" },
+    game: { name: `AnthraX Botlist `, type: "WATCHING" },
     status: "online"
   });
 });

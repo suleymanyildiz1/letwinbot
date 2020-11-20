@@ -26,16 +26,16 @@ exports.run = function(client, message, args) {
       .setColor("PURPLE")
       .setDescription(
         `[0 Perm Ekle](https://discordapp.com/oauth2/authorize?client_id=${botID}&scope=bot&permissions=0) | ` + ` | [8 Perm Ekle](https://discordapp.com/oauth2/authorize?client_id=${botID}&scope=bot&permissions=8)`,true)
-      .setTitle("<a:jke:754772326704218112> Bot Başvurusu ")
+      .setTitle("Bot Başvurusu ")
       .addField(
-        "<a:jke:754772326704218112> Bot Sahibi",`<@${message.author.id}>`)
-      .addField("<a:jke:754772326704218112> Bot ID", botID)
-      .addField("<a:jke:754772326704218112> Bot Prefix", prefix);
+        "Bot Sahibi",`<@${message.author.id}>`)
+      .addField("Bot ID", botID)
+      .addField("Bot Prefix", prefix);
     client.channels.get(basvuru).send(embed);
     let embed2 = new Discord.RichEmbed().setDescription(`>  <a:load:758389302861889566>` + `<@${message.author.id}> adlı kullanıcı <@${botID}> adlı botu sıraya ekledi.En yakın zamanda test edilecektir. \n\n > 🔖 | **Prefix =** {  ${prefix}  }`);
     client.channels.get(log).send(embed2);
 
-    message.channel.send(`<a:tik4:756946179530424541>__**Bot ekleme isteğiniz alındı.**__`).then(msg => msg.delete(3000));
+    message.channel.send(`__**Bot ekleme isteğiniz alındı.**__`).then(msg => msg.delete(3000));
 }
 };
 
