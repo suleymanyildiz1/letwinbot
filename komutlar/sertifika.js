@@ -21,7 +21,7 @@ exports.run = function(client, message, args) {
       .setColor("#ffff00")
 
       .setDescription(
-        `>  <a:load:758389302861889566>` +
+        `>  ` +
           `<@${message.author.id}> adlı kullanıcı <@${botisim}> adlı bota sertifika başvurusu yaptı.`
       );
     client.channels.get(log).send(embed2);
