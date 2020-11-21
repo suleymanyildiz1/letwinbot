@@ -1,25 +1,18 @@
 {
   "prefix": "+",    
-  "token": "Nzc4OTU1NDU0MDEyMTk0ODQ2.X7ZgzA.s-iaqLYJi-MGp3UK8bxIkCjRf4k",
+  "token": "Nzc4OTU1NDU0MDEyMTk0ODQ2.X7ZgzA.N0rVX8gio7ihe2Q1J5DRVf5tz10",
 
+  "log": "",
+  "basvurulog": "",
+  "eklekanal": "",
+  "sertifikaLOG": "",
+  "sertifikaKANAL": "",
 
-
-  "log": "779643106114273290",
-  "basvurulog": "779401722568638525",
-  "eklekanal": "779393972266336257",
-  "sertifikaLOG": "779643106114273290",
-  "sertifikaKANAL": "779400790078390282",
-  
-  
-  
-  
-  "yetkiliROL": "779654237872586803",
-  "developerROL": "779421817659457567",
-  "sertifikaDEV": "779421816887181352",
-  "sertifikaBOT": "779647227643035668",
-  "botROL": "779646621083631627"
-
-  
+  "yetkiliROL": "",
+  "developerROL": "",
+  "sertifikaDEV": "",
+  "sertifikaBOT": "",
+  "botROL": ""
 }
 
 
