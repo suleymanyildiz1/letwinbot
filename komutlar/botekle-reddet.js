@@ -13,13 +13,13 @@ exports.run = function(client, message, args) {
   let embed2 = new Discord.RichEmbed()
     .setColor("#7f0000")
     .setDescription(
-      ` <a:no1:740278046921195612> |**Maalesef!** ${botisim} **adlı botun reddedildi.** \n  📕 | **Sebep =** ${sebep} \n  🔏 | **Reddeden yetkili =** ${yetkili} `
+      ` |**Maalesef!** ${botisim} **adlı botun reddedildi.** \n  📕 | **Sebep =** ${sebep} \n  🔏 | **Reddeden yetkili =** ${yetkili} `
     );
 
   let embed = new Discord.RichEmbed()
     .setColor("#7f0000")
     .setDescription(
-      `  <a:no1:740278046921195612> | ${sahip} **adlı kişinin** ${botisim} **adlı botu reddedildi.** \n  📕 | **Sebep =** ${sebep} \n  🔏 | **Reddeden yetkili =** ${yetkili} `
+      `  | ${sahip} **adlı kişinin** ${botisim} **adlı botu reddedildi.** \n  📕 | **Sebep =** ${sebep} \n  🔏 | **Reddeden yetkili =** ${yetkili} `
     );
 
   if (!botisim)

@@ -28,13 +28,13 @@ exports.run = function(client, message, args) {
   message.guild.members.get(botisim2).setNickname(` [${prefix}] ` + `${isim}`);
   botisim.addRole(b);
   let embedd = new Discord.RichEmbed().setDescription(
-    ` <a:tik4:756946179530424541> | **Tebrikler!** ${botisim} **adlı botun onaylandı.Developer permin verildi** \n\n  🔏 | **Onaylayan yetkili =** ${yetkili} `
+    `| **Tebrikler!** ${botisim} **adlı botun onaylandı.Developer permin verildi** \n\n  🔏 | **Onaylayan yetkili =** ${yetkili} `
   );
   sahip.send(embedd);
   let embed2 = new Discord.RichEmbed()
     .setColor("#5fbf00")
     .setDescription(
-      ` <a:tik4:756946179530424541> | ${sahip} **adlı kişinin** ${botisim} **adlı botu onaylandı.** \n\n  🔏 | **Onaylayan yetkili =** ${yetkili} `
+      ` | ${sahip} **adlı kişinin** ${botisim} **adlı botu onaylandı.** \n\n  🔏 | **Onaylayan yetkili =** ${yetkili} `
     );
   client.channels.get(log).send(embed2);
 };
