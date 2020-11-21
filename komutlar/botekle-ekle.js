@@ -32,7 +32,7 @@ exports.run = function(client, message, args) {
       .addField("Bot ID", botID)
       .addField("Bot Prefix", prefix);
     client.channels.get(basvuru).send(embed);
-    let embed2 = new Discord.RichEmbed().setDescription(`>  <a:load:758389302861889566>` + `<@${message.author.id}> adlı kullanıcı <@${botID}> adlı botu sıraya ekledi.En yakın zamanda test edilecektir. \n\n > 🔖 | **Prefix =** {  ${prefix}  }`);
+    let embed2 = new Discord.RichEmbed().setDescription(`>  ` + `<@${message.author.id}> adlı kullanıcı <@${botID}> adlı botu sıraya ekledi.En yakın zamanda test edilecektir.`);
     client.channels.get(log).send(embed2);
 
     message.channel.send(`__**Bot ekleme isteğiniz alındı.**__`).then(msg => msg.delete(3000));
