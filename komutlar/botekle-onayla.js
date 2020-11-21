@@ -9,7 +9,7 @@ exports.run = function(client, message, args) {
   let botisim = message.guild.members.get(args[1]);
   let botisim2 = args[1];
   let prefix = args[2];
-  let isim = client.users.get(args[1]).username;
+  let isim = client.users.get(args[1]).username
   let log = ayarlar.log;
   let rol = ayarlar.developerROL;
   let b = ayarlar.botROL;
@@ -42,7 +42,7 @@ exports.run = function(client, message, args) {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["botonayla"],
+  aliases: [],
   permLevel: 0
 };
 

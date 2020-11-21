@@ -13,13 +13,13 @@ exports.run = function(client, message, args) {
   let embed2 = new Discord.RichEmbed()
     .setColor("#7f0000")
     .setDescription(
-      ` |**Maalesef!** ${botisim} **adlı botun reddedildi.** \n  📕 | **Sebep =** ${sebep} \n  🔏 | **Reddeden yetkili =** ${yetkili} `
+      ` |**Maalesef!** <@!${botisim}> **adlı botun reddedildi.** \n  📕 | **Sebep =** ${sebep} \n  🔏 | **Reddeden yetkili =** ${yetkili} `
     );
 
   let embed = new Discord.RichEmbed()
     .setColor("#7f0000")
     .setDescription(
-      `  | ${sahip} **adlı kişinin** ${botisim} **adlı botu reddedildi.** \n  📕 | **Sebep =** ${sebep} \n  🔏 | **Reddeden yetkili =** ${yetkili} `
+      `  | <@${sahip}> **adlı kişinin** <@!${botisim}> **adlı botu reddedildi.** \n  📕 | **Sebep =** ${sebep} \n  🔏 | **Reddeden yetkili =** ${yetkili} `
     );
 
   if (!botisim)
@@ -34,7 +34,7 @@ exports.run = function(client, message, args) {
     return message.reply("Reddedilecek botun sahibinin ID'sini belirtmelisin.");
   message.delete();
   client.channels.get(log).send(embed);
-  sahip.send(embed2);
+  client.users.get(sahip).send(embed2);
 };
 
 exports.conf = {
