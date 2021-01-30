@@ -95,7 +95,7 @@ client.elevation = message => {
   return permlvl;
 };
 
-client.login(process.env.token);
+client.login(ayarlar.token);
 
 
 client.on('ready', () => {
