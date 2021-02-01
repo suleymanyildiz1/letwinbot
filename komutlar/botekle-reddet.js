@@ -16,7 +16,7 @@ exports.run = function(client, message, args) {
   let sebep7 = args[9]
   let sebep8 = args[10]
   let sebep9 = args[11]
-	let log = "787635549305044992" // bot eklendi / onaylandı / reddedildi kanalı
+	let log = "805649087009390642" // bot eklendi / onaylandı / reddedildi kanalı
   
 	  client.users.cache.get(sahip).send(`<@${lrowsisim}> Adlı Botun ${message.author} Tarafından Reddedildi `)
 	if (!lrowsisim) return message.channel.send(`Botun idsini yazmalısın.`).then(msg => msg.delete(10000))

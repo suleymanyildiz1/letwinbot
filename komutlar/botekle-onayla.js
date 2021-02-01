@@ -7,7 +7,7 @@ exports.run = async function(client, message, args) {
 	let lrowsisim = args[0]
   let sahip = args[1]
   if (!sahip) return message.channel.send('sahip id yazman gerek')
-	let log = "787635549305044992" // bot eklendi / onaylandı / reddedildi kanalı
+	let log = "805649087009390642" // bot eklendi / onaylandı / reddedildi kanalı
 	
 	if (!lrowsisim) return message.channel.send(` Botun idsini yazmalısın.`).then(msg => msg.delete(10000))
   message.delete()
