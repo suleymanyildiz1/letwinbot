@@ -18,7 +18,6 @@ exports.run = function(client, message, args) {
   let sebep9 = args[11]
 	let log = "805649087009390642" // bot eklendi / onaylandı / reddedildi kanalı
   
-	  client.users.cache.get(sahip).send(`<@${lrowsisim}> Adlı Botun ${message.author} Tarafından Reddedildi `)
 	if (!lrowsisim) return message.channel.send(`Botun idsini yazmalısın.`).then(msg => msg.delete(10000))
   if (!sebep) return message.channel.send(` Botu neden onaylamadığını yazmalısın.`).then(message => message.delete({timeout: 10000, reason:''}))
     if (!sahip) return message.channel.send(` Bot Sahibi id yazman lazım.`).then(msg => msg.delete(10000))

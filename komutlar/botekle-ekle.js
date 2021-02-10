@@ -36,7 +36,6 @@ Emojiler.delete()
 })
 })
   client.channels.cache.get(log).send(` ${message.author} **adlı kullanıcının** <@${lrowsid}> **adlı botu sıraya ekledi. Botu onaylanmayı bekliyor.** <@&787631343571042305> `)
-  message.author.send(`<@${lrowsid}> Adlı botun sıraya alındı!`)
   db.set(`botsahipid.${message.author.id}`, message.author.id)
   db.set(`botekle.${message.author.id}`, lrowsid)
   }
