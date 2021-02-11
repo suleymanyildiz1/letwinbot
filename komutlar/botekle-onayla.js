@@ -13,7 +13,6 @@ exports.run = async function(client, message, args) {
   message.delete()
 		client.channels.cache.get(log).send(` <@${sahip}> adlı kişinin Sunucuya Eklenen <@${lrowsisim}> adlı botu onaylandı.`);
 		message.channel.send(`Botu onayladınız.`)
-  client.users.cache.get(sahip).send(`<@${lrowsisim}> adlı botun ${message.author} tarafından kabul edildi`)
   const d = await db.fetch(`bmesaj_${lrowsisim}`)
 };
 
