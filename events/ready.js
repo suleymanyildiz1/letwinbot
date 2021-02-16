@@ -1,13 +1,17 @@
-const Moment = require("moment");
-const Discord = require("discord.js");
-let prefix = "";
+const chalk = require('chalk');
+const moment = require('moment');
+const Discord = require('discord.js');
+const ayarlar = require('../ayarlar.json');
+var prefix = ayarlar.prefix;
+
 module.exports = client => {
-  const aktiviteListesi = [
-    "+ekle",
-  ];
+  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] BOT: Aktif, Komutlar yüklendi!`);
+  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] BOT: ${client.user.username} İsmi İle Giriş Yapıldı!`);
   client.user.setStatus("online");
-  setInterval(() => {
-    const Aktivite = Math.floor(Math.random() * (aktiviteListesi.length - 1));
-    client.user.setActivity(aktiviteListesi[Aktivite]);
-  }, 7000);
+  client.user.setActivity(`${prefix}yardım`);
+  client.user.setActivity(`Bütün Kodlarımız Yenilendi!`);
+  client.uset.setActivity(`DarkCode Linki https://discord.gg/f2VrDkR!`);
+  
+  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] BOT: Oyun ismi ayarlandı!`);
+  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] BOT: Şu an ` + client.channels.size + ` adet kanala, ` + client.guilds.size + ` adet sunucuya ve ` + client.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString() + ` kullanıcıya hizmet veriliyor!`);
 };
